@@ -460,7 +460,18 @@ pub type __u32 = ::std::os::raw::c_uint;
 pub type __s64 = ::std::os::raw::c_longlong;
 pub type __u64 = ::std::os::raw::c_ulonglong;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct __kernel_fd_set {
     pub fds_bits: [::std::os::raw::c_ulong; 16usize],
 }
@@ -512,7 +523,18 @@ pub type __kernel_size_t = __kernel_ulong_t;
 pub type __kernel_ssize_t = __kernel_long_t;
 pub type __kernel_ptrdiff_t = __kernel_long_t;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct __kernel_fsid_t {
     pub val: [::std::os::raw::c_int; 2usize],
 }
@@ -563,7 +585,18 @@ pub type __wsum = __u32;
 pub type __poll_t = ::std::os::raw::c_uint;
 pub type hv_nano100_time_t = __u64;
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_u128 {
     pub low_part: __u64,
     pub high_part: __u64,
@@ -630,13 +663,24 @@ pub const hv_status_HV_STATUS_OPERATION_FAILED: hv_status = 113;
 pub const hv_status_HV_STATUS_CALL_PENDING: hv_status = 121;
 pub type hv_status = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_hypervisor_version_info {
     pub __bindgen_anon_1: hv_hypervisor_version_info__bindgen_ty_1,
     pub __bindgen_anon_2: hv_hypervisor_version_info__bindgen_ty_2,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_hypervisor_version_info__bindgen_ty_1 {
     pub build_number: __u32,
     pub _bitfield_align_1: [u16; 0],
@@ -766,7 +810,18 @@ impl hv_hypervisor_version_info__bindgen_ty_1 {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_hypervisor_version_info__bindgen_ty_2 {
     pub eax: __u32,
     pub ebx: __u32,
@@ -870,13 +925,24 @@ pub const hv_interrupt_type_HV_X64_INTERRUPT_TYPE_LOCALINT1: hv_interrupt_type =
 pub const hv_interrupt_type_HV_X64_INTERRUPT_TYPE_MAXIMUM: hv_interrupt_type = 10;
 pub type hv_interrupt_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_sint {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_synic_sint__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synic_sint__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -1065,14 +1131,25 @@ impl Default for hv_synic_sint {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_xsave_xfem_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_xsave_xfem_register__bindgen_ty_1,
     pub __bindgen_anon_2: hv_x64_xsave_xfem_register__bindgen_ty_2,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_xsave_xfem_register__bindgen_ty_1 {
     pub low_uint32: __u32,
     pub high_uint32: __u32,
@@ -1120,7 +1197,18 @@ fn bindgen_test_layout_hv_x64_xsave_xfem_register__bindgen_ty_1() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_xsave_xfem_register__bindgen_ty_2 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -1444,13 +1532,24 @@ impl Default for hv_x64_xsave_xfem_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_port_id {
     pub asu32: __u32,
     pub u: hv_port_id__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_port_id__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -1580,13 +1679,24 @@ pub const hv_message_type_HVMSG_X64_SIPI_INTERCEPT: hv_message_type = 2147549193
 pub const hv_message_type_HVMSG_X64_SEV_VMGEXIT_INTERCEPT: hv_message_type = 2147549203;
 pub type hv_message_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_simp {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_synic_simp__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synic_simp__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -1695,13 +1805,24 @@ impl Default for hv_synic_simp {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_message_flags {
     pub asu8: __u8,
     pub __bindgen_anon_1: hv_message_flags__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_message_flags__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -1794,7 +1915,7 @@ impl Default for hv_message_flags {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_message_header {
     pub message_type: __u32,
     pub payload_size: __u8,
@@ -1803,7 +1924,7 @@ pub struct hv_message_header {
     pub __bindgen_anon_1: hv_message_header__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_message_header__bindgen_ty_1 {
     pub sender: __u64,
     pub port: hv_port_id,
@@ -1918,7 +2039,18 @@ impl Default for hv_message_header {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_notification_message_payload {
     pub sint_index: __u32,
 }
@@ -1949,13 +2081,13 @@ fn bindgen_test_layout_hv_notification_message_payload() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_message {
     pub header: hv_message_header,
     pub u: hv_message__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_message__bindgen_ty_1 {
     pub payload: [__u64; 30usize],
 }
@@ -2039,7 +2171,7 @@ impl Default for hv_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_message_page {
     pub sint_message: [hv_message; 16usize],
 }
@@ -2078,7 +2210,7 @@ impl Default for hv_message_page {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_segment_register {
     pub base: __u64,
     pub limit: __u32,
@@ -2086,13 +2218,24 @@ pub struct hv_x64_segment_register {
     pub __bindgen_anon_1: hv_x64_segment_register__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_segment_register__bindgen_ty_1 {
     pub __bindgen_anon_1: hv_x64_segment_register__bindgen_ty_1__bindgen_ty_1,
     pub attributes: __u16,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_segment_register__bindgen_ty_1__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
@@ -2366,7 +2509,18 @@ impl Default for hv_x64_segment_register {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_table_register {
     pub pad: [__u16; 3usize],
     pub limit: __u16,
@@ -2419,13 +2573,13 @@ fn bindgen_test_layout_hv_x64_table_register() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_fp_control_status_register {
     pub as_uint128: hv_u128,
     pub __bindgen_anon_1: hv_x64_fp_control_status_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_fp_control_status_register__bindgen_ty_1 {
     pub fp_control: __u16,
     pub fp_status: __u16,
@@ -2435,14 +2589,25 @@ pub struct hv_x64_fp_control_status_register__bindgen_ty_1 {
     pub __bindgen_anon_1: hv_x64_fp_control_status_register__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_fp_control_status_register__bindgen_ty_1__bindgen_ty_1 {
     pub last_fp_rip: __u64,
     pub __bindgen_anon_1:
         hv_x64_fp_control_status_register__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_fp_control_status_register__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1 {
     pub last_fp_eip: __u32,
     pub last_fp_cs: __u16,
@@ -2668,27 +2833,38 @@ impl Default for hv_x64_fp_control_status_register {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_xmm_control_status_register {
     pub as_uint128: hv_u128,
     pub __bindgen_anon_1: hv_x64_xmm_control_status_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_xmm_control_status_register__bindgen_ty_1 {
     pub __bindgen_anon_1: hv_x64_xmm_control_status_register__bindgen_ty_1__bindgen_ty_1,
     pub xmm_status_control: __u32,
     pub xmm_status_control_mask: __u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_xmm_control_status_register__bindgen_ty_1__bindgen_ty_1 {
     pub last_fp_rdp: __u64,
     pub __bindgen_anon_1:
         hv_x64_xmm_control_status_register__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_xmm_control_status_register__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1 {
     pub last_fp_dp: __u32,
     pub last_fp_ds: __u16,
@@ -2894,13 +3070,24 @@ impl Default for hv_x64_xmm_control_status_register {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_fp_register {
     pub as_uint128: hv_u128,
     pub __bindgen_anon_1: hv_x64_fp_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_fp_register__bindgen_ty_1 {
     pub mantissa: __u64,
     pub _bitfield_align_1: [u8; 0],
@@ -3026,13 +3213,24 @@ impl Default for hv_x64_fp_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_msr_npiep_config_contents {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_msr_npiep_config_contents__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_msr_npiep_config_contents__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -3183,13 +3381,24 @@ impl Default for hv_x64_msr_npiep_config_contents {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_vtl {
     pub as_uint8: __u8,
     pub __bindgen_anon_1: hv_input_vtl__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_vtl__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -3298,14 +3507,25 @@ impl Default for hv_input_vtl {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_register_vsm_partition_config {
     pub as_u64: __u64,
     pub __bindgen_anon_1: hv_register_vsm_partition_config__bindgen_ty_1,
 }
 #[repr(C)]
 #[repr(align(8))]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_register_vsm_partition_config__bindgen_ty_1 {
     pub _bitfield_align_1: [u64; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -3592,13 +3812,35 @@ impl Default for hv_register_vsm_partition_config {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_nested_enlightenments_control {
     pub features: hv_nested_enlightenments_control__bindgen_ty_1,
     pub hypercall_controls: hv_nested_enlightenments_control__bindgen_ty_2,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_nested_enlightenments_control__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -3663,7 +3905,18 @@ impl hv_nested_enlightenments_control__bindgen_ty_1 {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_nested_enlightenments_control__bindgen_ty_2 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -3767,7 +4020,9 @@ fn bindgen_test_layout_hv_nested_enlightenments_control() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_vp_assist_page {
     pub apic_assist: __u32,
     pub reserved1: __u32,
@@ -4307,13 +4562,24 @@ pub const hv_register_name_HV_X64_REGISTER_CR_INTERCEPT_IA32_MISC_ENABLE_MASK: h
     917507;
 pub type hv_register_name = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_explicit_suspend_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_explicit_suspend_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_explicit_suspend_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -4413,13 +4679,24 @@ impl Default for hv_explicit_suspend_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_intercept_suspend_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_intercept_suspend_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_intercept_suspend_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -4519,13 +4796,24 @@ impl Default for hv_intercept_suspend_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_dispatch_suspend_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_dispatch_suspend_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_dispatch_suspend_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -4625,13 +4913,24 @@ impl Default for hv_dispatch_suspend_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_internal_activity_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_internal_activity_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_internal_activity_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -4763,13 +5062,24 @@ impl Default for hv_internal_activity_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_interrupt_state_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_interrupt_state_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_interrupt_state_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -4885,13 +5195,24 @@ impl Default for hv_x64_interrupt_state_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_pending_exception_event {
     pub as_uint64: [__u64; 2usize],
     pub __bindgen_anon_1: hv_x64_pending_exception_event__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_pending_exception_event__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -5080,13 +5401,24 @@ impl Default for hv_x64_pending_exception_event {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_pending_virtualization_fault_event {
     pub as_uint64: [__u64; 2usize],
     pub __bindgen_anon_1: hv_x64_pending_virtualization_fault_event__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_pending_virtualization_fault_event__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -5265,13 +5597,24 @@ impl Default for hv_x64_pending_virtualization_fault_event {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_pending_interruption_register {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_pending_interruption_register__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_pending_interruption_register__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -5471,13 +5814,24 @@ impl Default for hv_x64_pending_interruption_register {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_register_sev_control {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_register_sev_control__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_register_sev_control__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -5594,7 +5948,7 @@ impl Default for hv_x64_register_sev_control {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_register_value {
     pub reg128: hv_u128,
     pub reg64: __u64,
@@ -5844,7 +6198,7 @@ impl Default for hv_register_value {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_register_assoc {
     pub name: __u32,
     pub reserved1: __u32,
@@ -5916,6 +6270,7 @@ impl Default for hv_register_assoc {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_get_vp_registers {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -6010,6 +6365,7 @@ impl Default for hv_input_get_vp_registers {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_set_vp_registers {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -6120,7 +6476,7 @@ pub const hv_intercept_type_HV_INTERCEPT_TYPE_MAX: hv_intercept_type = 13;
 pub const hv_intercept_type_HV_INTERCEPT_TYPE_INVALID: hv_intercept_type = 4294967295;
 pub type hv_intercept_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_intercept_parameters {
     pub as_uint64: __u64,
     pub io_port: __u16,
@@ -6215,7 +6571,7 @@ impl Default for hv_intercept_parameters {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_install_intercept {
     pub partition_id: __u64,
     pub access_type: __u32,
@@ -6292,13 +6648,24 @@ pub const hv_eventlog_type_HV_EVENT_LOG_TYPE_LOCAL_DIAGNOSTICS: hv_eventlog_type
 pub const hv_eventlog_type_HV_EVENT_LOG_TYPE_SYSTEM_DIAGNOSTICS: hv_eventlog_type = 2;
 pub type hv_eventlog_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_register_sev_ghcb {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_register_sev_ghcb__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_register_sev_ghcb__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -6414,13 +6781,24 @@ impl Default for hv_x64_register_sev_ghcb {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_register_sev_hv_doorbell {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_x64_register_sev_hv_doorbell__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_register_sev_hv_doorbell__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -6543,13 +6921,24 @@ pub const hv_unimplemented_msr_action_HV_UNIMPLEMENTED_MSR_ACTION_COUNT:
     hv_unimplemented_msr_action = 2;
 pub type hv_unimplemented_msr_action = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_connection_id {
     pub asu32: __u32,
     pub u: hv_connection_id__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_connection_id__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -6649,7 +7038,18 @@ impl Default for hv_connection_id {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_unmap_gpa_pages {
     pub target_partition_id: __u64,
     pub target_gpa_base: __u64,
@@ -6722,6 +7122,7 @@ pub const hv_scheduler_type_HV_SCHEDULER_TYPE_ROOT: hv_scheduler_type = 4;
 pub const hv_scheduler_type_HV_SCHEDULER_TYPE_MAX: hv_scheduler_type = 5;
 pub type hv_scheduler_type = ::std::os::raw::c_uint;
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vpset {
     pub format: __u64,
     pub valid_bank_mask: __u64,
@@ -6787,7 +7188,7 @@ pub const hv_stats_object_type_HV_STATS_OBJECT_PARTITION: hv_stats_object_type =
 pub const hv_stats_object_type_HV_STATS_OBJECT_VP: hv_stats_object_type = 65538;
 pub type hv_stats_object_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_stats_object_identity {
     pub hv: hv_stats_object_identity__bindgen_ty_1,
     pub lp: hv_stats_object_identity__bindgen_ty_2,
@@ -6795,7 +7196,18 @@ pub union hv_stats_object_identity {
     pub vp: hv_stats_object_identity__bindgen_ty_4,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stats_object_identity__bindgen_ty_1 {
     pub reserved: [__u8; 16usize],
 }
@@ -6832,7 +7244,18 @@ fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_1() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stats_object_identity__bindgen_ty_2 {
     pub lp_index: __u32,
     pub reserved: [__u8; 12usize],
@@ -6880,7 +7303,18 @@ fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_2() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stats_object_identity__bindgen_ty_3 {
     pub partition_id: __u64,
     pub reserved: [__u8; 4usize],
@@ -6950,7 +7384,18 @@ fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_3() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stats_object_identity__bindgen_ty_4 {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -7187,7 +7632,18 @@ pub const hv_system_property_HV_DYNAMIC_PROCESSOR_FEATURE_PROPERTY: hv_system_pr
 pub const hv_system_property_HV_SYSTEM_PROPERTY_DIAGOSTICS_LOG_BUFFERS: hv_system_property = 28;
 pub type hv_system_property = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_sleep_state_info {
     pub sleep_state: __u32,
     pub pm1a_slp_typ: __u8,
@@ -7255,14 +7711,14 @@ pub const hv_dynamic_processor_feature_property_HV_X64_DYNAMIC_PROCESSOR_FEATURE
     hv_dynamic_processor_feature_property = 16;
 pub type hv_dynamic_processor_feature_property = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_get_system_property {
     pub property_id: __u32,
     pub reserved: __u32,
     pub __bindgen_anon_1: hv_input_get_system_property__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_get_system_property__bindgen_ty_1 {
     pub as_uint64: __u64,
     pub hv_processor_feature: __u32,
@@ -7364,7 +7820,18 @@ impl Default for hv_input_get_system_property {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_system_diag_log_buffer_config {
     pub buffer_count: __u32,
     pub buffer_size_in_pages: __u32,
@@ -7409,12 +7876,12 @@ fn bindgen_test_layout_hv_system_diag_log_buffer_config() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_output_get_system_property {
     pub __bindgen_anon_1: hv_output_get_system_property__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_output_get_system_property__bindgen_ty_1 {
     pub scheduler_type: __u32,
     pub hv_diagbuf_info: hv_system_diag_log_buffer_config,
@@ -7504,13 +7971,13 @@ impl Default for hv_output_get_system_property {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_set_system_property {
     pub property_id: __u32,
     pub __bindgen_anon_1: hv_input_set_system_property__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_set_system_property__bindgen_ty_1 {
     pub set_sleep_state_info: hv_sleep_state_info,
 }
@@ -7591,7 +8058,7 @@ impl Default for hv_input_set_system_property {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_map_stats_page {
     pub type_: __u32,
     pub padding: __u32,
@@ -7653,7 +8120,18 @@ impl Default for hv_input_map_stats_page {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_map_stats_page {
     pub map_location: __u64,
 }
@@ -7684,7 +8162,7 @@ fn bindgen_test_layout_hv_output_map_stats_page() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_unmap_stats_page {
     pub type_: __u32,
     pub padding: __u32,
@@ -7746,7 +8224,18 @@ impl Default for hv_input_unmap_stats_page {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_proximity_domain_flags {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -7821,13 +8310,24 @@ impl hv_proximity_domain_flags {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_proximity_domain_info {
     pub __bindgen_anon_1: hv_proximity_domain_info__bindgen_ty_1,
     pub as_uint64: __u64,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_proximity_domain_info__bindgen_ty_1 {
     pub domain_id: __u32,
     pub flags: hv_proximity_domain_flags,
@@ -7910,7 +8410,7 @@ impl Default for hv_proximity_domain_info {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_withdraw_memory {
     pub partition_id: __u64,
     pub proximity_domain_info: hv_proximity_domain_info,
@@ -7961,6 +8461,7 @@ impl Default for hv_input_withdraw_memory {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_output_withdraw_memory {
     pub gpa_page_list: __IncompleteArrayField<__u64>,
 }
@@ -8000,6 +8501,7 @@ impl Default for hv_output_withdraw_memory {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_map_gpa_pages {
     pub target_partition_id: __u64,
     pub target_gpa_base: __u64,
@@ -8083,13 +8585,24 @@ impl Default for hv_input_map_gpa_pages {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_gpa_page_access_state_flags {
     pub __bindgen_anon_1: hv_gpa_page_access_state_flags__bindgen_ty_1,
     pub as_uint64: __u64,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_gpa_page_access_state_flags__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -8237,7 +8750,7 @@ impl Default for hv_gpa_page_access_state_flags {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_get_gpa_pages_access_state {
     pub partition_id: __u64,
     pub flags: hv_gpa_page_access_state_flags,
@@ -8302,13 +8815,24 @@ impl Default for hv_input_get_gpa_pages_access_state {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_gpa_page_access_state {
     pub __bindgen_anon_1: hv_gpa_page_access_state__bindgen_ty_1,
     pub as_uint8: __u8,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_gpa_page_access_state__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -8424,13 +8948,24 @@ impl Default for hv_gpa_page_access_state {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_snp_guest_policy {
     pub __bindgen_anon_1: hv_snp_guest_policy__bindgen_ty_1,
     pub as_uint64: __u64,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_snp_guest_policy__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -8607,7 +9142,7 @@ impl Default for hv_snp_guest_policy {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_snp_id_block {
     pub launch_digest: [__u8; 48usize],
     pub family_id: [__u8; 16usize],
@@ -8701,7 +9236,9 @@ impl Default for hv_snp_id_block {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_snp_id_auth_info {
     pub id_key_algorithm: __u32,
     pub auth_key_algorithm: __u32,
@@ -8817,7 +9354,7 @@ impl Default for hv_snp_id_auth_info {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_psp_launch_finish_data {
     pub id_block: hv_snp_id_block,
     pub id_auth_info: hv_snp_id_auth_info,
@@ -8901,7 +9438,7 @@ impl Default for hv_psp_launch_finish_data {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_complete_isolated_import_data {
     pub reserved: __u64,
     pub psp_parameters: hv_psp_launch_finish_data,
@@ -8958,7 +9495,7 @@ impl Default for hv_partition_complete_isolated_import_data {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_complete_isolated_import {
     pub partition_id: __u64,
     pub import_data: hv_partition_complete_isolated_import_data,
@@ -9018,7 +9555,18 @@ pub const hv_crashdump_action_HV_CRASHDUMP_STATE_SAVED: hv_crashdump_action = 3;
 pub const hv_crashdump_action_HV_CRASHDUMP_ENTRY: hv_crashdump_action = 4;
 pub type hv_crashdump_action = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_event_root_crashdump_input {
     pub crashdump_action: __u32,
 }
@@ -9055,7 +9603,18 @@ fn bindgen_test_layout_hv_partition_event_root_crashdump_input() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_event_commit_processor_indices_input {
     pub schedulable_processor_count: __u32,
 }
@@ -9092,7 +9651,7 @@ fn bindgen_test_layout_hv_partition_event_commit_processor_indices_input() {
     );
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_event_input {
     pub crashdump_input: hv_partition_event_root_crashdump_input,
     pub commit_lp_indices_input: hv_partition_event_commit_processor_indices_input,
@@ -9149,7 +9708,7 @@ pub const hv_partition_event_HV_PARTITION_ALL_LOGICAL_PROCESSORS_STARTED: hv_par
 pub const hv_partition_event_HV_PARTITION_COMMIT_LP_INDICES: hv_partition_event = 5;
 pub type hv_partition_event = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_notify_partition_event {
     pub event: __u32,
     pub input: hv_partition_event_input,
@@ -9200,7 +9759,18 @@ impl Default for hv_input_notify_partition_event {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_lp_startup_status {
     pub hv_status: __u64,
     pub substatus1: __u64,
@@ -9296,7 +9866,7 @@ fn bindgen_test_layout_hv_lp_startup_status() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_add_logical_processor {
     pub lp_index: __u32,
     pub apic_id: __u32,
@@ -9358,7 +9928,18 @@ impl Default for hv_input_add_logical_processor {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_add_logical_processor {
     pub startup_status: hv_lp_startup_status,
 }
@@ -9389,7 +9970,18 @@ fn bindgen_test_layout_hv_output_add_logical_processor() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_get_logical_processor_run_time {
     pub lp_index: __u32,
 }
@@ -9426,7 +10018,18 @@ fn bindgen_test_layout_hv_input_get_logical_processor_run_time() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_get_logical_processor_run_time {
     pub global_time: __u64,
     pub local_run_time: __u64,
@@ -9803,7 +10406,7 @@ pub const hv_stats_lp_counters_LpRunningPriority: hv_stats_lp_counters = 50;
 pub const hv_stats_lp_counters_LpPerfmonInterruptCount: hv_stats_lp_counters = 51;
 pub type hv_stats_lp_counters = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_register_page {
     pub version: __u16,
     pub isvalid: __u8,
@@ -9823,27 +10426,38 @@ pub struct hv_vp_register_page {
     pub instruction_emulation_hints: __u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_vp_register_page__bindgen_ty_1 {
     pub __bindgen_anon_1: hv_vp_register_page__bindgen_ty_1__bindgen_ty_1,
     pub registers: [__u64; 18usize],
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_register_page__bindgen_ty_1__bindgen_ty_1 {
     pub __bindgen_anon_1: hv_vp_register_page__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1,
     pub rip: __u64,
     pub rflags: __u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_vp_register_page__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1 {
     pub __bindgen_anon_1:
         hv_vp_register_page__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1,
     pub gp_registers: [__u64; 16usize],
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_vp_register_page__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1__bindgen_ty_1 {
     pub rax: __u64,
     pub rcx: __u64,
@@ -10182,13 +10796,24 @@ impl Default for hv_vp_register_page__bindgen_ty_1 {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_vp_register_page__bindgen_ty_2 {
     pub __bindgen_anon_1: hv_vp_register_page__bindgen_ty_2__bindgen_ty_1,
     pub xmm_registers: [hv_u128; 6usize],
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_vp_register_page__bindgen_ty_2__bindgen_ty_1 {
     pub xmm0: hv_u128,
     pub xmm1: hv_u128,
@@ -10318,13 +10943,13 @@ impl Default for hv_vp_register_page__bindgen_ty_2 {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_vp_register_page__bindgen_ty_3 {
     pub __bindgen_anon_1: hv_vp_register_page__bindgen_ty_3__bindgen_ty_1,
     pub segment_registers: [hv_x64_segment_register; 6usize],
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_register_page__bindgen_ty_3__bindgen_ty_1 {
     pub es: hv_x64_segment_register,
     pub cs: hv_x64_segment_register,
@@ -10617,13 +11242,24 @@ impl Default for hv_vp_register_page {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_processor_features {
     pub as_uint64: [__u64; 2usize],
     pub __bindgen_anon_1: hv_partition_processor_features__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_processor_features__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 16usize]>,
@@ -12100,13 +12736,24 @@ impl Default for hv_partition_processor_features {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_processor_xsave_features {
     pub __bindgen_anon_1: hv_partition_processor_xsave_features__bindgen_ty_1,
     pub as_uint64: __u64,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_processor_xsave_features__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -12244,7 +12891,7 @@ impl Default for hv_partition_processor_xsave_features {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_partition_creation_properties {
     pub disabled_processor_features: hv_partition_processor_features,
     pub disabled_processor_xsave_features: hv_partition_processor_xsave_features,
@@ -12313,13 +12960,24 @@ pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE_TERMINATING
     hv_partition_isolation_state = 5;
 pub type hv_partition_isolation_state = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_isolation_control {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_partition_isolation_control__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_isolation_control__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -12419,13 +13077,24 @@ impl Default for hv_partition_isolation_control {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_synthetic_processor_features {
     pub as_uint64: [__u64; 1usize],
     pub __bindgen_anon_1: hv_partition_synthetic_processor_features__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_synthetic_processor_features__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -13060,13 +13729,24 @@ impl Default for hv_partition_synthetic_processor_features {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_partition_isolation_properties {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_partition_isolation_properties__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_partition_isolation_properties__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -13202,7 +13882,7 @@ impl Default for hv_partition_isolation_properties {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_create_partition {
     pub flags: __u64,
     pub proximity_domain_info: hv_proximity_domain_info,
@@ -13299,7 +13979,18 @@ impl Default for hv_input_create_partition {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_create_partition {
     pub partition_id: __u64,
 }
@@ -13330,7 +14021,18 @@ fn bindgen_test_layout_hv_output_create_partition() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_initialize_partition {
     pub partition_id: __u64,
 }
@@ -13361,7 +14063,18 @@ fn bindgen_test_layout_hv_input_initialize_partition() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_finalize_partition {
     pub partition_id: __u64,
 }
@@ -13392,7 +14105,18 @@ fn bindgen_test_layout_hv_input_finalize_partition() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_delete_partition {
     pub partition_id: __u64,
 }
@@ -13423,7 +14147,18 @@ fn bindgen_test_layout_hv_input_delete_partition() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_get_partition_property {
     pub partition_id: __u64,
     pub property_code: __u32,
@@ -13476,7 +14211,18 @@ fn bindgen_test_layout_hv_input_get_partition_property() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_get_partition_property {
     pub property_value: __u64,
 }
@@ -13510,7 +14256,18 @@ fn bindgen_test_layout_hv_output_get_partition_property() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_set_partition_property {
     pub partition_id: __u64,
     pub property_code: __u32,
@@ -13578,7 +14335,18 @@ pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_INTERCEPT_MESSAGE: hv_vp_state_
 pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_COUNT: hv_vp_state_page_type = 2;
 pub type hv_vp_state_page_type = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_map_vp_state_page {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -13631,7 +14399,18 @@ fn bindgen_test_layout_hv_input_map_vp_state_page() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_map_vp_state_page {
     pub map_location: __u64,
 }
@@ -13662,7 +14441,18 @@ fn bindgen_test_layout_hv_output_map_vp_state_page() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_unmap_vp_state_page {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -13715,7 +14505,18 @@ fn bindgen_test_layout_hv_input_unmap_vp_state_page() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_cpuid_leaf_info {
     pub eax: __u32,
     pub ecx: __u32,
@@ -13778,13 +14579,24 @@ fn bindgen_test_layout_hv_cpuid_leaf_info() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_get_vp_cpuid_values_flags {
     pub as_uint32: __u32,
     pub __bindgen_anon_1: hv_get_vp_cpuid_values_flags__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_get_vp_cpuid_values_flags__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -13901,6 +14713,7 @@ impl Default for hv_get_vp_cpuid_values_flags {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_get_vp_cpuid_values {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -13995,13 +14808,24 @@ impl Default for hv_input_get_vp_cpuid_values {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_output_get_vp_cpuid_values {
     pub as_uint32: [__u32; 4usize],
     pub __bindgen_anon_1: hv_output_get_vp_cpuid_values__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_get_vp_cpuid_values__bindgen_ty_1 {
     pub eax: __u32,
     pub ebx: __u32,
@@ -14125,13 +14949,24 @@ pub const hv_translate_gva_result_code_HV_TRANSLATE_GVA_GPA_UNACCEPTED:
     hv_translate_gva_result_code = 9;
 pub type hv_translate_gva_result_code = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_translate_gva_result {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_translate_gva_result__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_translate_gva_result__bindgen_ty_1 {
     pub result_code: __u32,
     pub _bitfield_align_1: [u8; 0],
@@ -14261,7 +15096,18 @@ impl Default for hv_translate_gva_result {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_apic_eoi_message {
     pub vp_index: __u32,
     pub interrupt_vector: __u32,
@@ -14303,7 +15149,18 @@ fn bindgen_test_layout_hv_x64_apic_eoi_message() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_opaque_intercept_message {
     pub vp_index: __u32,
 }
@@ -14339,14 +15196,14 @@ pub const hv_port_type_HV_PORT_TYPE_MONITOR: hv_port_type = 3;
 pub const hv_port_type_HV_PORT_TYPE_DOORBELL: hv_port_type = 4;
 pub type hv_port_type = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_port_info {
     pub port_type: __u32,
     pub padding: __u32,
     pub __bindgen_anon_1: hv_port_info__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_port_info__bindgen_ty_1 {
     pub message_port_info: hv_port_info__bindgen_ty_1__bindgen_ty_1,
     pub event_port_info: hv_port_info__bindgen_ty_1__bindgen_ty_2,
@@ -14354,7 +15211,18 @@ pub union hv_port_info__bindgen_ty_1 {
     pub doorbell_port_info: hv_port_info__bindgen_ty_1__bindgen_ty_4,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_port_info__bindgen_ty_1__bindgen_ty_1 {
     pub target_sint: __u32,
     pub target_vp: __u32,
@@ -14413,7 +15281,18 @@ fn bindgen_test_layout_hv_port_info__bindgen_ty_1__bindgen_ty_1() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_port_info__bindgen_ty_1__bindgen_ty_2 {
     pub target_sint: __u32,
     pub target_vp: __u32,
@@ -14494,7 +15373,18 @@ fn bindgen_test_layout_hv_port_info__bindgen_ty_1__bindgen_ty_2() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_port_info__bindgen_ty_1__bindgen_ty_3 {
     pub monitor_address: __u64,
     pub rsvdz: __u64,
@@ -14542,7 +15432,18 @@ fn bindgen_test_layout_hv_port_info__bindgen_ty_1__bindgen_ty_3() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_port_info__bindgen_ty_1__bindgen_ty_4 {
     pub target_sint: __u32,
     pub target_vp: __u32,
@@ -14710,14 +15611,14 @@ impl Default for hv_port_info {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_connection_info {
     pub port_type: __u32,
     pub padding: __u32,
     pub __bindgen_anon_1: hv_connection_info__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_connection_info__bindgen_ty_1 {
     pub message_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_1,
     pub event_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_2,
@@ -14725,7 +15626,18 @@ pub union hv_connection_info__bindgen_ty_1 {
     pub doorbell_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_4,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_1 {
     pub rsvdz: __u64,
 }
@@ -14762,7 +15674,18 @@ fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_1() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_2 {
     pub rsvdz: __u64,
 }
@@ -14799,7 +15722,18 @@ fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_2() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_3 {
     pub monitor_address: __u64,
 }
@@ -14836,7 +15770,18 @@ fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_3() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_4 {
     pub gpa: __u64,
     pub trigger_value: __u64,
@@ -15007,7 +15952,7 @@ impl Default for hv_connection_info {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_event_flags {
     pub flags8: [::std::os::raw::c_uchar; 256usize],
     pub flags: [::std::os::raw::c_ulong; 64usize],
@@ -15057,7 +16002,7 @@ impl Default for hv_synic_event_flags {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_synic_event_flags_page {
     pub event_flags: [hv_synic_event_flags; 16usize],
 }
@@ -15097,7 +16042,9 @@ impl Default for hv_synic_event_flags_page {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_synic_event_ring {
     pub signal_masked: __u8,
     pub ring_full: __u8,
@@ -15169,7 +16116,9 @@ impl Default for hv_synic_event_ring {
     }
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_synic_event_ring_page {
     pub sint_event_ring: [hv_synic_event_ring; 16usize],
 }
@@ -15209,13 +16158,24 @@ impl Default for hv_synic_event_ring_page {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_scontrol {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_synic_scontrol__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synic_scontrol__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -15305,13 +16265,24 @@ impl Default for hv_synic_scontrol {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_siefp {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_synic_siefp__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synic_siefp__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -15420,13 +16391,24 @@ impl Default for hv_synic_siefp {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_synic_sirbp {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_synic_sirbp__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synic_sirbp__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -15535,13 +16517,24 @@ impl Default for hv_synic_sirbp {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_interrupt_control {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_interrupt_control__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_interrupt_control__bindgen_ty_1 {
     pub interrupt_type: __u32,
     pub _bitfield_align_1: [u8; 0],
@@ -15667,7 +16660,18 @@ impl Default for hv_interrupt_control {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_local_interrupt_controller_state {
     pub apic_id: __u32,
     pub apic_version: __u32,
@@ -15943,7 +16947,18 @@ fn bindgen_test_layout_hv_local_interrupt_controller_state() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stimer_state {
     pub flags: hv_stimer_state__bindgen_ty_1,
     pub resvd: __u32,
@@ -15953,7 +16968,18 @@ pub struct hv_stimer_state {
     pub undelivered_exp_time: __u64,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_stimer_state__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -16088,7 +17114,18 @@ fn bindgen_test_layout_hv_stimer_state() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_synthetic_timers_state {
     pub timers: [hv_stimer_state; 4usize],
     pub reserved: [__u64; 5usize],
@@ -16130,13 +17167,24 @@ fn bindgen_test_layout_hv_synthetic_timers_state() {
     );
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_vp_execution_state {
     pub as_uint16: __u16,
     pub __bindgen_anon_1: hv_x64_vp_execution_state__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_vp_execution_state__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
@@ -16381,7 +17429,7 @@ impl Default for hv_x64_vp_execution_state {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_intercept_message_header {
     pub vp_index: __u32,
     pub _bitfield_align_1: [u8; 0],
@@ -16518,7 +17566,7 @@ impl hv_x64_intercept_message_header {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_hypercall_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub rax: __u64,
@@ -16532,7 +17580,18 @@ pub struct hv_x64_hypercall_intercept_message {
     pub __bindgen_anon_1: hv_x64_hypercall_intercept_message__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_hypercall_intercept_message__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -16712,7 +17771,7 @@ impl Default for hv_x64_hypercall_intercept_message {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_register_access_info {
     pub source_value: hv_register_value,
     pub destination_register: __u32,
@@ -16785,7 +17844,7 @@ impl Default for hv_x64_register_access_info {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_register_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub __bindgen_anon_1: hv_x64_register_intercept_message__bindgen_ty_1,
@@ -16795,7 +17854,18 @@ pub struct hv_x64_register_intercept_message {
     pub access_info: hv_x64_register_access_info,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_register_intercept_message__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -16938,13 +18008,24 @@ impl Default for hv_x64_register_intercept_message {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_memory_access_info {
     pub as_uint8: __u8,
     pub __bindgen_anon_1: hv_x64_memory_access_info__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_memory_access_info__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -17093,13 +18174,24 @@ impl Default for hv_x64_memory_access_info {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_io_port_access_info {
     pub as_uint8: __u8,
     pub __bindgen_anon_1: hv_x64_io_port_access_info__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_io_port_access_info__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -17231,13 +18323,24 @@ impl Default for hv_x64_io_port_access_info {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_x64_exception_info {
     pub as_uint8: __u8,
     pub __bindgen_anon_1: hv_x64_exception_info__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_exception_info__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
@@ -17350,7 +18453,7 @@ impl Default for hv_x64_exception_info {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_memory_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub cache_type: __u32,
@@ -17478,7 +18581,7 @@ impl Default for hv_x64_memory_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_cpuid_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub rax: __u64,
@@ -17606,7 +18709,7 @@ impl Default for hv_x64_cpuid_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_msr_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub msr_number: __u32,
@@ -17690,7 +18793,7 @@ impl Default for hv_x64_msr_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_io_port_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub port_number: __u16,
@@ -17854,7 +18957,7 @@ impl Default for hv_x64_io_port_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_exception_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub exception_vector: __u16,
@@ -18172,7 +19275,18 @@ impl Default for hv_x64_exception_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_invalid_vp_register_message {
     pub vp_index: __u32,
     pub reserved: __u32,
@@ -18217,7 +19331,7 @@ fn bindgen_test_layout_hv_x64_invalid_vp_register_message() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_unrecoverable_exception_message {
     pub header: hv_x64_intercept_message_header,
 }
@@ -18263,7 +19377,18 @@ impl Default for hv_x64_unrecoverable_exception_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_unsupported_feature_message {
     pub vp_index: __u32,
     pub feature_code: __u32,
@@ -18319,7 +19444,7 @@ fn bindgen_test_layout_hv_x64_unsupported_feature_message() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_halt_message {
     pub header: hv_x64_intercept_message_header,
 }
@@ -18358,7 +19483,7 @@ impl Default for hv_x64_halt_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_interruption_deliverable_message {
     pub header: hv_x64_intercept_message_header,
     pub deliverable_type: __u32,
@@ -18426,7 +19551,7 @@ impl Default for hv_x64_interruption_deliverable_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_sint_deliverable_message {
     pub header: hv_x64_intercept_message_header,
     pub deliverable_sints: __u16,
@@ -18499,7 +19624,7 @@ impl Default for hv_x64_sint_deliverable_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_sipi_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub target_vp_index: __u32,
@@ -18561,7 +19686,7 @@ impl Default for hv_x64_sipi_intercept_message {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_gpa_page_range {
     pub address_space: __u64,
     pub page: hv_gpa_page_range__bindgen_ty_1,
@@ -18569,7 +19694,18 @@ pub union hv_gpa_page_range {
 }
 #[repr(C)]
 #[repr(align(8))]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_gpa_page_range__bindgen_ty_1 {
     pub _bitfield_align_1: [u64; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -18645,7 +19781,18 @@ impl hv_gpa_page_range__bindgen_ty_1 {
 }
 #[repr(C)]
 #[repr(align(8))]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_gpa_page_range__bindgen_ty_2 {
     pub _bitfield_align_1: [u64; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -18780,14 +19927,25 @@ impl Default for hv_gpa_page_range {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_gpa_attribute_intercept_message {
     pub vp_index: __u32,
     pub __bindgen_anon_1: hv_x64_gpa_attribute_intercept_message__bindgen_ty_1,
     pub ranges: [hv_gpa_page_range; 29usize],
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_gpa_attribute_intercept_message__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -18951,13 +20109,35 @@ impl Default for hv_x64_gpa_attribute_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_register_x64_cpuid_result_parameters {
     pub input: hv_register_x64_cpuid_result_parameters__bindgen_ty_1,
     pub result: hv_register_x64_cpuid_result_parameters__bindgen_ty_2,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_register_x64_cpuid_result_parameters__bindgen_ty_1 {
     pub eax: __u32,
     pub ecx: __u32,
@@ -19038,7 +20218,18 @@ fn bindgen_test_layout_hv_register_x64_cpuid_result_parameters__bindgen_ty_1() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_register_x64_cpuid_result_parameters__bindgen_ty_2 {
     pub eax: __u32,
     pub eax_mask: __u32,
@@ -19194,7 +20385,18 @@ fn bindgen_test_layout_hv_register_x64_cpuid_result_parameters() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_register_x64_msr_result_parameters {
     pub msr_index: __u32,
     pub access_type: __u32,
@@ -19253,7 +20455,7 @@ fn bindgen_test_layout_hv_register_x64_msr_result_parameters() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_register_intercept_result_parameters {
     pub cpuid: hv_register_x64_cpuid_result_parameters,
     pub msr: hv_register_x64_msr_result_parameters,
@@ -19310,7 +20512,7 @@ impl Default for hv_register_intercept_result_parameters {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_x64_vmgexit_intercept_message {
     pub header: hv_x64_intercept_message_header,
     pub ghcb_msr: __u64,
@@ -19318,7 +20520,18 @@ pub struct hv_x64_vmgexit_intercept_message {
     pub __bindgen_anon_2: hv_x64_vmgexit_intercept_message__bindgen_ty_2,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_vmgexit_intercept_message__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -19383,14 +20596,36 @@ impl hv_x64_vmgexit_intercept_message__bindgen_ty_1 {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_vmgexit_intercept_message__bindgen_ty_2 {
     pub ghcb_usage: __u32,
     pub rserved_ghcb_page: __u32,
     pub __bindgen_anon_1: hv_x64_vmgexit_intercept_message__bindgen_ty_2__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_x64_vmgexit_intercept_message__bindgen_ty_2__bindgen_ty_1 {
     pub ghcb_protocol_version: __u16,
     pub reserved_st: [__u16; 3usize],
@@ -19573,7 +20808,18 @@ impl Default for hv_x64_vmgexit_intercept_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_async_completion_message_payload {
     pub partition_id: __u64,
     pub status: __u32,
@@ -19640,7 +20886,18 @@ fn bindgen_test_layout_hv_async_completion_message_payload() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_translate_virtual_address {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -19718,7 +20975,7 @@ fn bindgen_test_layout_hv_input_translate_virtual_address() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_output_translate_virtual_address {
     pub translation_result: hv_translate_gva_result,
     pub gpa_page: __u64,
@@ -19778,7 +21035,7 @@ pub const hv_cache_type_HV_CACHE_TYPE_WRITE_PROTECTED: hv_cache_type = 5;
 pub const hv_cache_type_HV_CACHE_TYPE_WRITE_BACK: hv_cache_type = 6;
 pub type hv_cache_type = ::std::os::raw::c_uint;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_register_intercept_result {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -19854,7 +21111,7 @@ impl Default for hv_input_register_intercept_result {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_assert_virtual_interrupt {
     pub partition_id: __u64,
     pub control: hv_interrupt_control,
@@ -19963,7 +21220,7 @@ impl Default for hv_input_assert_virtual_interrupt {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_create_port {
     pub port_partition_id: __u64,
     pub port_id: hv_port_id,
@@ -20079,13 +21336,13 @@ impl Default for hv_input_create_port {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_delete_port {
     pub as_uint64: [__u64; 2usize],
     pub __bindgen_anon_1: hv_input_delete_port__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_delete_port__bindgen_ty_1 {
     pub port_partition_id: __u64,
     pub port_id: hv_port_id,
@@ -20184,7 +21441,7 @@ impl Default for hv_input_delete_port {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_connect_port {
     pub connection_partition_id: __u64,
     pub connection_id: hv_connection_id,
@@ -20323,13 +21580,13 @@ impl Default for hv_input_connect_port {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_disconnect_port {
     pub as_uint64: [__u64; 2usize],
     pub __bindgen_anon_1: hv_input_disconnect_port__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_disconnect_port__bindgen_ty_1 {
     pub connection_partition_id: __u64,
     pub connection_id: hv_connection_id,
@@ -20463,13 +21720,24 @@ impl Default for hv_input_disconnect_port {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_notify_port_ring_empty {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_input_notify_port_ring_empty__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_notify_port_ring_empty__bindgen_ty_1 {
     pub sint_index: __u32,
     pub reserved: __u32,
@@ -20552,7 +21820,18 @@ impl Default for hv_input_notify_port_ring_empty {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_signal_event_direct {
     pub target_partition: __u64,
     pub target_vp: __u32,
@@ -20627,7 +21906,18 @@ fn bindgen_test_layout_hv_input_signal_event_direct() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_signal_event_direct {
     pub newly_signaled: __u8,
     pub reserved: [__u8; 7usize],
@@ -20669,7 +21959,9 @@ fn bindgen_test_layout_hv_output_signal_event_direct() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_input_post_message_direct {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -20775,7 +22067,7 @@ impl Default for hv_input_post_message_direct {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_state_data_xsave {
     pub flags: __u64,
     pub states: hv_x64_xsave_xfem_register,
@@ -20837,7 +22129,7 @@ pub const hv_get_set_vp_state_type_HV_GET_SET_VP_STATE_SYNTHETIC_TIMERS: hv_get_
     4;
 pub type hv_get_set_vp_state_type = ::std::os::raw::c_int;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_state_data {
     pub type_: __u32,
     pub rsvd: __u32,
@@ -20898,6 +22190,7 @@ impl Default for hv_vp_state_data {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_get_vp_state {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -21003,7 +22296,7 @@ impl Default for hv_input_get_vp_state {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_output_get_vp_state {
     pub interrupt_controller_state: hv_local_interrupt_controller_state,
     pub synthetic_timers_state: hv_synthetic_timers_state,
@@ -21054,7 +22347,7 @@ impl Default for hv_output_get_vp_state {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_input_set_vp_state_data {
     pub pfns: __u64,
     pub bytes: __u8,
@@ -21105,6 +22398,7 @@ impl Default for hv_input_set_vp_state_data {
     }
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_set_vp_state {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -21234,6 +22528,7 @@ pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_LONGSPINWAIT: hv_vp_dispatch
 pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_TIMESLICEEND: hv_vp_dispatch_event = 268435462;
 pub type hv_vp_dispatch_event = ::std::os::raw::c_uint;
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_signal_bitset_scheduler_message {
     pub partition_id: __u64,
     pub overflow_count: __u32,
@@ -21242,6 +22537,7 @@ pub struct hv_vp_signal_bitset_scheduler_message {
     pub vp_bitset: hv_vp_signal_bitset_scheduler_message__bindgen_ty_1,
 }
 #[repr(C)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_vp_signal_bitset_scheduler_message__bindgen_ty_1 {
     pub bitset: __BindgenUnionField<hv_vpset>,
     pub bitset_buffer: __BindgenUnionField<[__u64; 18usize]>,
@@ -21380,7 +22676,18 @@ impl Default for hv_vp_signal_bitset_scheduler_message {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_eventlog_message_payload {
     pub type_: __u32,
     pub buffer_index: __u32,
@@ -21422,7 +22729,18 @@ fn bindgen_test_layout_hv_eventlog_message_payload() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_vp_signal_pair_scheduler_message {
     pub overflow_count: __u32,
     pub vp_count: __u8,
@@ -21511,7 +22829,18 @@ fn bindgen_test_layout_hv_vp_signal_pair_scheduler_message() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_dispatch_vp {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -21585,7 +22914,18 @@ fn bindgen_test_layout_hv_input_dispatch_vp() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_output_dispatch_vp {
     pub dispatch_state: __u32,
     pub dispatch_event: __u32,
@@ -21627,6 +22967,7 @@ fn bindgen_test_layout_hv_output_dispatch_vp() {
     );
 }
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_modify_sparse_spa_page_host_access {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
@@ -21736,7 +23077,18 @@ impl hv_input_modify_sparse_spa_page_host_access {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_psp_cpuid_leaf {
     pub eax_in: __u32,
     pub ecx_in: __u32,
@@ -21854,7 +23206,9 @@ fn bindgen_test_layout_hv_psp_cpuid_leaf() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct hv_psp_cpuid_page {
     pub count: __u32,
     pub reserved_z1: __u32,
@@ -21937,6 +23291,7 @@ pub const hv_isolated_page_size_HV_ISOLATED_PAGE_SIZE_4KB: hv_isolated_page_size
 pub const hv_isolated_page_size_HV_ISOLATED_PAGE_SIZE_2MB: hv_isolated_page_size = 1;
 pub type hv_isolated_page_size = ::std::os::raw::c_uint;
 #[repr(C, packed)]
+#[derive(zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_import_isolated_pages {
     pub partition_id: __u64,
     pub page_type: __u32,
@@ -22009,13 +23364,24 @@ impl Default for hv_input_import_isolated_pages {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_sev_vmgexit_offload {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_sev_vmgexit_offload__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_sev_vmgexit_offload__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -22284,13 +23650,24 @@ pub const hv_access_gpa_result_code_HV_ACCESS_GPA_ILLEGAL_OVERLAY_ACCESS:
     hv_access_gpa_result_code = 4;
 pub type hv_access_gpa_result_code = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_access_gpa_result {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_access_gpa_result__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_access_gpa_result__bindgen_ty_1 {
     pub result_code: __u32,
     pub reserved: __u32,
@@ -22369,13 +23746,24 @@ impl Default for hv_access_gpa_result {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union hv_access_gpa_control_flags {
     pub as_uint64: __u64,
     pub __bindgen_anon_1: hv_access_gpa_control_flags__bindgen_ty_1,
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_access_gpa_control_flags__bindgen_ty_1 {
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
@@ -22475,7 +23863,7 @@ impl Default for hv_access_gpa_control_flags {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_read_gpa {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -22558,7 +23946,7 @@ impl Default for hv_input_read_gpa {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_output_read_gpa {
     pub access_result: hv_access_gpa_result,
     pub data: [__u8; 16usize],
@@ -22608,7 +23996,7 @@ impl Default for hv_output_read_gpa {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_input_write_gpa {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -22702,7 +24090,7 @@ impl Default for hv_input_write_gpa {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct hv_output_write_gpa {
     pub access_result: hv_access_gpa_result,
 }
@@ -22741,7 +24129,18 @@ impl Default for hv_output_write_gpa {
     }
 }
 #[repr(C, packed)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct hv_input_issue_psp_guest_request {
     pub partition_id: __u64,
     pub request_page: __u64,
@@ -22797,7 +24196,7 @@ fn bindgen_test_layout_hv_input_issue_psp_guest_request() {
     );
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_create_partition {
     pub flags: __u64,
     pub partition_creation_properties: hv_partition_creation_properties,
@@ -22874,7 +24273,18 @@ impl Default for mshv_create_partition {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_user_mem_region {
     pub size: __u64,
     pub guest_pfn: __u64,
@@ -22937,7 +24347,18 @@ fn bindgen_test_layout_mshv_user_mem_region() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_create_vp {
     pub vp_index: __u32,
 }
@@ -22967,7 +24388,9 @@ fn bindgen_test_layout_mshv_create_vp() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_vp_registers {
     pub count: ::std::os::raw::c_int,
     pub regs: *mut hv_register_assoc,
@@ -23017,7 +24440,7 @@ impl Default for mshv_vp_registers {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_install_intercept {
     pub access_type_mask: __u32,
     pub intercept_type: hv_intercept_type,
@@ -23079,7 +24502,7 @@ impl Default for mshv_install_intercept {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_assert_interrupt {
     pub control: hv_interrupt_control,
     pub dest_addr: __u64,
@@ -23141,7 +24564,7 @@ impl Default for mshv_assert_interrupt {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_vp_state {
     pub type_: hv_get_set_vp_state_type,
     pub xsave: hv_vp_state_data_xsave,
@@ -23149,7 +24572,7 @@ pub struct mshv_vp_state {
     pub buf: mshv_vp_state__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub union mshv_vp_state__bindgen_ty_1 {
     pub lapic: *mut hv_local_interrupt_controller_state,
     pub bytes: *mut __u8,
@@ -23264,7 +24687,9 @@ impl Default for mshv_vp_state {
     }
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_partition_property {
     pub property_code: hv_partition_property_code,
     pub property_value: __u64,
@@ -23315,7 +24740,9 @@ impl Default for mshv_partition_property {
     }
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_translate_gva {
     pub gva: __u64,
     pub flags: __u64,
@@ -23387,7 +24814,18 @@ impl Default for mshv_translate_gva {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_irqfd {
     pub fd: __s32,
     pub resamplefd: __s32,
@@ -23455,7 +24893,18 @@ pub const mshv_ioeventfd_flag_nr_deassign: _bindgen_ty_1 = 2;
 pub const mshv_ioeventfd_flag_nr_max: _bindgen_ty_1 = 3;
 pub type _bindgen_ty_1 = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_ioeventfd {
     pub datamatch: __u64,
     pub addr: __u64,
@@ -23540,7 +24989,18 @@ fn bindgen_test_layout_mshv_ioeventfd() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_msi_routing_entry {
     pub gsi: __u32,
     pub address_lo: __u32,
@@ -23604,7 +25064,7 @@ fn bindgen_test_layout_mshv_msi_routing_entry() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default)]
+#[derive(Debug, Default, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_msi_routing {
     pub nr: __u32,
     pub pad: __u32,
@@ -23656,7 +25116,7 @@ fn bindgen_test_layout_mshv_msi_routing() {
     );
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_register_intercept_result {
     pub intercept_type: __u32,
     pub parameters: hv_register_intercept_result_parameters,
@@ -23707,7 +25167,18 @@ impl Default for mshv_register_intercept_result {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_signal_event_direct {
     pub vp: __u32,
     pub vtl: __u8,
@@ -23782,7 +25253,9 @@ fn bindgen_test_layout_mshv_signal_event_direct() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_post_message_direct {
     pub vp: __u32,
     pub vtl: __u8,
@@ -23866,7 +25339,18 @@ impl Default for mshv_post_message_direct {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_register_deliverabilty_notifications {
     pub vp: __u32,
     pub pad: __u32,
@@ -23925,7 +25409,18 @@ fn bindgen_test_layout_mshv_register_deliverabilty_notifications() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_get_vp_cpuid_values {
     pub function: __u32,
     pub index: __u32,
@@ -24033,7 +25528,9 @@ fn bindgen_test_layout_mshv_get_vp_cpuid_values() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_vp_run_registers {
     pub message: *mut hv_message,
     pub registers: mshv_vp_registers,
@@ -24084,7 +25581,18 @@ impl Default for mshv_vp_run_registers {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_trace_config {
     pub mode: __u32,
     pub max_buffers_count: __u32,
@@ -24169,7 +25677,7 @@ fn bindgen_test_layout_mshv_trace_config() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default)]
+#[derive(Debug, Default, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_modify_gpa_host_access {
     pub host_access: __u32,
     pub flags: __u32,
@@ -24244,7 +25752,7 @@ fn bindgen_test_layout_mshv_modify_gpa_host_access() {
     );
 }
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_import_isolated_pages {
     pub page_type: hv_isolated_page_type,
     pub page_size: hv_isolated_page_size,
@@ -24317,7 +25825,7 @@ impl Default for mshv_import_isolated_pages {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, zerocopy :: AsBytes, zerocopy :: FromBytes)]
 pub struct mshv_complete_isolated_import {
     pub import_data: hv_partition_complete_isolated_import_data,
 }
@@ -24357,7 +25865,18 @@ impl Default for mshv_complete_isolated_import {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_issue_psp_guest_request {
     pub req_gpa: __u64,
     pub rsp_gpa: __u64,
@@ -24399,7 +25918,9 @@ fn bindgen_test_layout_mshv_issue_psp_guest_request() {
     );
 }
 #[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq, zerocopy :: AsBytes, zerocopy :: FromBytes,
+)]
 pub struct mshv_get_gpa_pages_access_state {
     pub count: __u32,
     pub flags: __u64,
@@ -24472,7 +25993,18 @@ impl Default for mshv_get_gpa_pages_access_state {
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_create_device {
     pub type_: __u32,
     pub fd: __u32,
@@ -24527,7 +26059,18 @@ pub const mshv_device_type_MSHV_DEV_TYPE_VFIO: mshv_device_type = 0;
 pub const mshv_device_type_MSHV_DEV_TYPE_MAX: mshv_device_type = 1;
 pub type mshv_device_type = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_device_attr {
     pub flags: __u32,
     pub group: __u32,
@@ -24590,7 +26133,18 @@ fn bindgen_test_layout_mshv_device_attr() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_read_write_gpa {
     pub base_gpa: __u64,
     pub byte_count: __u32,
@@ -24653,7 +26207,18 @@ fn bindgen_test_layout_mshv_read_write_gpa() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[derive(
+    Debug,
+    Default,
+    Copy,
+    Clone,
+    PartialOrd,
+    Ord,
+    PartialEq,
+    Eq,
+    zerocopy :: AsBytes,
+    zerocopy :: FromBytes,
+)]
 pub struct mshv_sev_snp_ap_create {
     pub vp_id: __u64,
     pub vmsa_gpa: __u64,
