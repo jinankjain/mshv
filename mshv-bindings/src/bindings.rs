@@ -89,7 +89,7 @@ where
     }
 }
 #[repr(C)]
-#[derive(Default)]
+#[derive(Default,zerocopy::AsBytes,zerocopy::FromBytes,zerocopy::FromZeroes)]
 pub struct __IncompleteArrayField<T>(::std::marker::PhantomData<T>, [T; 0]);
 impl<T> __IncompleteArrayField<T> {
     #[inline]
@@ -119,6 +119,7 @@ impl<T> ::std::fmt::Debug for __IncompleteArrayField<T> {
     }
 }
 #[repr(C)]
+#[derive(zerocopy::AsBytes,zerocopy::FromBytes,zerocopy::FromZeroes)]
 pub struct __BindgenUnionField<T>(::std::marker::PhantomData<T>);
 impl<T> __BindgenUnionField<T> {
     #[inline]
