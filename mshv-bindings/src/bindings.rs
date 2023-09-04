@@ -9,7 +9,7 @@
  */
 
 #[repr(C)]
-#[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, zerocopy::AsBytes,zerocopy::FromBytes,zerocopy::FromZeroes)]
 pub struct __BindgenBitfieldUnit<Storage> {
     storage: Storage,
 }
