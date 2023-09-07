@@ -24244,6 +24244,47 @@ fn bindgen_test_layout_mshv_modify_gpa_host_access() {
     );
 }
 #[repr(C)]
+#[derive(Debug, Default)]
+pub struct mshv_map_regions {
+    pub gpa_list_size: __u64,
+    pub gpa_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_mshv_map_regions() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_map_regions> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_map_regions>(),
+        8usize,
+        concat!("Size of: ", stringify!(mshv_map_regions))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_map_regions>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_map_regions))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa_list_size) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_map_regions),
+            "::",
+            stringify!(gpa_list_size)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa_list) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_map_regions),
+            "::",
+            stringify!(gpa_list)
+        )
+    );
+}
+#[repr(C)]
 #[derive(Debug)]
 pub struct mshv_import_isolated_pages {
     pub page_type: hv_isolated_page_type,
