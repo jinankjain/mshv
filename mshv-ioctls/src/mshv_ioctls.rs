@@ -38,6 +38,12 @@ ioctl_iow_nr!(
     mshv_user_mem_region
 );
 ioctl_iow_nr!(
+    MSHV_MAP_REGIONS,
+    MSHV_IOCTL,
+    0x35,
+    mshv_map_regions
+);
+ioctl_iow_nr!(
     MSHV_UNMAP_GUEST_MEMORY,
     MSHV_IOCTL,
     0x03,
