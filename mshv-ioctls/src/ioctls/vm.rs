@@ -167,6 +167,16 @@ impl VmFd {
         }
     }
     /// Creates/modifies a guest physical memory.
+    pub fn map_regions(&self, map_regions: &mshv_map_regions) -> Result<()> {
+        // SAFETY: IOCTL with correct types
+        let ret = unsafe { ioctl_with_ref(self, MSHV_MAP_REGIONS(), &map_regions) };
+        if ret == 0 {
+            Ok(())
+        } else {
+            Err(errno::Error::last())
+        }
+    }
+    /// Creates/modifies a guest physical memory.
     pub fn map_user_memory(&self, user_memory_region: mshv_user_mem_region) -> Result<()> {
         // SAFETY: IOCTL with correct types
         let ret = unsafe { ioctl_with_ref(self, MSHV_MAP_GUEST_MEMORY(), &user_memory_region) };
