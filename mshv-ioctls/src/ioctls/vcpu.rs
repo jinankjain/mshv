@@ -4,15 +4,17 @@
 //
 use crate::ioctls::Result;
 use crate::mshv_ioctls::*;
-#[cfg(target_arch = "x86_64")]
 use mshv_bindings::*;
+#[cfg(target_arch = "x86_64")]
 use std::convert::TryFrom;
 use std::fs::File;
 use std::os::unix::io::{AsRawFd, RawFd};
 #[cfg(test)]
 use std::slice;
 use vmm_sys_util::errno;
-use vmm_sys_util::ioctl::{ioctl_with_mut_ref, ioctl_with_ref};
+use vmm_sys_util::ioctl::ioctl_with_mut_ref;
+#[cfg(target_arch = "x86_64")]
+use vmm_sys_util::ioctl::ioctl_with_ref;
 
 // Macro for setting up multiple 64 bit registers together
 // Arguments:
@@ -827,6 +829,7 @@ impl VcpuFd {
         }])
     }
     /// Returns the VCpu state. This IOCTLs can be used to get XSave and LAPIC state.
+    #[cfg(target_arch = "x86_64")]
     pub fn get_vp_state_ioctl(&self, state: &mut mshv_get_set_vp_state) -> Result<()> {
         // SAFETY: we know that our file is a vCPU fd and we verify the return result.
         let ret = unsafe { ioctl_with_mut_ref(self, MSHV_GET_VP_STATE(), state) };
@@ -837,6 +840,7 @@ impl VcpuFd {
     }
     /// Set vp states (LAPIC, XSave etc)
     /// Test code already covered by get/set_lapic/xsave
+    #[cfg(target_arch = "x86_64")]
     pub fn set_vp_state_ioctl(&self, state: &mshv_get_set_vp_state) -> Result<()> {
         // SAFETY: IOCTL call with correct types
         let ret = unsafe { ioctl_with_ref(self, MSHV_SET_VP_STATE(), state) };
@@ -846,6 +850,7 @@ impl VcpuFd {
         Ok(())
     }
     /// Get the state of the LAPIC (Local Advanced Programmable Interrupt Controller).
+    #[cfg(target_arch = "x86_64")]
     pub fn get_lapic(&self) -> Result<LapicState> {
         let buffer = Buffer::new(HV_PAGE_SIZE, HV_PAGE_SIZE)?;
         let mut vp_state = mshv_get_set_vp_state {
@@ -858,6 +863,7 @@ impl VcpuFd {
         Ok(LapicState::try_from(buffer)?)
     }
     /// Sets the state of the LAPIC (Local Advanced Programmable Interrupt Controller).
+    #[cfg(target_arch = "x86_64")]
     pub fn set_lapic(&self, lapic_state: &LapicState) -> Result<()> {
         let buffer = Buffer::try_from(lapic_state)?;
         let vp_state = mshv_get_set_vp_state {
@@ -869,6 +875,7 @@ impl VcpuFd {
         self.set_vp_state_ioctl(&vp_state)
     }
     /// Returns the xsave data
+    #[cfg(target_arch = "x86_64")]
     pub fn get_xsave(&self) -> Result<XSave> {
         let buffer = Buffer::new(HV_PAGE_SIZE, HV_PAGE_SIZE)?;
         let mut vp_state = mshv_get_set_vp_state {
@@ -881,6 +888,7 @@ impl VcpuFd {
         Ok(XSave::try_from(buffer)?)
     }
     /// Set the xsave data
+    #[cfg(target_arch = "x86_64")]
     pub fn set_xsave(&self, data: &XSave) -> Result<()> {
         let buffer = Buffer::try_from(data)?;
         let vp_state = mshv_get_set_vp_state {
@@ -939,6 +947,7 @@ impl VcpuFd {
         Ok(ret_regs)
     }
     /// Register override CPUID values for one leaf.
+    #[cfg(target_arch = "x86_64")]
     pub fn register_intercept_result_cpuid_entry(
         &self,
         entry: &hv_cpuid_entry,
@@ -994,6 +1003,7 @@ impl VcpuFd {
         Ok(())
     }
     /// Extend CPUID values delivered by hypervisor.
+    #[cfg(target_arch = "x86_64")]
     pub fn register_intercept_result_cpuid(&self, cpuid: &CpuId) -> Result<()> {
         let mut ret = Ok(());
 
