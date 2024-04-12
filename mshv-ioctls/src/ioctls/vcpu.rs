@@ -9,18 +9,15 @@ use mshv_bindings::*;
 use std::convert::TryFrom;
 use std::fs::File;
 use std::os::unix::io::{AsRawFd, RawFd};
-#[cfg(test)]
+#[cfg(all(test, target_arch = "x86_64"))]
 use std::slice;
 use vmm_sys_util::errno;
-use vmm_sys_util::ioctl::ioctl_with_mut_ref;
-#[cfg(target_arch = "x86_64")]
-use vmm_sys_util::ioctl::ioctl_with_ref;
+use vmm_sys_util::ioctl::{ioctl_with_mut_ref, ioctl_with_ref};
 
 // Macro for setting up multiple 64 bit registers together
 // Arguments:
 ///             1. vcpud fd
 ///             2. Array of Tuples of Register name and reguster value Example [(n1, v1), (n2,v2) ....]
-#[cfg(target_arch = "x86_64")]
 #[allow(unused_macros)]
 #[macro_export]
 macro_rules! set_registers_64 {
@@ -67,7 +64,6 @@ impl AsRawFd for VcpuFd {
 
 impl VcpuFd {
     /// Get the register values by providing an array of register names
-    #[cfg(not(target_arch = "aarch64"))]
     pub fn get_reg(&self, reg_names: &mut [hv_register_assoc]) -> Result<()> {
         //TODO: Error if input register len is zero
         let mut mshv_vp_register_args = mshv_vp_registers {
@@ -90,7 +86,6 @@ impl VcpuFd {
     ///
     /// * `reg_name` - general purpose register name.
     /// * `reg_value` - register value.
-    #[cfg(not(target_arch = "aarch64"))]
     pub fn set_reg(&self, regs: &[hv_register_assoc]) -> Result<()> {
         let hv_vp_register_args = mshv_vp_registers {
             count: regs.len() as i32,
@@ -1094,9 +1089,12 @@ impl VcpuFd {
 #[cfg(test)]
 mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
+    #[cfg(target_arch = "x86_64")]
     use super::*;
+    #[cfg(target_arch = "x86_64")]
     use crate::ioctls::system::Mshv;
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_regs() {
         let hv = Mshv::new().unwrap();
@@ -1136,7 +1134,7 @@ mod tests {
             assert!(get_regs[1].value.reg64 == 0x2);
         }
     }
-
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_sregs() {
         let hv = Mshv::new().unwrap();
@@ -1154,6 +1152,7 @@ mod tests {
         assert!(g_sregs.apic_base == s_sregs.apic_base);
         assert!(g_sregs.efer == s_sregs.efer);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_standardregisters() {
         let hv = Mshv::new().unwrap();
@@ -1168,6 +1167,7 @@ mod tests {
         assert!(g_regs.rcx == s_regs.rcx);
         assert!(g_regs.rdx == s_regs.rdx);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_debug_gisters() {
         let hv = Mshv::new().unwrap();
@@ -1360,6 +1360,7 @@ mod tests {
         vm.unmap_user_memory(mem_region).unwrap();
         unsafe { libc::munmap(load_addr as *mut c_void, mem_size) };
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_msrs() {
         let hv = Mshv::new().unwrap();
@@ -1396,6 +1397,7 @@ mod tests {
         assert!(g_regs.as_slice()[0].data == s_regs.as_slice()[0].data);
         assert!(g_regs.as_slice()[1].data == s_regs.as_slice()[1].data);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_vcpu_events() {
         let hv = Mshv::new().unwrap();
@@ -1413,6 +1415,7 @@ mod tests {
             assert!(g_regs.pending_event1[i] == s_regs.pending_event1[i]);
         }
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_xcrs() {
         let hv = Mshv::new().unwrap();
@@ -1424,6 +1427,7 @@ mod tests {
         let g_regs = vcpu.get_xcrs().unwrap();
         assert!(g_regs.xcr0 == s_regs.xcr0);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_lapic() {
         let hv = Mshv::new().unwrap();
@@ -1437,8 +1441,9 @@ mod tests {
             assert!(state.regs[i] == g_state.regs[i]);
         }
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
-    fn test_set_registers_64() {
+    fn test_set_registers_64_x86_64() {
         let hv = Mshv::new().unwrap();
         let vm = hv.create_vm().unwrap();
         let vcpu = vm.create_vcpu(0).unwrap();
@@ -1466,6 +1471,7 @@ mod tests {
             assert!(get_regs[1].value.reg64 == 0x2);
         }
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_get_set_xsave() {
         let hv = Mshv::new().unwrap();
@@ -1476,6 +1482,7 @@ mod tests {
 
         vcpu.set_xsave(&state).unwrap();
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_get_suspend_regs() {
         let hv = Mshv::new().unwrap();
@@ -1487,6 +1494,7 @@ mod tests {
         assert!(regs.explicit_register == 0x1);
         assert!(regs.intercept_register == 0x0);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_get_misc_regs() {
         let hv = Mshv::new().unwrap();
@@ -1498,6 +1506,7 @@ mod tests {
         let g_regs = vcpu.get_misc_regs().unwrap();
         assert!(g_regs.hypercall == s_regs.hypercall);
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_get_cpuid_values() {
         let hv = Mshv::new().unwrap();

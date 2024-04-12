@@ -433,6 +433,7 @@ mod tests {
         let vm = hv.create_vm_with_config(&pr);
         assert!(vm.is_ok());
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_get_msr_index_list() {
         let hv = Mshv::new().unwrap();

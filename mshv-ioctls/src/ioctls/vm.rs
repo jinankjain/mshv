@@ -756,6 +756,7 @@ mod tests {
         let vcpu = vm.create_vcpu(0);
         assert!(vcpu.is_ok());
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_assert_virtual_interrupt() {
         /* TODO better test with some code */
@@ -775,6 +776,7 @@ mod tests {
         };
         vm.request_virtual_interrupt(&cfg).unwrap();
     }
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_install_intercept() {
         let hv = Mshv::new().unwrap();
@@ -822,20 +824,22 @@ mod tests {
             )
             .unwrap();
         println!("Processor frequency: {val}");
-        vm.set_partition_property(
-            hv_partition_property_code_HV_PARTITION_PROPERTY_UNIMPLEMENTED_MSR_ACTION,
-            hv_unimplemented_msr_action_HV_UNIMPLEMENTED_MSR_ACTION_IGNORE_WRITE_READ_ZERO as u64,
-        )
-        .unwrap();
-        val = vm
-            .get_partition_property(
+        #[cfg(target_arch = "x86_64")] {
+            vm.set_partition_property(
                 hv_partition_property_code_HV_PARTITION_PROPERTY_UNIMPLEMENTED_MSR_ACTION,
+                hv_unimplemented_msr_action_HV_UNIMPLEMENTED_MSR_ACTION_IGNORE_WRITE_READ_ZERO as u64,
             )
             .unwrap();
-        assert!(
-            val == hv_unimplemented_msr_action_HV_UNIMPLEMENTED_MSR_ACTION_IGNORE_WRITE_READ_ZERO
-                .into()
-        );
+            val = vm
+                .get_partition_property(
+                    hv_partition_property_code_HV_PARTITION_PROPERTY_UNIMPLEMENTED_MSR_ACTION,
+                )
+                .unwrap();
+            assert!(
+                val == hv_unimplemented_msr_action_HV_UNIMPLEMENTED_MSR_ACTION_IGNORE_WRITE_READ_ZERO
+                    .into()
+            );
+        }
     }
     #[test]
     fn test_irqfd() {
