@@ -4,6 +4,7 @@
 //
 use crate::ioctls::Result;
 use crate::mshv_ioctls::*;
+#[cfg(target_arch = "x86_64")]
 use mshv_bindings::*;
 use std::convert::TryFrom;
 use std::fs::File;
@@ -17,6 +18,7 @@ use vmm_sys_util::ioctl::{ioctl_with_mut_ref, ioctl_with_ref};
 // Arguments:
 ///             1. vcpud fd
 ///             2. Array of Tuples of Register name and reguster value Example [(n1, v1), (n2,v2) ....]
+#[cfg(target_arch = "x86_64")]
 #[allow(unused_macros)]
 #[macro_export]
 macro_rules! set_registers_64 {
