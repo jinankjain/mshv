@@ -1,3 +1,6 @@
+name: MSHV Build test
+on: [pull_request, create]
+
 jobs:
   build:
     name: Build test for MSHV crate
@@ -7,7 +10,7 @@ jobs:
           - target: x86_64-unknown-linux-gnu
             command: build
 
-          - target: arch64-unknown-linux-musl
+          - target: aarch64-unknown-linux-musl
             command: build
 
     runs-on: ubuntu-latest
@@ -15,9 +18,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build binary
-        uses: houseabsolute/action-rust-cross@v0
+        uses: houseabsolute/actions-rust-cross@v0
         with:
           command: ${{ matrix.platform.command }}
           target: ${{ matrix.platform.target }}
           args: "--release"
-          strip: true
