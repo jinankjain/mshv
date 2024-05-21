@@ -324,6 +324,7 @@ pub const HV_X64_EX_PROCESSOR_MASKS_RECOMMENDED: u32 = 2048;
 pub const HV_X64_HYPERV_NESTED: u32 = 4096;
 pub const HV_X64_ENLIGHTENED_VMCS_RECOMMENDED: u32 = 16384;
 pub const HV_SHARED_GPA_BOUNDARY_ACTIVE: u32 = 32;
+pub const HV_VP_DISPATCH_INTERRUPT_INJECTION_AVAILABLE: u32 = 512;
 pub const HV_MAXIMUM_PROCESSORS: u32 = 2048;
 pub const HV_MAX_VP_INDEX: u32 = 2047;
 pub const HVCALL_FLUSH_VIRTUAL_ADDRESS_SPACE: u32 = 2;
@@ -504,6 +505,7 @@ pub const HV_X64_REGISTER_CLASS_XMM: u32 = 2;
 pub const HV_X64_REGISTER_CLASS_SEGMENT: u32 = 3;
 pub const HV_X64_REGISTER_CLASS_FLAGS: u32 = 4;
 pub const HV_VP_REGISTER_PAGE_VERSION_1: u32 = 1;
+pub const HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT: u32 = 7;
 pub const HV_PARTITION_PROCESSOR_FEATURES_BANKS: u32 = 2;
 pub const HV_PARTITION_SYNTHETIC_PROCESSOR_FEATURES_BANKS: u32 = 1;
 pub const HV_PARTITION_ISOLATION_TYPE_NONE: u32 = 0;
@@ -513,6 +515,7 @@ pub const HV_PARTITION_ISOLATION_TYPE_TDX: u32 = 3;
 pub const HV_PARTITION_ISOLATION_HOST_TYPE_NONE: u32 = 0;
 pub const HV_PARTITION_ISOLATION_HOST_TYPE_HARDWARE: u32 = 1;
 pub const HV_PARTITION_ISOLATION_HOST_TYPE_RESERVED: u32 = 2;
+pub const HV_PARTITION_CREATION_FLAG_GPA_SUPER_PAGES_ENABLED: u32 = 16;
 pub const HV_PARTITION_CREATION_FLAG_EXO_PARTITION: u32 = 256;
 pub const HV_PARTITION_CREATION_FLAG_LAPIC_ENABLED: u32 = 8192;
 pub const HV_PARTITION_CREATION_FLAG_INTERCEPT_MESSAGE_PAGE_ENABLED: u32 = 524288;
@@ -545,24 +548,24 @@ pub const HV_DISPATCH_VP_FLAG_SET_CALLER_SPEC_CTRL: u32 = 4;
 pub const HV_DISPATCH_VP_FLAG_SKIP_VP_SPEC_FLUSH: u32 = 8;
 pub const HV_DISPATCH_VP_FLAG_SKIP_CALLER_SPEC_FLUSH: u32 = 16;
 pub const HV_DISPATCH_VP_FLAG_SKIP_CALLER_USER_SPEC_FLUSH: u32 = 32;
+pub const HV_DISPATCH_VP_FLAG_SCAN_INTERRUPT_INJECTION: u32 = 64;
 pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_EXCLUSIVE: u32 = 1;
 pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_SHARED: u32 = 2;
 pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE: u32 = 4;
 pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE: u32 = 8;
 pub const HV_PSP_CPUID_LEAF_COUNT_MAX: u32 = 64;
 pub const HV_READ_WRITE_GPA_MAX_SIZE: u32 = 16;
-pub const MSHV_API_VERSION: u32 = 0;
-pub const MAX_RUN_MSG_SIZE: u32 = 256;
+pub const MSHV_IOCTL: u32 = 184;
 pub const MSHV_VP_MAX_REGISTERS: u32 = 128;
+pub const MSHV_API_VERSION: u32 = 0;
 pub const MSHV_IRQFD_FLAG_DEASSIGN: u32 = 1;
 pub const MSHV_IRQFD_FLAG_RESAMPLE: u32 = 2;
-pub const MSHV_IOCTL: u32 = 184;
-pub const MSHV_DIAG_IOCTL: u32 = 185;
-pub const MSHV_TRACE_IOCTL: u32 = 186;
 pub const MSHV_CREATE_DEVICE_TEST: u32 = 1;
 pub const MSHV_DEV_VFIO_GROUP: u32 = 1;
 pub const MSHV_DEV_VFIO_GROUP_ADD: u32 = 1;
 pub const MSHV_DEV_VFIO_GROUP_DEL: u32 = 2;
+pub const MSHV_DIAG_IOCTL: u32 = 185;
+pub const MSHV_TRACE_IOCTL: u32 = 186;
 pub type bool_ = bool;
 pub type __s8 = ::std::os::raw::c_schar;
 pub type __u8 = ::std::os::raw::c_uchar;
@@ -9213,58 +9216,10 @@ impl hv_proximity_domain_flags {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union hv_proximity_domain_info {
-    pub __bindgen_anon_1: hv_proximity_domain_info__bindgen_ty_1,
-    pub as_uint64: __u64,
-}
-#[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct hv_proximity_domain_info__bindgen_ty_1 {
+pub struct hv_proximity_domain_info {
     pub domain_id: __u32,
     pub flags: hv_proximity_domain_flags,
-}
-#[test]
-fn bindgen_test_layout_hv_proximity_domain_info__bindgen_ty_1() {
-    const UNINIT: ::std::mem::MaybeUninit<hv_proximity_domain_info__bindgen_ty_1> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<hv_proximity_domain_info__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(hv_proximity_domain_info__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<hv_proximity_domain_info__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(hv_proximity_domain_info__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).domain_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(hv_proximity_domain_info__bindgen_ty_1),
-            "::",
-            stringify!(domain_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(hv_proximity_domain_info__bindgen_ty_1),
-            "::",
-            stringify!(flags)
-        )
-    );
 }
 #[test]
 fn bindgen_test_layout_hv_proximity_domain_info() {
@@ -9282,24 +9237,25 @@ fn bindgen_test_layout_hv_proximity_domain_info() {
         concat!("Alignment of ", stringify!(hv_proximity_domain_info))
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).domain_id) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
             stringify!(hv_proximity_domain_info),
             "::",
-            stringify!(as_uint64)
+            stringify!(domain_id)
         )
     );
-}
-impl Default for hv_proximity_domain_info {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_proximity_domain_info),
+            "::",
+            stringify!(flags)
+        )
+    );
 }
 #[repr(C, packed)]
 pub struct hv_deposit_memory {
@@ -9351,7 +9307,7 @@ impl Default for hv_deposit_memory {
     }
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct hv_input_withdraw_memory {
     pub partition_id: __u64,
     pub proximity_domain_info: hv_proximity_domain_info,
@@ -9391,15 +9347,6 @@ fn bindgen_test_layout_hv_input_withdraw_memory() {
             stringify!(proximity_domain_info)
         )
     );
-}
-impl Default for hv_input_withdraw_memory {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C, packed)]
 pub struct hv_output_withdraw_memory {
@@ -10925,7 +10872,7 @@ fn bindgen_test_layout_hv_lp_startup_status() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct hv_input_add_logical_processor {
     pub lp_index: __u32,
     pub apic_id: __u32,
@@ -10976,15 +10923,6 @@ fn bindgen_test_layout_hv_input_add_logical_processor() {
             stringify!(proximity_domain_info)
         )
     );
-}
-impl Default for hv_input_add_logical_processor {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C, packed)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
@@ -11132,7 +11070,7 @@ pub const HvSubnodeCount: _bindgen_ty_1 = 4;
 pub const HvSubnodeInvalid: _bindgen_ty_1 = -1;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct hv_create_vp {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -11226,15 +11164,6 @@ fn bindgen_test_layout_hv_create_vp() {
             stringify!(flags)
         )
     );
-}
-impl Default for hv_create_vp {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C, packed)]
 pub struct hv_send_ipi_ex {
@@ -12867,6 +12796,101 @@ impl Default for hv_stats_page {
 }
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
+pub union hv_vp_register_page_interrupt_vectors {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_vp_register_page_interrupt_vectors__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vp_register_page_interrupt_vectors__bindgen_ty_1 {
+    pub vector_count: __u8,
+    pub vector: [__u8; 7usize],
+}
+#[test]
+fn bindgen_test_layout_hv_vp_register_page_interrupt_vectors__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_register_page_interrupt_vectors__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_register_page_interrupt_vectors__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vp_register_page_interrupt_vectors__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_register_page_interrupt_vectors__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_register_page_interrupt_vectors__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vector_count) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_register_page_interrupt_vectors__bindgen_ty_1),
+            "::",
+            stringify!(vector_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vector) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_register_page_interrupt_vectors__bindgen_ty_1),
+            "::",
+            stringify!(vector)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_vp_register_page_interrupt_vectors() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_register_page_interrupt_vectors> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_register_page_interrupt_vectors>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vp_register_page_interrupt_vectors)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_register_page_interrupt_vectors>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_register_page_interrupt_vectors)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_register_page_interrupt_vectors),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_vp_register_page_interrupt_vectors {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
 pub struct hv_vp_register_page {
     pub version: __u16,
     pub isvalid: __u8,
@@ -12886,6 +12910,8 @@ pub struct hv_vp_register_page {
     pub interrupt_state: hv_x64_interrupt_state_register,
     pub instruction_emulation_hints: __u64,
     pub xfem: __u64,
+    pub reserved1: [__u8; 256usize],
+    pub interrupt_vectors: hv_vp_register_page_interrupt_vectors,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -13533,7 +13559,7 @@ fn bindgen_test_layout_hv_vp_register_page() {
     let ptr = UNINIT.as_ptr();
     assert_eq!(
         ::std::mem::size_of::<hv_vp_register_page>(),
-        432usize,
+        696usize,
         concat!("Size of: ", stringify!(hv_vp_register_page))
     );
     assert_eq!(
@@ -13689,6 +13715,26 @@ fn bindgen_test_layout_hv_vp_register_page() {
             stringify!(hv_vp_register_page),
             "::",
             stringify!(xfem)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved1) as usize - ptr as usize },
+        432usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_register_page),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).interrupt_vectors) as usize - ptr as usize },
+        688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_register_page),
+            "::",
+            stringify!(interrupt_vectors)
         )
     );
 }
@@ -15899,14 +15945,124 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
         }
     }
     #[inline]
+    pub fn nested_debug_ctl(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(33usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_nested_debug_ctl(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(33usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn synthetic_time_unhalted_timer(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(34usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_synthetic_time_unhalted_timer(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(34usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn idle_spec_ctrl(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(35usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_idle_spec_ctrl(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(35usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z36(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(36usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z36(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(36usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn wake_vps(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(37usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_wake_vps(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(37usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn access_vp_regs(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(38usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_access_vp_regs(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(38usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z39(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(39usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z39(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(39usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn management_vtl_synic_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(40usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_management_vtl_synic_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(40usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z41(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(41usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z41(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(41usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z42(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(42usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z42(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(42usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
     pub fn reserved(&self) -> __u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(33usize, 31u8) as u64) }
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(43usize, 21u8) as u64) }
     }
     #[inline]
     pub fn set_reserved(&mut self, val: __u64) {
         unsafe {
             let val: u64 = ::std::mem::transmute(val);
-            self._bitfield_1.set(33usize, 31u8, val as u64)
+            self._bitfield_1.set(43usize, 21u8, val as u64)
         }
     }
     #[inline]
@@ -15944,6 +16100,16 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
         retarget_device_interrupt: __u64,
         restore_time: __u64,
         enlightened_vmcs: __u64,
+        nested_debug_ctl: __u64,
+        synthetic_time_unhalted_timer: __u64,
+        idle_spec_ctrl: __u64,
+        reserved_z36: __u64,
+        wake_vps: __u64,
+        access_vp_regs: __u64,
+        reserved_z39: __u64,
+        management_vtl_synic_support: __u64,
+        reserved_z41: __u64,
+        reserved_z42: __u64,
         reserved: __u64,
     ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
@@ -16096,7 +16262,49 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
             let enlightened_vmcs: u64 = unsafe { ::std::mem::transmute(enlightened_vmcs) };
             enlightened_vmcs as u64
         });
-        __bindgen_bitfield_unit.set(33usize, 31u8, {
+        __bindgen_bitfield_unit.set(33usize, 1u8, {
+            let nested_debug_ctl: u64 = unsafe { ::std::mem::transmute(nested_debug_ctl) };
+            nested_debug_ctl as u64
+        });
+        __bindgen_bitfield_unit.set(34usize, 1u8, {
+            let synthetic_time_unhalted_timer: u64 =
+                unsafe { ::std::mem::transmute(synthetic_time_unhalted_timer) };
+            synthetic_time_unhalted_timer as u64
+        });
+        __bindgen_bitfield_unit.set(35usize, 1u8, {
+            let idle_spec_ctrl: u64 = unsafe { ::std::mem::transmute(idle_spec_ctrl) };
+            idle_spec_ctrl as u64
+        });
+        __bindgen_bitfield_unit.set(36usize, 1u8, {
+            let reserved_z36: u64 = unsafe { ::std::mem::transmute(reserved_z36) };
+            reserved_z36 as u64
+        });
+        __bindgen_bitfield_unit.set(37usize, 1u8, {
+            let wake_vps: u64 = unsafe { ::std::mem::transmute(wake_vps) };
+            wake_vps as u64
+        });
+        __bindgen_bitfield_unit.set(38usize, 1u8, {
+            let access_vp_regs: u64 = unsafe { ::std::mem::transmute(access_vp_regs) };
+            access_vp_regs as u64
+        });
+        __bindgen_bitfield_unit.set(39usize, 1u8, {
+            let reserved_z39: u64 = unsafe { ::std::mem::transmute(reserved_z39) };
+            reserved_z39 as u64
+        });
+        __bindgen_bitfield_unit.set(40usize, 1u8, {
+            let management_vtl_synic_support: u64 =
+                unsafe { ::std::mem::transmute(management_vtl_synic_support) };
+            management_vtl_synic_support as u64
+        });
+        __bindgen_bitfield_unit.set(41usize, 1u8, {
+            let reserved_z41: u64 = unsafe { ::std::mem::transmute(reserved_z41) };
+            reserved_z41 as u64
+        });
+        __bindgen_bitfield_unit.set(42usize, 1u8, {
+            let reserved_z42: u64 = unsafe { ::std::mem::transmute(reserved_z42) };
+            reserved_z42 as u64
+        });
+        __bindgen_bitfield_unit.set(43usize, 21u8, {
             let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
             reserved as u64
         });
@@ -25644,85 +25852,6 @@ fn bindgen_test_layout_hv_input_issue_psp_guest_request() {
         )
     );
 }
-pub const MSHV_CAP_RSVD: _bindgen_ty_2 = 0;
-pub const MSHV_CAP_VTL_REGISTER_PAGE: _bindgen_ty_2 = 1;
-pub const MSHV_CAP_VTL_RETURN_ACTION: _bindgen_ty_2 = 2;
-pub const MSHV_CAP_VTL_DR6_SHARED: _bindgen_ty_2 = 3;
-pub type _bindgen_ty_2 = ::std::os::raw::c_uint;
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_version_info {
-    pub mshv_uapi_version: __u32,
-    pub rsvd_0: [__u32; 3usize],
-    pub mshv_api_version: __u32,
-    pub rsvd_1: __u32,
-    pub mshv_capabilities: __u64,
-}
-#[test]
-fn bindgen_test_layout_mshv_version_info() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_version_info> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_version_info>(),
-        32usize,
-        concat!("Size of: ", stringify!(mshv_version_info))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_version_info>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_version_info))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).mshv_uapi_version) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_version_info),
-            "::",
-            stringify!(mshv_uapi_version)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_0) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_version_info),
-            "::",
-            stringify!(rsvd_0)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).mshv_api_version) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_version_info),
-            "::",
-            stringify!(mshv_api_version)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_1) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_version_info),
-            "::",
-            stringify!(rsvd_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).mshv_capabilities) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_version_info),
-            "::",
-            stringify!(mshv_capabilities)
-        )
-    );
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct mshv_create_partition {
@@ -25860,36 +25989,6 @@ fn bindgen_test_layout_mshv_user_mem_region() {
             stringify!(mshv_user_mem_region),
             "::",
             stringify!(flags)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_create_vp {
-    pub vp_index: __u32,
-}
-#[test]
-fn bindgen_test_layout_mshv_create_vp() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_create_vp> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_create_vp>(),
-        4usize,
-        concat!("Size of: ", stringify!(mshv_create_vp))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_create_vp>(),
-        4usize,
-        concat!("Alignment of ", stringify!(mshv_create_vp))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_create_vp),
-            "::",
-            stringify!(vp_index)
         )
     );
 }
@@ -26078,77 +26177,6 @@ impl Default for mshv_assert_interrupt {
         }
     }
 }
-pub const MSHV_VP_STATE_LAPIC: _bindgen_ty_3 = 0;
-pub const MSHV_VP_STATE_XSAVE: _bindgen_ty_3 = 1;
-pub const MSHV_VP_STATE_SIMP: _bindgen_ty_3 = 2;
-pub const MSHV_VP_STATE_SIEFP: _bindgen_ty_3 = 3;
-pub const MSHV_VP_STATE_SYNTHETIC_TIMERS: _bindgen_ty_3 = 4;
-pub const MSHV_VP_STATE_COUNT: _bindgen_ty_3 = 5;
-pub type _bindgen_ty_3 = ::std::os::raw::c_uint;
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_get_set_vp_state {
-    pub type_: __u8,
-    pub rsvd: [__u8; 3usize],
-    pub buf_sz: __u32,
-    pub buf_ptr: __u64,
-}
-#[test]
-fn bindgen_test_layout_mshv_get_set_vp_state() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_get_set_vp_state> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_get_set_vp_state>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_get_set_vp_state))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_get_set_vp_state>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_get_set_vp_state))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_get_set_vp_state),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).rsvd) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_get_set_vp_state),
-            "::",
-            stringify!(rsvd)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).buf_sz) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_get_set_vp_state),
-            "::",
-            stringify!(buf_sz)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).buf_ptr) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_get_set_vp_state),
-            "::",
-            stringify!(buf_ptr)
-        )
-    );
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_partition_property {
@@ -26271,275 +26299,6 @@ impl Default for mshv_translate_gva {
             s.assume_init()
         }
     }
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_irqfd {
-    pub fd: __s32,
-    pub resamplefd: __s32,
-    pub gsi: __u32,
-    pub flags: __u32,
-}
-#[test]
-fn bindgen_test_layout_mshv_irqfd() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_irqfd> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_irqfd>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_irqfd))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_irqfd>(),
-        4usize,
-        concat!("Alignment of ", stringify!(mshv_irqfd))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).fd) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_irqfd),
-            "::",
-            stringify!(fd)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).resamplefd) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_irqfd),
-            "::",
-            stringify!(resamplefd)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_irqfd),
-            "::",
-            stringify!(gsi)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_irqfd),
-            "::",
-            stringify!(flags)
-        )
-    );
-}
-pub const mshv_ioeventfd_flag_nr_datamatch: _bindgen_ty_4 = 0;
-pub const mshv_ioeventfd_flag_nr_pio: _bindgen_ty_4 = 1;
-pub const mshv_ioeventfd_flag_nr_deassign: _bindgen_ty_4 = 2;
-pub const mshv_ioeventfd_flag_nr_max: _bindgen_ty_4 = 3;
-pub type _bindgen_ty_4 = ::std::os::raw::c_uint;
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_ioeventfd {
-    pub datamatch: __u64,
-    pub addr: __u64,
-    pub len: __u32,
-    pub fd: __s32,
-    pub flags: __u32,
-    pub pad: [__u8; 4usize],
-}
-#[test]
-fn bindgen_test_layout_mshv_ioeventfd() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_ioeventfd> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_ioeventfd>(),
-        32usize,
-        concat!("Size of: ", stringify!(mshv_ioeventfd))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_ioeventfd>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_ioeventfd))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).datamatch) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(datamatch)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).addr) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(addr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).len) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).fd) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(fd)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(flags)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_ioeventfd),
-            "::",
-            stringify!(pad)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_msi_routing_entry {
-    pub gsi: __u32,
-    pub address_lo: __u32,
-    pub address_hi: __u32,
-    pub data: __u32,
-}
-#[test]
-fn bindgen_test_layout_mshv_msi_routing_entry() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing_entry> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_msi_routing_entry>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_msi_routing_entry))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_msi_routing_entry>(),
-        4usize,
-        concat!("Alignment of ", stringify!(mshv_msi_routing_entry))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
-            "::",
-            stringify!(gsi)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).address_lo) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
-            "::",
-            stringify!(address_lo)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).address_hi) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
-            "::",
-            stringify!(address_hi)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Default)]
-pub struct mshv_msi_routing {
-    pub nr: __u32,
-    pub pad: __u32,
-    pub entries: __IncompleteArrayField<mshv_msi_routing_entry>,
-}
-#[test]
-fn bindgen_test_layout_mshv_msi_routing() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_msi_routing>(),
-        8usize,
-        concat!("Size of: ", stringify!(mshv_msi_routing))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_msi_routing>(),
-        4usize,
-        concat!("Alignment of ", stringify!(mshv_msi_routing))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).nr) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing),
-            "::",
-            stringify!(nr)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing),
-            "::",
-            stringify!(pad)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).entries) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_msi_routing),
-            "::",
-            stringify!(entries)
-        )
-    );
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -26918,88 +26677,601 @@ fn bindgen_test_layout_mshv_get_vp_cpuid_values() {
         )
     );
 }
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_trace_config {
-    pub mode: __u32,
-    pub max_buffers_count: __u32,
-    pub pages_per_buffer: __u32,
-    pub buffers_threshold: __u32,
-    pub time_basis: __u32,
-    pub system_time: __u64,
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_get_gpa_pages_access_state {
+    pub count: __u32,
+    pub flags: __u64,
+    pub hv_gpa_page_number: __u64,
+    pub states: *mut hv_gpa_page_access_state,
 }
 #[test]
-fn bindgen_test_layout_mshv_trace_config() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_trace_config> = ::std::mem::MaybeUninit::uninit();
+fn bindgen_test_layout_mshv_get_gpa_pages_access_state() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_get_gpa_pages_access_state> =
+        ::std::mem::MaybeUninit::uninit();
     let ptr = UNINIT.as_ptr();
     assert_eq!(
-        ::std::mem::size_of::<mshv_trace_config>(),
-        32usize,
-        concat!("Size of: ", stringify!(mshv_trace_config))
+        ::std::mem::size_of::<mshv_get_gpa_pages_access_state>(),
+        28usize,
+        concat!("Size of: ", stringify!(mshv_get_gpa_pages_access_state))
     );
     assert_eq!(
-        ::std::mem::align_of::<mshv_trace_config>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_trace_config))
+        ::std::mem::align_of::<mshv_get_gpa_pages_access_state>(),
+        1usize,
+        concat!("Alignment of ", stringify!(mshv_get_gpa_pages_access_state))
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).mode) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).count) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_trace_config),
+            stringify!(mshv_get_gpa_pages_access_state),
             "::",
-            stringify!(mode)
+            stringify!(count)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).max_buffers_count) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_trace_config),
+            stringify!(mshv_get_gpa_pages_access_state),
             "::",
-            stringify!(max_buffers_count)
+            stringify!(flags)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).pages_per_buffer) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_trace_config),
-            "::",
-            stringify!(pages_per_buffer)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).buffers_threshold) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_gpa_page_number) as usize - ptr as usize },
         12usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_trace_config),
+            stringify!(mshv_get_gpa_pages_access_state),
             "::",
-            stringify!(buffers_threshold)
+            stringify!(hv_gpa_page_number)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).time_basis) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).states) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_get_gpa_pages_access_state),
+            "::",
+            stringify!(states)
+        )
+    );
+}
+impl Default for mshv_get_gpa_pages_access_state {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_read_write_gpa {
+    pub base_gpa: __u64,
+    pub byte_count: __u32,
+    pub flags: __u32,
+    pub data: [__u8; 16usize],
+}
+#[test]
+fn bindgen_test_layout_mshv_read_write_gpa() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_read_write_gpa> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_read_write_gpa>(),
+        32usize,
+        concat!("Size of: ", stringify!(mshv_read_write_gpa))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_read_write_gpa>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_read_write_gpa))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).base_gpa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_read_write_gpa),
+            "::",
+            stringify!(base_gpa)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).byte_count) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_read_write_gpa),
+            "::",
+            stringify!(byte_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_read_write_gpa),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
         16usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_trace_config),
+            stringify!(mshv_read_write_gpa),
             "::",
-            stringify!(time_basis)
+            stringify!(data)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_sev_snp_ap_create {
+    pub vp_id: __u64,
+    pub vmsa_gpa: __u64,
+}
+#[test]
+fn bindgen_test_layout_mshv_sev_snp_ap_create() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_sev_snp_ap_create> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_sev_snp_ap_create>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_sev_snp_ap_create))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_sev_snp_ap_create>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_sev_snp_ap_create))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_sev_snp_ap_create),
+            "::",
+            stringify!(vp_id)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).system_time) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).vmsa_gpa) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_sev_snp_ap_create),
+            "::",
+            stringify!(vmsa_gpa)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_issue_psp_guest_request {
+    pub req_gpa: __u64,
+    pub rsp_gpa: __u64,
+}
+#[test]
+fn bindgen_test_layout_mshv_issue_psp_guest_request() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_issue_psp_guest_request> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_issue_psp_guest_request>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_issue_psp_guest_request))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_issue_psp_guest_request>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_issue_psp_guest_request))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).req_gpa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_issue_psp_guest_request),
+            "::",
+            stringify!(req_gpa)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsp_gpa) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_issue_psp_guest_request),
+            "::",
+            stringify!(rsp_gpa)
+        )
+    );
+}
+pub const MSHV_CAP_RSVD: _bindgen_ty_2 = 0;
+pub const MSHV_CAP_VTL_REGISTER_PAGE: _bindgen_ty_2 = 1;
+pub const MSHV_CAP_VTL_RETURN_ACTION: _bindgen_ty_2 = 2;
+pub const MSHV_CAP_VTL_DR6_SHARED: _bindgen_ty_2 = 3;
+pub type _bindgen_ty_2 = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_version_info {
+    pub mshv_uapi_version: __u32,
+    pub rsvd_0: [__u32; 3usize],
+    pub mshv_api_version: __u32,
+    pub rsvd_1: __u32,
+    pub mshv_capabilities: __u64,
+}
+#[test]
+fn bindgen_test_layout_mshv_version_info() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_version_info> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_version_info>(),
+        32usize,
+        concat!("Size of: ", stringify!(mshv_version_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_version_info>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_version_info))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mshv_uapi_version) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_version_info),
+            "::",
+            stringify!(mshv_uapi_version)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_0) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_version_info),
+            "::",
+            stringify!(rsvd_0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mshv_api_version) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_version_info),
+            "::",
+            stringify!(mshv_api_version)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_1) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_version_info),
+            "::",
+            stringify!(rsvd_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mshv_capabilities) as usize - ptr as usize },
         24usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_trace_config),
+            stringify!(mshv_version_info),
             "::",
-            stringify!(system_time)
+            stringify!(mshv_capabilities)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_create_vp {
+    pub vp_index: __u32,
+}
+#[test]
+fn bindgen_test_layout_mshv_create_vp() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_create_vp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_create_vp>(),
+        4usize,
+        concat!("Size of: ", stringify!(mshv_create_vp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_create_vp>(),
+        4usize,
+        concat!("Alignment of ", stringify!(mshv_create_vp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_create_vp),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_irqfd {
+    pub fd: __s32,
+    pub resamplefd: __s32,
+    pub gsi: __u32,
+    pub flags: __u32,
+}
+#[test]
+fn bindgen_test_layout_mshv_irqfd() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irqfd> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_irqfd>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_irqfd))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_irqfd>(),
+        4usize,
+        concat!("Alignment of ", stringify!(mshv_irqfd))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fd) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irqfd),
+            "::",
+            stringify!(fd)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).resamplefd) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irqfd),
+            "::",
+            stringify!(resamplefd)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irqfd),
+            "::",
+            stringify!(gsi)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irqfd),
+            "::",
+            stringify!(flags)
+        )
+    );
+}
+pub const mshv_ioeventfd_flag_nr_datamatch: _bindgen_ty_3 = 0;
+pub const mshv_ioeventfd_flag_nr_pio: _bindgen_ty_3 = 1;
+pub const mshv_ioeventfd_flag_nr_deassign: _bindgen_ty_3 = 2;
+pub const mshv_ioeventfd_flag_nr_max: _bindgen_ty_3 = 3;
+pub type _bindgen_ty_3 = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_ioeventfd {
+    pub datamatch: __u64,
+    pub addr: __u64,
+    pub len: __u32,
+    pub fd: __s32,
+    pub flags: __u32,
+    pub pad: [__u8; 4usize],
+}
+#[test]
+fn bindgen_test_layout_mshv_ioeventfd() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_ioeventfd> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_ioeventfd>(),
+        32usize,
+        concat!("Size of: ", stringify!(mshv_ioeventfd))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_ioeventfd>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_ioeventfd))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).datamatch) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(datamatch)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).addr) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(addr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).len) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(len)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fd) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(fd)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_ioeventfd),
+            "::",
+            stringify!(pad)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_msi_routing_entry {
+    pub gsi: __u32,
+    pub address_lo: __u32,
+    pub address_hi: __u32,
+    pub data: __u32,
+}
+#[test]
+fn bindgen_test_layout_mshv_msi_routing_entry() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing_entry> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_msi_routing_entry>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_msi_routing_entry))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_msi_routing_entry>(),
+        4usize,
+        concat!("Alignment of ", stringify!(mshv_msi_routing_entry))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing_entry),
+            "::",
+            stringify!(gsi)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).address_lo) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing_entry),
+            "::",
+            stringify!(address_lo)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).address_hi) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing_entry),
+            "::",
+            stringify!(address_hi)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing_entry),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default)]
+pub struct mshv_msi_routing {
+    pub nr: __u32,
+    pub pad: __u32,
+    pub entries: __IncompleteArrayField<mshv_msi_routing_entry>,
+}
+#[test]
+fn bindgen_test_layout_mshv_msi_routing() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_msi_routing>(),
+        8usize,
+        concat!("Size of: ", stringify!(mshv_msi_routing))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_msi_routing>(),
+        4usize,
+        concat!("Alignment of ", stringify!(mshv_msi_routing))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nr) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing),
+            "::",
+            stringify!(nr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing),
+            "::",
+            stringify!(pad)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).entries) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_msi_routing),
+            "::",
+            stringify!(entries)
         )
     );
 }
@@ -27193,55 +27465,13 @@ impl Default for mshv_complete_isolated_import {
 }
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_issue_psp_guest_request {
-    pub req_gpa: __u64,
-    pub rsp_gpa: __u64,
-}
-#[test]
-fn bindgen_test_layout_mshv_issue_psp_guest_request() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_issue_psp_guest_request> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_issue_psp_guest_request>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_issue_psp_guest_request))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_issue_psp_guest_request>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_issue_psp_guest_request))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).req_gpa) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_issue_psp_guest_request),
-            "::",
-            stringify!(req_gpa)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).rsp_gpa) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_issue_psp_guest_request),
-            "::",
-            stringify!(rsp_gpa)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_root_hvcall {
     pub code: __u16,
     pub reps: __u16,
     pub in_sz: __u16,
     pub out_sz: __u16,
     pub status: __u16,
-    pub rsvd: [__u16; 3usize],
+    pub rsvd: [__u8; 6usize],
     pub in_ptr: __u64,
     pub out_ptr: __u64,
 }
@@ -27340,78 +27570,76 @@ fn bindgen_test_layout_mshv_root_hvcall() {
         )
     );
 }
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_get_gpa_pages_access_state {
-    pub count: __u32,
-    pub flags: __u64,
-    pub hv_gpa_page_number: __u64,
-    pub states: *mut hv_gpa_page_access_state,
+pub const MSHV_VP_STATE_LAPIC: _bindgen_ty_4 = 0;
+pub const MSHV_VP_STATE_XSAVE: _bindgen_ty_4 = 1;
+pub const MSHV_VP_STATE_SIMP: _bindgen_ty_4 = 2;
+pub const MSHV_VP_STATE_SIEFP: _bindgen_ty_4 = 3;
+pub const MSHV_VP_STATE_SYNTHETIC_TIMERS: _bindgen_ty_4 = 4;
+pub const MSHV_VP_STATE_COUNT: _bindgen_ty_4 = 5;
+pub type _bindgen_ty_4 = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_get_set_vp_state {
+    pub type_: __u8,
+    pub rsvd: [__u8; 3usize],
+    pub buf_sz: __u32,
+    pub buf_ptr: __u64,
 }
 #[test]
-fn bindgen_test_layout_mshv_get_gpa_pages_access_state() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_get_gpa_pages_access_state> =
+fn bindgen_test_layout_mshv_get_set_vp_state() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_get_set_vp_state> =
         ::std::mem::MaybeUninit::uninit();
     let ptr = UNINIT.as_ptr();
     assert_eq!(
-        ::std::mem::size_of::<mshv_get_gpa_pages_access_state>(),
-        28usize,
-        concat!("Size of: ", stringify!(mshv_get_gpa_pages_access_state))
+        ::std::mem::size_of::<mshv_get_set_vp_state>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_get_set_vp_state))
     );
     assert_eq!(
-        ::std::mem::align_of::<mshv_get_gpa_pages_access_state>(),
-        1usize,
-        concat!("Alignment of ", stringify!(mshv_get_gpa_pages_access_state))
+        ::std::mem::align_of::<mshv_get_set_vp_state>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_get_set_vp_state))
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).count) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_get_gpa_pages_access_state),
+            stringify!(mshv_get_set_vp_state),
             "::",
-            stringify!(count)
+            stringify!(type_)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvd) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_get_set_vp_state),
+            "::",
+            stringify!(rsvd)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_sz) as usize - ptr as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_get_gpa_pages_access_state),
+            stringify!(mshv_get_set_vp_state),
             "::",
-            stringify!(flags)
+            stringify!(buf_sz)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).hv_gpa_page_number) as usize - ptr as usize },
-        12usize,
+        unsafe { ::std::ptr::addr_of!((*ptr).buf_ptr) as usize - ptr as usize },
+        8usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_get_gpa_pages_access_state),
+            stringify!(mshv_get_set_vp_state),
             "::",
-            stringify!(hv_gpa_page_number)
+            stringify!(buf_ptr)
         )
     );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).states) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_get_gpa_pages_access_state),
-            "::",
-            stringify!(states)
-        )
-    );
-}
-impl Default for mshv_get_gpa_pages_access_state {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
@@ -27533,106 +27761,86 @@ fn bindgen_test_layout_mshv_device_attr() {
 }
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_read_write_gpa {
-    pub base_gpa: __u64,
-    pub byte_count: __u32,
-    pub flags: __u32,
-    pub data: [__u8; 16usize],
+pub struct mshv_trace_config {
+    pub mode: __u32,
+    pub max_buffers_count: __u32,
+    pub pages_per_buffer: __u32,
+    pub buffers_threshold: __u32,
+    pub time_basis: __u32,
+    pub system_time: __u64,
 }
 #[test]
-fn bindgen_test_layout_mshv_read_write_gpa() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_read_write_gpa> = ::std::mem::MaybeUninit::uninit();
+fn bindgen_test_layout_mshv_trace_config() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_trace_config> = ::std::mem::MaybeUninit::uninit();
     let ptr = UNINIT.as_ptr();
     assert_eq!(
-        ::std::mem::size_of::<mshv_read_write_gpa>(),
+        ::std::mem::size_of::<mshv_trace_config>(),
         32usize,
-        concat!("Size of: ", stringify!(mshv_read_write_gpa))
+        concat!("Size of: ", stringify!(mshv_trace_config))
     );
     assert_eq!(
-        ::std::mem::align_of::<mshv_read_write_gpa>(),
+        ::std::mem::align_of::<mshv_trace_config>(),
         8usize,
-        concat!("Alignment of ", stringify!(mshv_read_write_gpa))
+        concat!("Alignment of ", stringify!(mshv_trace_config))
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).base_gpa) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).mode) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_read_write_gpa),
+            stringify!(mshv_trace_config),
             "::",
-            stringify!(base_gpa)
+            stringify!(mode)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).byte_count) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).max_buffers_count) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_trace_config),
+            "::",
+            stringify!(max_buffers_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pages_per_buffer) as usize - ptr as usize },
         8usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_read_write_gpa),
+            stringify!(mshv_trace_config),
             "::",
-            stringify!(byte_count)
+            stringify!(pages_per_buffer)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).buffers_threshold) as usize - ptr as usize },
         12usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_read_write_gpa),
+            stringify!(mshv_trace_config),
             "::",
-            stringify!(flags)
+            stringify!(buffers_threshold)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).time_basis) as usize - ptr as usize },
         16usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_read_write_gpa),
+            stringify!(mshv_trace_config),
             "::",
-            stringify!(data)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_sev_snp_ap_create {
-    pub vp_id: __u64,
-    pub vmsa_gpa: __u64,
-}
-#[test]
-fn bindgen_test_layout_mshv_sev_snp_ap_create() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_sev_snp_ap_create> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<mshv_sev_snp_ap_create>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_sev_snp_ap_create))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<mshv_sev_snp_ap_create>(),
-        8usize,
-        concat!("Alignment of ", stringify!(mshv_sev_snp_ap_create))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).vp_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(mshv_sev_snp_ap_create),
-            "::",
-            stringify!(vp_id)
+            stringify!(time_basis)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).vmsa_gpa) as usize - ptr as usize },
-        8usize,
+        unsafe { ::std::ptr::addr_of!((*ptr).system_time) as usize - ptr as usize },
+        24usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_sev_snp_ap_create),
+            stringify!(mshv_trace_config),
             "::",
-            stringify!(vmsa_gpa)
+            stringify!(system_time)
         )
     );
 }
