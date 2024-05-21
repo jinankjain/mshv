@@ -65,10 +65,7 @@ impl MshvPartitionBuilder {
             mshv_partition: mshv_create_partition {
                 partition_creation_properties: hv_partition_creation_properties {
                     disabled_processor_features: hv_partition_processor_features {
-                        #[cfg(target_arch = "x86_64")]
                         as_uint64: [0; 2],
-                        #[cfg(target_arch = "aarch64")]
-                        as_uint64: [0; 1],
                     },
                     #[cfg(target_arch = "x86_64")]
                     disabled_processor_xsave_features: hv_partition_processor_xsave_features {
