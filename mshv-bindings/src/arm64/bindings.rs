@@ -441,6 +441,8 @@ pub const MSHV_VP_MAX_REGISTERS: u32 = 128;
 pub const MSHV_API_VERSION: u32 = 0;
 pub const MSHV_IRQFD_FLAG_DEASSIGN: u32 = 1;
 pub const MSHV_IRQFD_FLAG_RESAMPLE: u32 = 2;
+pub const MSHV_IRQ_ROUTING_IRQCHIP: u32 = 1;
+pub const MSHV_IRQ_ROUTING_MSI: u32 = 2;
 pub const MSHV_CREATE_DEVICE_TEST: u32 = 1;
 pub const MSHV_DEV_VFIO_GROUP: u32 = 1;
 pub const MSHV_DEV_VFIO_GROUP_ADD: u32 = 1;
@@ -22200,95 +22202,276 @@ fn bindgen_test_layout_mshv_ioeventfd() {
 }
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
-pub struct mshv_msi_routing_entry {
-    pub gsi: __u32,
-    pub address_lo: __u32,
-    pub address_hi: __u32,
-    pub data: __u32,
+pub struct mshv_irq_routing_irqchip {
+    pub irqchip: __u32,
+    pub pin: __u32,
 }
 #[test]
-fn bindgen_test_layout_mshv_msi_routing_entry() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing_entry> =
+fn bindgen_test_layout_mshv_irq_routing_irqchip() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irq_routing_irqchip> =
         ::std::mem::MaybeUninit::uninit();
     let ptr = UNINIT.as_ptr();
     assert_eq!(
-        ::std::mem::size_of::<mshv_msi_routing_entry>(),
-        16usize,
-        concat!("Size of: ", stringify!(mshv_msi_routing_entry))
+        ::std::mem::size_of::<mshv_irq_routing_irqchip>(),
+        8usize,
+        concat!("Size of: ", stringify!(mshv_irq_routing_irqchip))
     );
     assert_eq!(
-        ::std::mem::align_of::<mshv_msi_routing_entry>(),
+        ::std::mem::align_of::<mshv_irq_routing_irqchip>(),
         4usize,
-        concat!("Alignment of ", stringify!(mshv_msi_routing_entry))
+        concat!("Alignment of ", stringify!(mshv_irq_routing_irqchip))
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).irqchip) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
+            stringify!(mshv_irq_routing_irqchip),
             "::",
-            stringify!(gsi)
+            stringify!(irqchip)
         )
     );
     assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).address_lo) as usize - ptr as usize },
+        unsafe { ::std::ptr::addr_of!((*ptr).pin) as usize - ptr as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
+            stringify!(mshv_irq_routing_irqchip),
+            "::",
+            stringify!(pin)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct mshv_irq_routing_msi {
+    pub address_lo: __u32,
+    pub address_hi: __u32,
+    pub data: __u32,
+    pub pad: __u32,
+}
+#[test]
+fn bindgen_test_layout_mshv_irq_routing_msi() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irq_routing_msi> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_irq_routing_msi>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_irq_routing_msi))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_irq_routing_msi>(),
+        4usize,
+        concat!("Alignment of ", stringify!(mshv_irq_routing_msi))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).address_lo) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_msi),
             "::",
             stringify!(address_lo)
         )
     );
     assert_eq!(
         unsafe { ::std::ptr::addr_of!((*ptr).address_hi) as usize - ptr as usize },
-        8usize,
+        4usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
+            stringify!(mshv_irq_routing_msi),
             "::",
             stringify!(address_hi)
         )
     );
     assert_eq!(
         unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
-        12usize,
+        8usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing_entry),
+            stringify!(mshv_irq_routing_msi),
             "::",
             stringify!(data)
         )
     );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_msi),
+            "::",
+            stringify!(pad)
+        )
+    );
 }
 #[repr(C)]
-#[derive(Debug, Default)]
-pub struct mshv_msi_routing {
-    pub nr: __u32,
-    pub pad: __u32,
-    pub entries: __IncompleteArrayField<mshv_msi_routing_entry>,
+#[derive(Copy, Clone)]
+pub struct mshv_irq_routing_entry {
+    pub gsi: __u32,
+    pub type_: __u32,
+    pub pad: __u64,
+    pub u: mshv_irq_routing_entry__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union mshv_irq_routing_entry__bindgen_ty_1 {
+    pub irqchip: mshv_irq_routing_irqchip,
+    pub msi: mshv_irq_routing_msi,
+    pub pad: [__u32; 8usize],
 }
 #[test]
-fn bindgen_test_layout_mshv_msi_routing() {
-    const UNINIT: ::std::mem::MaybeUninit<mshv_msi_routing> = ::std::mem::MaybeUninit::uninit();
+fn bindgen_test_layout_mshv_irq_routing_entry__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irq_routing_entry__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
     let ptr = UNINIT.as_ptr();
     assert_eq!(
-        ::std::mem::size_of::<mshv_msi_routing>(),
-        8usize,
-        concat!("Size of: ", stringify!(mshv_msi_routing))
+        ::std::mem::size_of::<mshv_irq_routing_entry__bindgen_ty_1>(),
+        32usize,
+        concat!(
+            "Size of: ",
+            stringify!(mshv_irq_routing_entry__bindgen_ty_1)
+        )
     );
     assert_eq!(
-        ::std::mem::align_of::<mshv_msi_routing>(),
+        ::std::mem::align_of::<mshv_irq_routing_entry__bindgen_ty_1>(),
         4usize,
-        concat!("Alignment of ", stringify!(mshv_msi_routing))
+        concat!(
+            "Alignment of ",
+            stringify!(mshv_irq_routing_entry__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).irqchip) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry__bindgen_ty_1),
+            "::",
+            stringify!(irqchip)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).msi) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry__bindgen_ty_1),
+            "::",
+            stringify!(msi)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry__bindgen_ty_1),
+            "::",
+            stringify!(pad)
+        )
+    );
+}
+impl Default for mshv_irq_routing_entry__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_mshv_irq_routing_entry() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irq_routing_entry> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_irq_routing_entry>(),
+        48usize,
+        concat!("Size of: ", stringify!(mshv_irq_routing_entry))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_irq_routing_entry>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_irq_routing_entry))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gsi) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry),
+            "::",
+            stringify!(gsi)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pad) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry),
+            "::",
+            stringify!(pad)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(mshv_irq_routing_entry),
+            "::",
+            stringify!(u)
+        )
+    );
+}
+impl Default for mshv_irq_routing_entry {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+pub struct mshv_irq_routing {
+    pub nr: __u32,
+    pub pad: __u32,
+    pub entries: __IncompleteArrayField<mshv_irq_routing_entry>,
+}
+#[test]
+fn bindgen_test_layout_mshv_irq_routing() {
+    const UNINIT: ::std::mem::MaybeUninit<mshv_irq_routing> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<mshv_irq_routing>(),
+        8usize,
+        concat!("Size of: ", stringify!(mshv_irq_routing))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_irq_routing>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_irq_routing))
     );
     assert_eq!(
         unsafe { ::std::ptr::addr_of!((*ptr).nr) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing),
+            stringify!(mshv_irq_routing),
             "::",
             stringify!(nr)
         )
@@ -22298,7 +22481,7 @@ fn bindgen_test_layout_mshv_msi_routing() {
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing),
+            stringify!(mshv_irq_routing),
             "::",
             stringify!(pad)
         )
@@ -22308,11 +22491,20 @@ fn bindgen_test_layout_mshv_msi_routing() {
         8usize,
         concat!(
             "Offset of field: ",
-            stringify!(mshv_msi_routing),
+            stringify!(mshv_irq_routing),
             "::",
             stringify!(entries)
         )
     );
+}
+impl Default for mshv_irq_routing {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Default)]
