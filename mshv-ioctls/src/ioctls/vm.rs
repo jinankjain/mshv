@@ -438,10 +438,10 @@ impl VmFd {
     /// let msi_routing = mshv_msi_routing::default();
     /// vm.set_msi_routing(&msi_routing).unwrap();
     /// ```
-    pub fn set_msi_routing(&self, msi_routing: &mshv_msi_routing) -> Result<()> {
+    pub fn set_gsi_routing(&self, irq_routing: &mshv_irq_routing) -> Result<()> {
         // SAFETY: we allocated the structure and we know the kernel
         // will read exactly the size of the structure.
-        let ret = unsafe { ioctl_with_ref(self, MSHV_SET_MSI_ROUTING(), msi_routing) };
+        let ret = unsafe { ioctl_with_ref(self, MSHV_SET_GSI_ROUTING(), irq_routing) };
         if ret == 0 {
             Ok(())
         } else {
