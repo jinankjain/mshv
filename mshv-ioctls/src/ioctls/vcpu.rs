@@ -65,7 +65,6 @@ impl AsRawFd for VcpuFd {
 
 impl VcpuFd {
     /// Get the register values by providing an array of register names
-    #[cfg(not(target_arch = "aarch64"))]
     pub fn get_reg(&self, reg_names: &mut [hv_register_assoc]) -> Result<()> {
         //TODO: Error if input register len is zero
         let mut mshv_vp_register_args = mshv_vp_registers {
@@ -120,7 +119,6 @@ impl VcpuFd {
         Ok(())
     }
     /// Set vcpu register values by providing an array of register assocs
-    #[cfg(not(target_arch = "aarch64"))]
     pub fn set_reg(&self, regs: &[hv_register_assoc]) -> Result<()> {
         let hv_vp_register_args = mshv_vp_registers {
             count: regs.len() as i32,
