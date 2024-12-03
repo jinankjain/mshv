@@ -114,6 +114,49 @@ impl<T> ::std::fmt::Debug for __IncompleteArrayField<T> {
         fmt.write_str("__IncompleteArrayField")
     }
 }
+#[repr(C)]
+pub struct __BindgenUnionField<T>(::std::marker::PhantomData<T>);
+impl<T> __BindgenUnionField<T> {
+    #[inline]
+    pub const fn new() -> Self {
+        __BindgenUnionField(::std::marker::PhantomData)
+    }
+    #[inline]
+    pub unsafe fn as_ref(&self) -> &T {
+        ::std::mem::transmute(self)
+    }
+    #[inline]
+    pub unsafe fn as_mut(&mut self) -> &mut T {
+        ::std::mem::transmute(self)
+    }
+}
+impl<T> ::std::default::Default for __BindgenUnionField<T> {
+    #[inline]
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl<T> ::std::clone::Clone for __BindgenUnionField<T> {
+    #[inline]
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl<T> ::std::marker::Copy for __BindgenUnionField<T> {}
+impl<T> ::std::fmt::Debug for __BindgenUnionField<T> {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.write_str("__BindgenUnionField")
+    }
+}
+impl<T> ::std::hash::Hash for __BindgenUnionField<T> {
+    fn hash<H: ::std::hash::Hasher>(&self, _state: &mut H) {}
+}
+impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
+    fn eq(&self, _other: &__BindgenUnionField<T>) -> bool {
+        true
+    }
+}
+impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __BITS_PER_LONG: u32 = 64;
 pub const __FD_SETSIZE: u32 = 1024;
 pub const HVGDK_MINI_H_VERSION: u32 = 25294;
@@ -144,14 +187,82 @@ pub const HV_STATUS_OPERATION_FAILED: u32 = 113;
 pub const HV_STATUS_TIME_OUT: u32 = 120;
 pub const HV_STATUS_CALL_PENDING: u32 = 121;
 pub const HV_STATUS_VTL_ALREADY_ENABLED: u32 = 134;
+pub const HV_LINUX_VENDOR_ID: u32 = 33024;
 pub const HV_HYP_PAGE_SHIFT: u32 = 12;
 pub const HV_HYP_PAGE_SIZE: u32 = 4096;
 pub const HV_HYP_PAGE_MASK: i32 = -4096;
 pub const HV_HYP_LARGE_PAGE_SHIFT: u32 = 21;
+pub const HV_MAX_SPARSE_VCPU_BANKS: u32 = 64;
+pub const HV_VCPUS_PER_SPARSE_BANK: u32 = 64;
+pub const HYPERV_CPUID_VENDOR_AND_MAX_FUNCTIONS: u32 = 1073741824;
+pub const HYPERV_CPUID_INTERFACE: u32 = 1073741825;
+pub const HYPERV_CPUID_VERSION: u32 = 1073741826;
+pub const HYPERV_CPUID_FEATURES: u32 = 1073741827;
+pub const HYPERV_CPUID_ENLIGHTMENT_INFO: u32 = 1073741828;
+pub const HYPERV_CPUID_IMPLEMENT_LIMITS: u32 = 1073741829;
+pub const HYPERV_CPUID_CPU_MANAGEMENT_FEATURES: u32 = 1073741831;
+pub const HYPERV_CPUID_NESTED_FEATURES: u32 = 1073741834;
+pub const HYPERV_CPUID_ISOLATION_CONFIG: u32 = 1073741836;
+pub const HYPERV_CPUID_VIRT_STACK_INTERFACE: u32 = 1073741953;
+pub const HYPERV_VS_INTERFACE_EAX_SIGNATURE: u32 = 824398678;
+pub const HYPERV_CPUID_VIRT_STACK_PROPERTIES: u32 = 1073741954;
+pub const HYPERV_VS_PROPERTIES_EAX_EXTENDED_IOAPIC_RTE: u32 = 4;
+pub const HYPERV_HYPERVISOR_PRESENT_BIT: u32 = 2147483648;
+pub const HYPERV_CPUID_MIN: u32 = 1073741829;
+pub const HYPERV_CPUID_MAX: u32 = 1073807359;
+pub const HV_MSR_VP_RUNTIME_AVAILABLE: u32 = 1;
+pub const HV_MSR_TIME_REF_COUNT_AVAILABLE: u32 = 2;
+pub const HV_MSR_SYNIC_AVAILABLE: u32 = 4;
+pub const HV_MSR_SYNTIMER_AVAILABLE: u32 = 8;
+pub const HV_MSR_APIC_ACCESS_AVAILABLE: u32 = 16;
+pub const HV_MSR_HYPERCALL_AVAILABLE: u32 = 32;
+pub const HV_MSR_VP_INDEX_AVAILABLE: u32 = 64;
+pub const HV_MSR_RESET_AVAILABLE: u32 = 128;
+pub const HV_MSR_STAT_PAGES_AVAILABLE: u32 = 256;
+pub const HV_MSR_REFERENCE_TSC_AVAILABLE: u32 = 512;
+pub const HV_MSR_GUEST_IDLE_AVAILABLE: u32 = 1024;
+pub const HV_ACCESS_FREQUENCY_MSRS: u32 = 2048;
+pub const HV_ACCESS_REENLIGHTENMENT: u32 = 8192;
+pub const HV_ACCESS_TSC_INVARIANT: u32 = 32768;
+pub const HV_CREATE_PARTITIONS: u32 = 1;
+pub const HV_ACCESS_PARTITION_ID: u32 = 2;
+pub const HV_ACCESS_MEMORY_POOL: u32 = 4;
+pub const HV_ADJUST_MESSAGE_BUFFERS: u32 = 8;
+pub const HV_POST_MESSAGES: u32 = 16;
+pub const HV_SIGNAL_EVENTS: u32 = 32;
+pub const HV_CREATE_PORT: u32 = 64;
+pub const HV_CONNECT_PORT: u32 = 128;
+pub const HV_ACCESS_STATS: u32 = 256;
+pub const HV_DEBUGGING: u32 = 2048;
+pub const HV_CPU_MANAGEMENT: u32 = 4096;
+pub const HV_ACCESS_VSM: u32 = 65536;
+pub const HV_ACCESS_VP_REGS: u32 = 131072;
+pub const HV_ENABLE_EXTENDED_HYPERCALLS: u32 = 1048576;
+pub const HV_ISOLATION: u32 = 4194304;
+pub const HV_FEATURE_GUEST_CRASH_MSR_AVAILABLE: u32 = 256;
+pub const HV_STIMER_DIRECT_MODE_AVAILABLE: u32 = 8192;
 pub const HV_MAXIMUM_PROCESSORS: u32 = 320;
 pub const HV_MAX_VP_INDEX: u32 = 319;
+pub const HVCALL_FLUSH_VIRTUAL_ADDRESS_SPACE: u32 = 2;
+pub const HVCALL_FLUSH_VIRTUAL_ADDRESS_LIST: u32 = 3;
+pub const HVCALL_GET_LOGICAL_PROCESSOR_RUN_TIME: u32 = 4;
+pub const HVCALL_NOTIFY_LONG_SPIN_WAIT: u32 = 8;
+pub const HVCALL_SEND_IPI: u32 = 11;
+pub const HVCALL_ENABLE_VP_VTL: u32 = 15;
+pub const HVCALL_FLUSH_VIRTUAL_ADDRESS_SPACE_EX: u32 = 19;
+pub const HVCALL_FLUSH_VIRTUAL_ADDRESS_LIST_EX: u32 = 20;
+pub const HVCALL_SEND_IPI_EX: u32 = 21;
+pub const HVCALL_CREATE_PARTITION: u32 = 64;
+pub const HVCALL_INITIALIZE_PARTITION: u32 = 65;
+pub const HVCALL_FINALIZE_PARTITION: u32 = 66;
+pub const HVCALL_DELETE_PARTITION: u32 = 67;
 pub const HVCALL_GET_PARTITION_PROPERTY: u32 = 68;
 pub const HVCALL_SET_PARTITION_PROPERTY: u32 = 69;
+pub const HVCALL_GET_PARTITION_ID: u32 = 70;
+pub const HVCALL_DEPOSIT_MEMORY: u32 = 72;
+pub const HVCALL_WITHDRAW_MEMORY: u32 = 73;
+pub const HVCALL_MAP_GPA_PAGES: u32 = 75;
+pub const HVCALL_UNMAP_GPA_PAGES: u32 = 76;
 pub const HVCALL_INSTALL_INTERCEPT: u32 = 77;
 pub const HVCALL_CREATE_VP: u32 = 78;
 pub const HVCALL_DELETE_VP: u32 = 79;
@@ -161,30 +272,117 @@ pub const HVCALL_TRANSLATE_VIRTUAL_ADDRESS: u32 = 82;
 pub const HVCALL_READ_GPA: u32 = 83;
 pub const HVCALL_WRITE_GPA: u32 = 84;
 pub const HVCALL_CLEAR_VIRTUAL_INTERRUPT: u32 = 86;
+pub const HVCALL_DELETE_PORT: u32 = 88;
+pub const HVCALL_DISCONNECT_PORT: u32 = 91;
+pub const HVCALL_POST_MESSAGE: u32 = 92;
+pub const HVCALL_SIGNAL_EVENT: u32 = 93;
+pub const HVCALL_INITIALIZE_EVENT_LOG_BUFFER_GROUP: u32 = 96;
+pub const HVCALL_FINALIZE_EVENT_LOG_BUFFER_GROUP: u32 = 97;
+pub const HVCALL_CREATE_EVENT_LOG_BUFFER: u32 = 98;
+pub const HVCALL_DELETE_EVENT_LOG_BUFFER: u32 = 99;
+pub const HVCALL_MAP_EVENT_LOG_BUFFER: u32 = 100;
+pub const HVCALL_UNMAP_EVENT_LOG_BUFFER: u32 = 101;
+pub const HVCALL_SET_EVENT_LOG_GROUP_SOURCES: u32 = 102;
+pub const HVCALL_RELEASE_EVENT_LOG_BUFFER: u32 = 103;
+pub const HVCALL_FLUSH_EVENT_LOG_BUFFER: u32 = 104;
+pub const HVCALL_POST_DEBUG_DATA: u32 = 105;
+pub const HVCALL_RETRIEVE_DEBUG_DATA: u32 = 106;
+pub const HVCALL_RESET_DEBUG_SESSION: u32 = 107;
+pub const HVCALL_MAP_STATS_PAGE: u32 = 108;
+pub const HVCALL_UNMAP_STATS_PAGE: u32 = 109;
+pub const HVCALL_SET_SYSTEM_PROPERTY: u32 = 111;
+pub const HVCALL_ADD_LOGICAL_PROCESSOR: u32 = 118;
+pub const HVCALL_GET_SYSTEM_PROPERTY: u32 = 123;
+pub const HVCALL_MAP_DEVICE_INTERRUPT: u32 = 124;
+pub const HVCALL_UNMAP_DEVICE_INTERRUPT: u32 = 125;
+pub const HVCALL_RETARGET_INTERRUPT: u32 = 126;
+pub const HVCALL_ATTACH_DEVICE: u32 = 130;
+pub const HVCALL_DETACH_DEVICE: u32 = 131;
+pub const HVCALL_ENTER_SLEEP_STATE: u32 = 132;
+pub const HVCALL_NOTIFY_PARTITION_EVENT: u32 = 135;
+pub const HVCALL_NOTIFY_PORT_RING_EMPTY: u32 = 139;
 pub const HVCALL_REGISTER_INTERCEPT_RESULT: u32 = 145;
 pub const HVCALL_ASSERT_VIRTUAL_INTERRUPT: u32 = 148;
+pub const HVCALL_CREATE_PORT: u32 = 149;
+pub const HVCALL_CONNECT_PORT: u32 = 150;
+pub const HVCALL_START_VP: u32 = 153;
+pub const HVCALL_GET_VP_ID_FROM_APIC_ID: u32 = 154;
+pub const HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_SPACE: u32 = 175;
+pub const HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST: u32 = 176;
+pub const HVCALL_CREATE_DEVICE_DOMAIN: u32 = 177;
+pub const HVCALL_ATTACH_DEVICE_DOMAIN: u32 = 178;
+pub const HVCALL_MAP_DEVICE_GPA_PAGES: u32 = 179;
+pub const HVCALL_UNMAP_DEVICE_GPA_PAGES: u32 = 180;
 pub const HVCALL_SIGNAL_EVENT_DIRECT: u32 = 192;
 pub const HVCALL_POST_MESSAGE_DIRECT: u32 = 193;
+pub const HVCALL_DISPATCH_VP: u32 = 194;
+pub const HVCALL_DETACH_DEVICE_DOMAIN: u32 = 196;
+pub const HVCALL_DELETE_DEVICE_DOMAIN: u32 = 197;
+pub const HVCALL_QUERY_DEVICE_DOMAIN: u32 = 198;
+pub const HVCALL_MAP_SPARSE_DEVICE_GPA_PAGES: u32 = 199;
+pub const HVCALL_UNMAP_SPARSE_DEVICE_GPA_PAGES: u32 = 200;
+pub const HVCALL_GET_GPA_PAGES_ACCESS_STATES: u32 = 201;
+pub const HVCALL_CONFIGURE_DEVICE_DOMAIN: u32 = 206;
+pub const HVCALL_FLUSH_DEVICE_DOMAIN: u32 = 208;
+pub const HVCALL_ACQUIRE_SPARSE_SPA_PAGE_HOST_ACCESS: u32 = 215;
+pub const HVCALL_RELEASE_SPARSE_SPA_PAGE_HOST_ACCESS: u32 = 216;
+pub const HVCALL_MAP_VP_STATE_PAGE: u32 = 225;
+pub const HVCALL_UNMAP_VP_STATE_PAGE: u32 = 226;
+pub const HVCALL_GET_VP_STATE: u32 = 227;
+pub const HVCALL_SET_VP_STATE: u32 = 228;
 pub const HVCALL_IMPORT_ISOLATED_PAGES: u32 = 239;
 pub const HVCALL_COMPLETE_ISOLATED_IMPORT: u32 = 241;
 pub const HVCALL_ISSUE_SNP_PSP_GUEST_REQUEST: u32 = 242;
 pub const HVCALL_GET_VP_CPUID_VALUES: u32 = 244;
+pub const HVCALL_LOG_HYPERVISOR_SYSTEM_CONFIG: u32 = 248;
+pub const HVCALL_MMIO_READ: u32 = 262;
+pub const HVCALL_MMIO_WRITE: u32 = 263;
+pub const HVCALL_DISABLE_HYP_EX: u32 = 271;
+pub const HV_MAX_FLUSH_PAGES: u32 = 2048;
+pub const HV_GPA_PAGE_RANGE_PAGE_SIZE_2MB: u32 = 0;
+pub const HV_GPA_PAGE_RANGE_PAGE_SIZE_1GB: u32 = 1;
+pub const HV_FLUSH_ALL_PROCESSORS: u32 = 1;
+pub const HV_FLUSH_ALL_VIRTUAL_ADDRESS_SPACES: u32 = 2;
+pub const HV_FLUSH_NON_GLOBAL_MAPPINGS_ONLY: u32 = 4;
+pub const HV_FLUSH_USE_EXTENDED_RANGE_FORMAT: u32 = 8;
+pub const HV_SYNIC_SINT_COUNT: u32 = 16;
+pub const HV_SYNIC_INTERCEPTION_SINT_INDEX: u32 = 0;
+pub const HV_SYNIC_IOMMU_FAULT_SINT_INDEX: u32 = 1;
+pub const HV_SYNIC_VMBUS_SINT_INDEX: u32 = 2;
+pub const HV_SYNIC_HAL_HV_TIMER_SINT_INDEX: u32 = 3;
+pub const HV_SYNIC_HVL_SHARED_SINT_INDEX: u32 = 4;
+pub const HV_SYNIC_FIRST_UNUSED_SINT_INDEX: u32 = 5;
+pub const HV_SYNIC_DOORBELL_SINT_INDEX: u32 = 5;
 pub const HV_INTERRUPT_VECTOR_NONE: u32 = 4294967295;
 pub const HV_SYNIC_STIMER_COUNT: u32 = 4;
 pub const HV_MESSAGE_SIZE: u32 = 256;
 pub const HV_MESSAGE_PAYLOAD_BYTE_COUNT: u32 = 240;
 pub const HV_MESSAGE_PAYLOAD_QWORD_COUNT: u32 = 30;
+pub const HV_NUM_VTLS: u32 = 3;
+pub const HV_NUM_VTLS_ROOT: u32 = 2;
+pub const HV_NORMAL_VTL: u32 = 0;
+pub const HV_VTL_ALL: u32 = 15;
+pub const HV_UNMAP_GPA_LARGE_PAGE: u32 = 2;
 pub const HV_INTERCEPT_ACCESS_MASK_NONE: u32 = 0;
 pub const HV_INTERCEPT_ACCESS_MASK_READ: u32 = 1;
 pub const HV_INTERCEPT_ACCESS_MASK_WRITE: u32 = 2;
 pub const HV_INTERCEPT_ACCESS_MASK_EXECUTE: u32 = 4;
+pub const HV_HYPERCALL_MMIO_MAX_DATA_LENGTH: u32 = 64;
 pub const HV_INTERCEPT_ACCESS_READ: u32 = 0;
 pub const HV_INTERCEPT_ACCESS_WRITE: u32 = 1;
 pub const HV_INTERCEPT_ACCESS_EXECUTE: u32 = 2;
 pub const HVGDK_H_VERSION: u32 = 25125;
 pub const HVHVK_MINI_VERSION: u32 = 25294;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_MASK: u32 = 7;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: u32 = 0;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE: u32 = 1;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: u32 = 2;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: u32 = 3;
+pub const HV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: u32 = 4;
+pub const HV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: u32 = 2147483648;
 pub const HV_GENERIC_SET_SHIFT: u32 = 6;
 pub const HV_GENERIC_SET_MASK: u32 = 63;
+pub const HV_PFN_RNG_PAGEBITS: u32 = 24;
 pub const HV_MAP_GPA_PERMISSIONS_NONE: u32 = 0;
 pub const HV_MAP_GPA_READABLE: u32 = 1;
 pub const HV_MAP_GPA_WRITABLE: u32 = 2;
@@ -196,7 +394,13 @@ pub const HV_MAP_GPA_ADJUSTABLE: u32 = 32768;
 pub const HV_MAP_GPA_NO_ACCESS: u32 = 65536;
 pub const HV_MAP_GPA_NOT_CACHED: u32 = 2097152;
 pub const HV_MAP_GPA_LARGE_PAGE: u32 = 2147483648;
-pub const HV_PFN_RNG_PAGEBITS: u32 = 24;
+pub const HV_SOURCE_SHADOW_NONE: u32 = 0;
+pub const HV_SOURCE_SHADOW_BRIDGE_BUS_RANGE: u32 = 1;
+pub const HV_DEVICE_DOMAIN_TYPE_S2: u32 = 0;
+pub const HV_DEVICE_DOMAIN_TYPE_S1: u32 = 1;
+pub const HV_DEVICE_DOMAIN_TYPE_SOC: u32 = 2;
+pub const HV_DEVICE_DOMAIN_ID_S2_DEFAULT: u32 = 0;
+pub const HV_DEVICE_DOMAIN_ID_S2_NULL: u32 = 4294967295;
 pub const HVHDK_H_VERSION: u32 = 25212;
 pub const HV_X64_REGISTER_CLASS_GENERAL: u32 = 0;
 pub const HV_X64_REGISTER_CLASS_IP: u32 = 1;
@@ -205,7 +409,20 @@ pub const HV_X64_REGISTER_CLASS_SEGMENT: u32 = 3;
 pub const HV_X64_REGISTER_CLASS_FLAGS: u32 = 4;
 pub const HV_VP_REGISTER_PAGE_VERSION_1: u32 = 1;
 pub const HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT: u32 = 7;
+pub const HV_PARTITION_PROCESSOR_FEATURES_BANKS: u32 = 2;
 pub const HV_PARTITION_SYNTHETIC_PROCESSOR_FEATURES_BANKS: u32 = 1;
+pub const HV_PARTITION_ISOLATION_TYPE_NONE: u32 = 0;
+pub const HV_PARTITION_ISOLATION_TYPE_VBS: u32 = 1;
+pub const HV_PARTITION_ISOLATION_TYPE_SNP: u32 = 2;
+pub const HV_PARTITION_ISOLATION_TYPE_TDX: u32 = 3;
+pub const HV_PARTITION_ISOLATION_HOST_TYPE_NONE: u32 = 0;
+pub const HV_PARTITION_ISOLATION_HOST_TYPE_HARDWARE: u32 = 1;
+pub const HV_PARTITION_ISOLATION_HOST_TYPE_RESERVED: u32 = 2;
+pub const HV_PARTITION_CREATION_FLAG_GPA_SUPER_PAGES_ENABLED: u32 = 16;
+pub const HV_PARTITION_CREATION_FLAG_EXO_PARTITION: u32 = 256;
+pub const HV_PARTITION_CREATION_FLAG_LAPIC_ENABLED: u32 = 8192;
+pub const HV_PARTITION_CREATION_FLAG_INTERCEPT_MESSAGE_PAGE_ENABLED: u32 = 524288;
+pub const HV_PARTITION_CREATION_FLAG_X2APIC_CAPABLE: u32 = 4194304;
 pub const HV_TRANSLATE_GVA_VALIDATE_READ: u32 = 1;
 pub const HV_TRANSLATE_GVA_VALIDATE_WRITE: u32 = 2;
 pub const HV_TRANSLATE_GVA_VALIDATE_EXECUTE: u32 = 4;
@@ -215,6 +432,20 @@ pub const HV_TRANSLATE_GVA_SUPERVISOR_ACCESS: u32 = 64;
 pub const HV_TRANSLATE_GVA_USER_ACCESS: u32 = 128;
 pub const HV_TRANSLATE_GVA_PAN_SET: u32 = 256;
 pub const HV_TRANSLATE_GVA_PAN_CLEAR: u32 = 512;
+pub const HV_SYNIC_EVENT_RING_MESSAGE_COUNT: u32 = 63;
+pub const HV_ROOT_SCHEDULER_MAX_VPS_PER_CHILD_PARTITION: u32 = 1024;
+pub const HV_EVENTLOG_BUFFER_INDEX_NONE: u32 = 4294967295;
+pub const HV_DISPATCH_VP_FLAG_CLEAR_INTERCEPT_SUSPEND: u32 = 1;
+pub const HV_DISPATCH_VP_FLAG_ENABLE_CALLER_INTERRUPTS: u32 = 2;
+pub const HV_DISPATCH_VP_FLAG_SET_CALLER_SPEC_CTRL: u32 = 4;
+pub const HV_DISPATCH_VP_FLAG_SKIP_VP_SPEC_FLUSH: u32 = 8;
+pub const HV_DISPATCH_VP_FLAG_SKIP_CALLER_SPEC_FLUSH: u32 = 16;
+pub const HV_DISPATCH_VP_FLAG_SKIP_CALLER_USER_SPEC_FLUSH: u32 = 32;
+pub const HV_DISPATCH_VP_FLAG_SCAN_INTERRUPT_INJECTION: u32 = 64;
+pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_EXCLUSIVE: u32 = 1;
+pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_MAKE_SHARED: u32 = 2;
+pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE: u32 = 4;
+pub const HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE: u32 = 8;
 pub const HV_PSP_CPUID_LEAF_COUNT_MAX: u32 = 64;
 pub const HV_READ_WRITE_GPA_MAX_SIZE: u32 = 16;
 pub const MSHV_IOCTL: u32 = 184;
@@ -378,6 +609,606 @@ fn bindgen_test_layout_hv_u128() {
             stringify!(hv_u128),
             "::",
             stringify!(high_part)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_get_partition_id {
+    pub partition_id: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_get_partition_id() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_get_partition_id> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_partition_id>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_get_partition_id))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_partition_id>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_get_partition_id))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_partition_id),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_reference_tsc_msr {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_reference_tsc_msr__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_reference_tsc_msr__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_reference_tsc_msr__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_reference_tsc_msr__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_reference_tsc_msr__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_reference_tsc_msr__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_reference_tsc_msr__bindgen_ty_1)
+        )
+    );
+}
+impl hv_reference_tsc_msr__bindgen_ty_1 {
+    #[inline]
+    pub fn enable(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_enable(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pfn(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 52u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pfn(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 52u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        enable: __u64,
+        reserved: __u64,
+        pfn: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let enable: u64 = unsafe { ::std::mem::transmute(enable) };
+            enable as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 11u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 52u8, {
+            let pfn: u64 = unsafe { ::std::mem::transmute(pfn) };
+            pfn as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_reference_tsc_msr() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_reference_tsc_msr> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_reference_tsc_msr>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_reference_tsc_msr))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_reference_tsc_msr>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_reference_tsc_msr))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_reference_tsc_msr),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_reference_tsc_msr {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+pub struct hv_vpset {
+    pub format: __u64,
+    pub valid_bank_mask: __u64,
+    pub bank_contents: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_vpset() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vpset> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vpset>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_vpset))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vpset>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_vpset))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).format) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vpset),
+            "::",
+            stringify!(format)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).valid_bank_mask) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vpset),
+            "::",
+            stringify!(valid_bank_mask)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bank_contents) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vpset),
+            "::",
+            stringify!(bank_contents)
+        )
+    );
+}
+impl Default for hv_vpset {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_hypervisor_version_info {
+    pub __bindgen_anon_1: hv_hypervisor_version_info__bindgen_ty_1,
+    pub __bindgen_anon_2: hv_hypervisor_version_info__bindgen_ty_2,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_hypervisor_version_info__bindgen_ty_1 {
+    pub build_number: __u32,
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+    pub service_pack: __u32,
+    pub _bitfield_align_2: [u32; 0],
+    pub _bitfield_2: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_hypervisor_version_info__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_hypervisor_version_info__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_hypervisor_version_info__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_hypervisor_version_info__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).build_number) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_1),
+            "::",
+            stringify!(build_number)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).service_pack) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_1),
+            "::",
+            stringify!(service_pack)
+        )
+    );
+}
+impl hv_hypervisor_version_info__bindgen_ty_1 {
+    #[inline]
+    pub fn minor_version(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 16u8) as u32) }
+    }
+    #[inline]
+    pub fn set_minor_version(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 16u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn major_version(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(16usize, 16u8) as u32) }
+    }
+    #[inline]
+    pub fn set_major_version(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(16usize, 16u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        minor_version: __u32,
+        major_version: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 16u8, {
+            let minor_version: u32 = unsafe { ::std::mem::transmute(minor_version) };
+            minor_version as u64
+        });
+        __bindgen_bitfield_unit.set(16usize, 16u8, {
+            let major_version: u32 = unsafe { ::std::mem::transmute(major_version) };
+            major_version as u64
+        });
+        __bindgen_bitfield_unit
+    }
+    #[inline]
+    pub fn service_number(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_2.get(0usize, 24u8) as u32) }
+    }
+    #[inline]
+    pub fn set_service_number(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_2.set(0usize, 24u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn service_branch(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_2.get(24usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_service_branch(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_2.set(24usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_2(
+        service_number: __u32,
+        service_branch: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 24u8, {
+            let service_number: u32 = unsafe { ::std::mem::transmute(service_number) };
+            service_number as u64
+        });
+        __bindgen_bitfield_unit.set(24usize, 8u8, {
+            let service_branch: u32 = unsafe { ::std::mem::transmute(service_branch) };
+            service_branch as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_hypervisor_version_info__bindgen_ty_2 {
+    pub eax: __u32,
+    pub ebx: __u32,
+    pub ecx: __u32,
+    pub edx: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_hypervisor_version_info__bindgen_ty_2() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_hypervisor_version_info__bindgen_ty_2> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_hypervisor_version_info__bindgen_ty_2>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_hypervisor_version_info__bindgen_ty_2>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).eax) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2),
+            "::",
+            stringify!(eax)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ebx) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2),
+            "::",
+            stringify!(ebx)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ecx) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2),
+            "::",
+            stringify!(ecx)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).edx) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_hypervisor_version_info__bindgen_ty_2),
+            "::",
+            stringify!(edx)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_hypervisor_version_info() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_hypervisor_version_info>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_hypervisor_version_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_hypervisor_version_info>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hv_hypervisor_version_info))
+    );
+}
+impl Default for hv_hypervisor_version_info {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_vp_assist_msr_contents {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_vp_assist_msr_contents__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vp_assist_msr_contents__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_vp_assist_msr_contents__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_assist_msr_contents__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vp_assist_msr_contents__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_assist_msr_contents__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_assist_msr_contents__bindgen_ty_1)
+        )
+    );
+}
+impl hv_vp_assist_msr_contents__bindgen_ty_1 {
+    #[inline]
+    pub fn enable(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_enable(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pfn(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 52u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pfn(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 52u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        enable: __u64,
+        reserved: __u64,
+        pfn: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let enable: u64 = unsafe { ::std::mem::transmute(enable) };
+            enable as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 11u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 52u8, {
+            let pfn: u64 = unsafe { ::std::mem::transmute(pfn) };
+            pfn as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_vp_assist_msr_contents() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_assist_msr_contents> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_assist_msr_contents>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_vp_assist_msr_contents))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_assist_msr_contents>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_vp_assist_msr_contents))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_msr_contents),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_vp_assist_msr_contents {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_guest_mapping_flush {
+    pub address_space: __u64,
+    pub flags: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_guest_mapping_flush() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_guest_mapping_flush> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_guest_mapping_flush>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_guest_mapping_flush))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_guest_mapping_flush>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_guest_mapping_flush))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).address_space) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_guest_mapping_flush),
+            "::",
+            stringify!(address_space)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_guest_mapping_flush),
+            "::",
+            stringify!(flags)
         )
     );
 }
@@ -601,6 +1432,201 @@ impl Default for hv_gpa_page_range {
 pub const hv_interrupt_type_HV_ARM64_INTERRUPT_TYPE_FIXED: hv_interrupt_type = 0;
 pub const hv_interrupt_type_HV_ARM64_INTERRUPT_TYPE_MAXIMUM: hv_interrupt_type = 8;
 pub type hv_interrupt_type = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_synic_sint {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_synic_sint__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_sint__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_synic_sint__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_sint__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_sint__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_sint__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_sint__bindgen_ty_1))
+    );
+}
+impl hv_synic_sint__bindgen_ty_1 {
+    #[inline]
+    pub fn vector(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 5u8) as u64) }
+    }
+    #[inline]
+    pub fn set_vector(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 5u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(5usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(5usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn masked(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(16usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_masked(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(16usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn auto_eoi(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(17usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_auto_eoi(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(17usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn polling(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(18usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_polling(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(18usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn as_intercept(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(19usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_as_intercept(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(19usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn proxy(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(20usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_proxy(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(20usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(21usize, 43u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(21usize, 43u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        vector: __u64,
+        reserved1: __u64,
+        masked: __u64,
+        auto_eoi: __u64,
+        polling: __u64,
+        as_intercept: __u64,
+        proxy: __u64,
+        reserved2: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 5u8, {
+            let vector: u64 = unsafe { ::std::mem::transmute(vector) };
+            vector as u64
+        });
+        __bindgen_bitfield_unit.set(5usize, 11u8, {
+            let reserved1: u64 = unsafe { ::std::mem::transmute(reserved1) };
+            reserved1 as u64
+        });
+        __bindgen_bitfield_unit.set(16usize, 1u8, {
+            let masked: u64 = unsafe { ::std::mem::transmute(masked) };
+            masked as u64
+        });
+        __bindgen_bitfield_unit.set(17usize, 1u8, {
+            let auto_eoi: u64 = unsafe { ::std::mem::transmute(auto_eoi) };
+            auto_eoi as u64
+        });
+        __bindgen_bitfield_unit.set(18usize, 1u8, {
+            let polling: u64 = unsafe { ::std::mem::transmute(polling) };
+            polling as u64
+        });
+        __bindgen_bitfield_unit.set(19usize, 1u8, {
+            let as_intercept: u64 = unsafe { ::std::mem::transmute(as_intercept) };
+            as_intercept as u64
+        });
+        __bindgen_bitfield_unit.set(20usize, 1u8, {
+            let proxy: u64 = unsafe { ::std::mem::transmute(proxy) };
+            proxy as u64
+        });
+        __bindgen_bitfield_unit.set(21usize, 43u8, {
+            let reserved2: u64 = unsafe { ::std::mem::transmute(reserved2) };
+            reserved2 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_synic_sint() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_sint> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_sint>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_sint))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_sint>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_synic_sint))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_sint),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_synic_sint {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_x64_xsave_xfem_register {
@@ -1325,8 +2351,132 @@ pub const hv_message_type_HVMSG_X64_IOMMU_PRQ: hv_message_type = 2147549190;
 pub const hv_message_type_HVMSG_X64_HALT: hv_message_type = 2147549191;
 pub const hv_message_type_HVMSG_X64_INTERRUPTION_DELIVERABLE: hv_message_type = 2147549192;
 pub const hv_message_type_HVMSG_X64_SIPI_INTERCEPT: hv_message_type = 2147549193;
+pub const hv_message_type_HVMSG_X64_RDTSC_INTERCEPT: hv_message_type = 2147549194;
+pub const hv_message_type_HVMSG_X64_APIC_SMI_INTERCEPT: hv_message_type = 2147549195;
+pub const hv_message_type_HVMSG_X64_APIC_INIT_SIPI_INTERCEPT: hv_message_type = 2147549197;
+pub const hv_message_type_HVMSG_X64_APIC_WRITE_INTERCEPT: hv_message_type = 2147549198;
+pub const hv_message_type_HVMSG_X64_PROXY_INTERRUPT_INTERCEPT: hv_message_type = 2147549199;
+pub const hv_message_type_HVMSG_X64_ISOLATION_CTRL_REG_INTERCEPT: hv_message_type = 2147549200;
+pub const hv_message_type_HVMSG_X64_SNP_GUEST_REQUEST_INTERCEPT: hv_message_type = 2147549201;
+pub const hv_message_type_HVMSG_X64_EXCEPTION_TRAP_INTERCEPT: hv_message_type = 2147549202;
 pub const hv_message_type_HVMSG_X64_SEV_VMGEXIT_INTERCEPT: hv_message_type = 2147549203;
+pub const hv_message_type_HVMSG_ARM64_RESET_INTERCEPT: hv_message_type = 2147549196;
 pub type hv_message_type = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_synic_simp {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_synic_simp__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_simp__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_synic_simp__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_simp__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_simp__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_simp__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_simp__bindgen_ty_1))
+    );
+}
+impl hv_synic_simp__bindgen_ty_1 {
+    #[inline]
+    pub fn simp_enabled(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_simp_enabled(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn preserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_preserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn base_simp_gpa(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 52u8) as u64) }
+    }
+    #[inline]
+    pub fn set_base_simp_gpa(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 52u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        simp_enabled: __u64,
+        preserved: __u64,
+        base_simp_gpa: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let simp_enabled: u64 = unsafe { ::std::mem::transmute(simp_enabled) };
+            simp_enabled as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 11u8, {
+            let preserved: u64 = unsafe { ::std::mem::transmute(preserved) };
+            preserved as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 52u8, {
+            let base_simp_gpa: u64 = unsafe { ::std::mem::transmute(base_simp_gpa) };
+            base_simp_gpa as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_synic_simp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_simp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_simp>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_simp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_simp>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_synic_simp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_simp),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_synic_simp {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_message_flags {
@@ -1551,6 +2701,37 @@ impl Default for hv_message_header {
     }
 }
 #[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_notification_message_payload {
+    pub sint_index: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_notification_message_payload() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_notification_message_payload> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_notification_message_payload>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_notification_message_payload))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_notification_message_payload>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_notification_message_payload))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sint_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_notification_message_payload),
+            "::",
+            stringify!(sint_index)
+        )
+    );
+}
+#[repr(C, packed)]
 #[derive(Copy, Clone)]
 pub struct hv_message {
     pub header: hv_message_header,
@@ -1632,6 +2813,45 @@ fn bindgen_test_layout_hv_message() {
     );
 }
 impl Default for hv_message {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_message_page {
+    pub sint_message: [hv_message; 16usize],
+}
+#[test]
+fn bindgen_test_layout_hv_message_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_message_page> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_message_page>(),
+        4096usize,
+        concat!("Size of: ", stringify!(hv_message_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_message_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_message_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sint_message) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_message_page),
+            "::",
+            stringify!(sint_message)
+        )
+    );
+}
+impl Default for hv_message_page {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -2860,16 +4080,408 @@ impl Default for hv_input_vtl {
         }
     }
 }
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_init_vp_context {
+    pub rip: __u64,
+    pub rsp: __u64,
+    pub rflags: __u64,
+    pub cs: hv_x64_segment_register,
+    pub ds: hv_x64_segment_register,
+    pub es: hv_x64_segment_register,
+    pub fs: hv_x64_segment_register,
+    pub gs: hv_x64_segment_register,
+    pub ss: hv_x64_segment_register,
+    pub tr: hv_x64_segment_register,
+    pub ldtr: hv_x64_segment_register,
+    pub idtr: hv_x64_table_register,
+    pub gdtr: hv_x64_table_register,
+    pub efer: __u64,
+    pub cr0: __u64,
+    pub cr3: __u64,
+    pub cr4: __u64,
+    pub msr_cr_pat: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_init_vp_context() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_init_vp_context> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_init_vp_context>(),
+        224usize,
+        concat!("Size of: ", stringify!(hv_init_vp_context))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_init_vp_context>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_init_vp_context))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rip) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(rip)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsp) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(rsp)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rflags) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(rflags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cs) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(cs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ds) as usize - ptr as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(ds)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).es) as usize - ptr as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(es)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).fs) as usize - ptr as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(fs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gs) as usize - ptr as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(gs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ss) as usize - ptr as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(ss)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).tr) as usize - ptr as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(tr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ldtr) as usize - ptr as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(ldtr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).idtr) as usize - ptr as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(idtr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gdtr) as usize - ptr as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(gdtr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).efer) as usize - ptr as usize },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(efer)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cr0) as usize - ptr as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(cr0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cr3) as usize - ptr as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(cr3)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cr4) as usize - ptr as usize },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(cr4)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).msr_cr_pat) as usize - ptr as usize },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_init_vp_context),
+            "::",
+            stringify!(msr_cr_pat)
+        )
+    );
+}
+impl Default for hv_init_vp_context {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_enable_vp_vtl {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub target_vtl: hv_input_vtl,
+    pub mbz0: __u8,
+    pub mbz1: __u16,
+    pub vp_context: hv_init_vp_context,
+}
+#[test]
+fn bindgen_test_layout_hv_enable_vp_vtl() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_enable_vp_vtl> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_enable_vp_vtl>(),
+        240usize,
+        concat!("Size of: ", stringify!(hv_enable_vp_vtl))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_enable_vp_vtl>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_enable_vp_vtl))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vtl) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(target_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mbz0) as usize - ptr as usize },
+        13usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(mbz0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).mbz1) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(mbz1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_context) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_enable_vp_vtl),
+            "::",
+            stringify!(vp_context)
+        )
+    );
+}
+impl Default for hv_enable_vp_vtl {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+pub struct hv_get_vp_from_apic_id_in {
+    pub partition_id: __u64,
+    pub target_vtl: hv_input_vtl,
+    pub res: [__u8; 7usize],
+    pub apic_ids: __IncompleteArrayField<__u32>,
+}
+#[test]
+fn bindgen_test_layout_hv_get_vp_from_apic_id_in() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_get_vp_from_apic_id_in> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_vp_from_apic_id_in>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_get_vp_from_apic_id_in))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_vp_from_apic_id_in>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_get_vp_from_apic_id_in))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_from_apic_id_in),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vtl) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_from_apic_id_in),
+            "::",
+            stringify!(target_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).res) as usize - ptr as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_from_apic_id_in),
+            "::",
+            stringify!(res)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).apic_ids) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_from_apic_id_in),
+            "::",
+            stringify!(apic_ids)
+        )
+    );
+}
+impl Default for hv_get_vp_from_apic_id_in {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_register_vsm_partition_config {
     pub as_u64: __u64,
     pub __bindgen_anon_1: hv_register_vsm_partition_config__bindgen_ty_1,
 }
-#[repr(C)]
+#[repr(C, packed)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct hv_register_vsm_partition_config__bindgen_ty_1 {
-    pub _bitfield_align_1: [u64; 0],
+    pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
 }
 #[test]
@@ -2884,7 +4496,7 @@ fn bindgen_test_layout_hv_register_vsm_partition_config__bindgen_ty_1() {
     );
     assert_eq!(
         ::std::mem::align_of::<hv_register_vsm_partition_config__bindgen_ty_1>(),
-        8usize,
+        1usize,
         concat!(
             "Alignment of ",
             stringify!(hv_register_vsm_partition_config__bindgen_ty_1)
@@ -3153,8 +4765,394 @@ impl Default for hv_register_vsm_partition_config {
         }
     }
 }
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_nested_enlightenments_control {
+    pub features: hv_nested_enlightenments_control__bindgen_ty_1,
+    pub hypercall_controls: hv_nested_enlightenments_control__bindgen_ty_2,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_nested_enlightenments_control__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_nested_enlightenments_control__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_nested_enlightenments_control__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_nested_enlightenments_control__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_nested_enlightenments_control__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_nested_enlightenments_control__bindgen_ty_1)
+        )
+    );
+}
+impl hv_nested_enlightenments_control__bindgen_ty_1 {
+    #[inline]
+    pub fn directhypercall(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_directhypercall(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 31u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 31u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        directhypercall: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let directhypercall: u32 = unsafe { ::std::mem::transmute(directhypercall) };
+            directhypercall as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 31u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_nested_enlightenments_control__bindgen_ty_2 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_nested_enlightenments_control__bindgen_ty_2() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_nested_enlightenments_control__bindgen_ty_2>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_nested_enlightenments_control__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_nested_enlightenments_control__bindgen_ty_2>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_nested_enlightenments_control__bindgen_ty_2)
+        )
+    );
+}
+impl hv_nested_enlightenments_control__bindgen_ty_2 {
+    #[inline]
+    pub fn inter_partition_comm(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_inter_partition_comm(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 31u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 31u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        inter_partition_comm: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let inter_partition_comm: u32 = unsafe { ::std::mem::transmute(inter_partition_comm) };
+            inter_partition_comm as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 31u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_nested_enlightenments_control() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_nested_enlightenments_control> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_nested_enlightenments_control>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_nested_enlightenments_control))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_nested_enlightenments_control>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_nested_enlightenments_control)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).features) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_nested_enlightenments_control),
+            "::",
+            stringify!(features)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hypercall_controls) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_nested_enlightenments_control),
+            "::",
+            stringify!(hypercall_controls)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vp_assist_page {
+    pub apic_assist: __u32,
+    pub reserved1: __u32,
+    pub vtl_entry_reason: __u32,
+    pub vtl_reserved: __u32,
+    pub vtl_ret_x64rax: __u64,
+    pub vtl_ret_x64rcx: __u64,
+    pub nested_control: hv_nested_enlightenments_control,
+    pub enlighten_vmentry: __u8,
+    pub reserved2: [__u8; 7usize],
+    pub current_nested_vmcs: __u64,
+    pub synthetic_time_unhalted_timer_expired: __u8,
+    pub reserved3: [__u8; 7usize],
+    pub virtualization_fault_information: [__u8; 40usize],
+    pub reserved4: [__u8; 8usize],
+    pub intercept_message: [__u8; 256usize],
+    pub vtl_ret_actions: [__u8; 256usize],
+}
+#[test]
+fn bindgen_test_layout_hv_vp_assist_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_assist_page> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_assist_page>(),
+        624usize,
+        concat!("Size of: ", stringify!(hv_vp_assist_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_assist_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_vp_assist_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).apic_assist) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(apic_assist)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved1) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl_entry_reason) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(vtl_entry_reason)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl_reserved) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(vtl_reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl_ret_x64rax) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(vtl_ret_x64rax)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl_ret_x64rcx) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(vtl_ret_x64rcx)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).nested_control) as usize - ptr as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(nested_control)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).enlighten_vmentry) as usize - ptr as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(enlighten_vmentry)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved2) as usize - ptr as usize },
+        41usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(reserved2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).current_nested_vmcs) as usize - ptr as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(current_nested_vmcs)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).synthetic_time_unhalted_timer_expired) as usize
+                - ptr as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(synthetic_time_unhalted_timer_expired)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved3) as usize - ptr as usize },
+        57usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(reserved3)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).virtualization_fault_information) as usize - ptr as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(virtualization_fault_information)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved4) as usize - ptr as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(reserved4)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).intercept_message) as usize - ptr as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(intercept_message)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl_ret_actions) as usize - ptr as usize },
+        368usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_assist_page),
+            "::",
+            stringify!(vtl_ret_actions)
+        )
+    );
+}
+impl Default for hv_vp_assist_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 pub const hv_register_name_HV_REGISTER_EXPLICIT_SUSPEND: hv_register_name = 0;
 pub const hv_register_name_HV_REGISTER_INTERCEPT_SUSPEND: hv_register_name = 1;
+pub const hv_register_name_HV_REGISTER_INSTRUCTION_EMULATION_HINTS: hv_register_name = 2;
+pub const hv_register_name_HV_REGISTER_DISPATCH_SUSPEND: hv_register_name = 3;
 pub const hv_register_name_HV_REGISTER_INTERNAL_ACTIVITY_STATE: hv_register_name = 4;
 pub const hv_register_name_HV_REGISTER_HYPERVISOR_VERSION: hv_register_name = 256;
 pub const hv_register_name_HV_REGISTER_PRIVILEGES_AND_FEATURES_INFO: hv_register_name = 512;
@@ -3172,9 +5170,17 @@ pub const hv_register_name_HV_REGISTER_GUEST_CRASH_P2: hv_register_name = 530;
 pub const hv_register_name_HV_REGISTER_GUEST_CRASH_P3: hv_register_name = 531;
 pub const hv_register_name_HV_REGISTER_GUEST_CRASH_P4: hv_register_name = 532;
 pub const hv_register_name_HV_REGISTER_GUEST_CRASH_CTL: hv_register_name = 533;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_CONFIG_C1: hv_register_name = 544;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_TRIGGER_C1: hv_register_name = 545;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_CONFIG_C2: hv_register_name = 546;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_TRIGGER_C2: hv_register_name = 547;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_CONFIG_C3: hv_register_name = 548;
+pub const hv_register_name_HV_REGISTER_POWER_STATE_TRIGGER_C3: hv_register_name = 549;
 pub const hv_register_name_HV_REGISTER_PROCESSOR_CLOCK_FREQUENCY: hv_register_name = 576;
 pub const hv_register_name_HV_REGISTER_INTERRUPT_CLOCK_FREQUENCY: hv_register_name = 577;
 pub const hv_register_name_HV_REGISTER_GUEST_IDLE: hv_register_name = 592;
+pub const hv_register_name_HV_REGISTER_DEBUG_DEVICE_OPTIONS: hv_register_name = 608;
+pub const hv_register_name_HV_REGISTER_MEMORY_ZEROING_CONTROL: hv_register_name = 624;
 pub const hv_register_name_HV_REGISTER_PENDING_EVENT0: hv_register_name = 65540;
 pub const hv_register_name_HV_REGISTER_PENDING_EVENT1: hv_register_name = 65541;
 pub const hv_register_name_HV_REGISTER_DELIVERABILITY_NOTIFICATIONS: hv_register_name = 65542;
@@ -3182,7 +5188,15 @@ pub const hv_register_name_HV_REGISTER_VP_RUNTIME: hv_register_name = 589824;
 pub const hv_register_name_HV_REGISTER_GUEST_OS_ID: hv_register_name = 589826;
 pub const hv_register_name_HV_REGISTER_VP_INDEX: hv_register_name = 589827;
 pub const hv_register_name_HV_REGISTER_TIME_REF_COUNT: hv_register_name = 589828;
+pub const hv_register_name_HV_REGISTER_CPU_MANAGEMENT_VERSION: hv_register_name = 589831;
+pub const hv_register_name_HV_REGISTER_VP_ASSIST_PAGE: hv_register_name = 589843;
+pub const hv_register_name_HV_REGISTER_VP_ROOT_SIGNAL_COUNT: hv_register_name = 589844;
 pub const hv_register_name_HV_REGISTER_REFERENCE_TSC: hv_register_name = 589847;
+pub const hv_register_name_HV_REGISTER_STATS_PARTITION_RETAIL: hv_register_name = 589856;
+pub const hv_register_name_HV_REGISTER_STATS_PARTITION_INTERNAL: hv_register_name = 589857;
+pub const hv_register_name_HV_REGISTER_STATS_VP_RETAIL: hv_register_name = 589858;
+pub const hv_register_name_HV_REGISTER_STATS_VP_INTERNAL: hv_register_name = 589859;
+pub const hv_register_name_HV_REGISTER_NESTED_VP_INDEX: hv_register_name = 593923;
 pub const hv_register_name_HV_REGISTER_SINT0: hv_register_name = 655360;
 pub const hv_register_name_HV_REGISTER_SINT1: hv_register_name = 655361;
 pub const hv_register_name_HV_REGISTER_SINT2: hv_register_name = 655362;
@@ -3237,7 +5251,694 @@ pub const hv_register_name_HV_REGISTER_STIMER3_CONFIG: hv_register_name = 720902
 pub const hv_register_name_HV_REGISTER_STIMER3_COUNT: hv_register_name = 720903;
 pub const hv_register_name_HV_REGISTER_STIME_UNHALTED_TIMER_CONFIG: hv_register_name = 721152;
 pub const hv_register_name_HV_REGISTER_STIME_UNHALTED_TIMER_COUNT: hv_register_name = 721153;
+pub const hv_register_name_HV_REGISTER_VSM_CODE_PAGE_OFFSETS: hv_register_name = 851970;
+pub const hv_register_name_HV_REGISTER_VSM_VP_STATUS: hv_register_name = 851971;
+pub const hv_register_name_HV_REGISTER_VSM_PARTITION_STATUS: hv_register_name = 851972;
+pub const hv_register_name_HV_REGISTER_VSM_VINA: hv_register_name = 851973;
+pub const hv_register_name_HV_REGISTER_VSM_CAPABILITIES: hv_register_name = 851974;
+pub const hv_register_name_HV_REGISTER_VSM_PARTITION_CONFIG: hv_register_name = 851975;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL0: hv_register_name = 851984;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL1: hv_register_name = 851985;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL2: hv_register_name = 851986;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL3: hv_register_name = 851987;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL4: hv_register_name = 851988;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL5: hv_register_name = 851989;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL6: hv_register_name = 851990;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL7: hv_register_name = 851991;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL8: hv_register_name = 851992;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL9: hv_register_name = 851993;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL10: hv_register_name = 851994;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL11: hv_register_name = 851995;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL12: hv_register_name = 851996;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL13: hv_register_name = 851997;
+pub const hv_register_name_HV_REGISTER_VSM_VP_SECURE_CONFIG_VTL14: hv_register_name = 851998;
+pub const hv_register_name_HV_REGISTER_VSM_VP_WAIT_FOR_TLB_LOCK: hv_register_name = 852000;
 pub const hv_register_name_HV_REGISTER_ISOLATION_CAPABILITIES: hv_register_name = 852224;
+pub const hv_register_name_HV_ARM64_REGISTER_XZR: hv_register_name = 196606;
+pub const hv_register_name_HV_ARM64_REGISTER_X0: hv_register_name = 131072;
+pub const hv_register_name_HV_ARM64_REGISTER_X1: hv_register_name = 131073;
+pub const hv_register_name_HV_ARM64_REGISTER_X2: hv_register_name = 131074;
+pub const hv_register_name_HV_ARM64_REGISTER_X3: hv_register_name = 131075;
+pub const hv_register_name_HV_ARM64_REGISTER_X4: hv_register_name = 131076;
+pub const hv_register_name_HV_ARM64_REGISTER_X5: hv_register_name = 131077;
+pub const hv_register_name_HV_ARM64_REGISTER_X6: hv_register_name = 131078;
+pub const hv_register_name_HV_ARM64_REGISTER_X7: hv_register_name = 131079;
+pub const hv_register_name_HV_ARM64_REGISTER_X8: hv_register_name = 131080;
+pub const hv_register_name_HV_ARM64_REGISTER_X9: hv_register_name = 131081;
+pub const hv_register_name_HV_ARM64_REGISTER_X10: hv_register_name = 131082;
+pub const hv_register_name_HV_ARM64_REGISTER_X11: hv_register_name = 131083;
+pub const hv_register_name_HV_ARM64_REGISTER_X12: hv_register_name = 131084;
+pub const hv_register_name_HV_ARM64_REGISTER_X13: hv_register_name = 131085;
+pub const hv_register_name_HV_ARM64_REGISTER_X14: hv_register_name = 131086;
+pub const hv_register_name_HV_ARM64_REGISTER_X15: hv_register_name = 131087;
+pub const hv_register_name_HV_ARM64_REGISTER_X16: hv_register_name = 131088;
+pub const hv_register_name_HV_ARM64_REGISTER_X17: hv_register_name = 131089;
+pub const hv_register_name_HV_ARM64_REGISTER_X18: hv_register_name = 131090;
+pub const hv_register_name_HV_ARM64_REGISTER_X19: hv_register_name = 131091;
+pub const hv_register_name_HV_ARM64_REGISTER_X20: hv_register_name = 131092;
+pub const hv_register_name_HV_ARM64_REGISTER_X21: hv_register_name = 131093;
+pub const hv_register_name_HV_ARM64_REGISTER_X22: hv_register_name = 131094;
+pub const hv_register_name_HV_ARM64_REGISTER_X23: hv_register_name = 131095;
+pub const hv_register_name_HV_ARM64_REGISTER_X24: hv_register_name = 131096;
+pub const hv_register_name_HV_ARM64_REGISTER_X25: hv_register_name = 131097;
+pub const hv_register_name_HV_ARM64_REGISTER_X26: hv_register_name = 131098;
+pub const hv_register_name_HV_ARM64_REGISTER_X27: hv_register_name = 131099;
+pub const hv_register_name_HV_ARM64_REGISTER_X28: hv_register_name = 131100;
+pub const hv_register_name_HV_ARM64_REGISTER_FP: hv_register_name = 131101;
+pub const hv_register_name_HV_ARM64_REGISTER_LR: hv_register_name = 131102;
+pub const hv_register_name_HV_ARM64_REGISTER_PC: hv_register_name = 131106;
+pub const hv_register_name_HV_ARM64_REGISTER_Q0: hv_register_name = 196608;
+pub const hv_register_name_HV_ARM64_REGISTER_Q1: hv_register_name = 196609;
+pub const hv_register_name_HV_ARM64_REGISTER_Q2: hv_register_name = 196610;
+pub const hv_register_name_HV_ARM64_REGISTER_Q3: hv_register_name = 196611;
+pub const hv_register_name_HV_ARM64_REGISTER_Q4: hv_register_name = 196612;
+pub const hv_register_name_HV_ARM64_REGISTER_Q5: hv_register_name = 196613;
+pub const hv_register_name_HV_ARM64_REGISTER_Q6: hv_register_name = 196614;
+pub const hv_register_name_HV_ARM64_REGISTER_Q7: hv_register_name = 196615;
+pub const hv_register_name_HV_ARM64_REGISTER_Q8: hv_register_name = 196616;
+pub const hv_register_name_HV_ARM64_REGISTER_Q9: hv_register_name = 196617;
+pub const hv_register_name_HV_ARM64_REGISTER_Q10: hv_register_name = 196618;
+pub const hv_register_name_HV_ARM64_REGISTER_Q11: hv_register_name = 196619;
+pub const hv_register_name_HV_ARM64_REGISTER_Q12: hv_register_name = 196620;
+pub const hv_register_name_HV_ARM64_REGISTER_Q13: hv_register_name = 196621;
+pub const hv_register_name_HV_ARM64_REGISTER_Q14: hv_register_name = 196622;
+pub const hv_register_name_HV_ARM64_REGISTER_Q15: hv_register_name = 196623;
+pub const hv_register_name_HV_ARM64_REGISTER_Q16: hv_register_name = 196624;
+pub const hv_register_name_HV_ARM64_REGISTER_Q17: hv_register_name = 196625;
+pub const hv_register_name_HV_ARM64_REGISTER_Q18: hv_register_name = 196626;
+pub const hv_register_name_HV_ARM64_REGISTER_Q19: hv_register_name = 196627;
+pub const hv_register_name_HV_ARM64_REGISTER_Q20: hv_register_name = 196628;
+pub const hv_register_name_HV_ARM64_REGISTER_Q21: hv_register_name = 196629;
+pub const hv_register_name_HV_ARM64_REGISTER_Q22: hv_register_name = 196630;
+pub const hv_register_name_HV_ARM64_REGISTER_Q23: hv_register_name = 196631;
+pub const hv_register_name_HV_ARM64_REGISTER_Q24: hv_register_name = 196632;
+pub const hv_register_name_HV_ARM64_REGISTER_Q25: hv_register_name = 196633;
+pub const hv_register_name_HV_ARM64_REGISTER_Q26: hv_register_name = 196634;
+pub const hv_register_name_HV_ARM64_REGISTER_Q27: hv_register_name = 196635;
+pub const hv_register_name_HV_ARM64_REGISTER_Q28: hv_register_name = 196636;
+pub const hv_register_name_HV_ARM64_REGISTER_Q29: hv_register_name = 196637;
+pub const hv_register_name_HV_ARM64_REGISTER_Q30: hv_register_name = 196638;
+pub const hv_register_name_HV_ARM64_REGISTER_Q31: hv_register_name = 196639;
+pub const hv_register_name_HV_ARM64_REGISTER_Z0: hv_register_name = 196864;
+pub const hv_register_name_HV_ARM64_REGISTER_Z1: hv_register_name = 196865;
+pub const hv_register_name_HV_ARM64_REGISTER_Z2: hv_register_name = 196866;
+pub const hv_register_name_HV_ARM64_REGISTER_Z3: hv_register_name = 196867;
+pub const hv_register_name_HV_ARM64_REGISTER_Z4: hv_register_name = 196868;
+pub const hv_register_name_HV_ARM64_REGISTER_Z5: hv_register_name = 196869;
+pub const hv_register_name_HV_ARM64_REGISTER_Z6: hv_register_name = 196870;
+pub const hv_register_name_HV_ARM64_REGISTER_Z7: hv_register_name = 196871;
+pub const hv_register_name_HV_ARM64_REGISTER_Z8: hv_register_name = 196872;
+pub const hv_register_name_HV_ARM64_REGISTER_Z9: hv_register_name = 196873;
+pub const hv_register_name_HV_ARM64_REGISTER_Z10: hv_register_name = 196874;
+pub const hv_register_name_HV_ARM64_REGISTER_Z11: hv_register_name = 196875;
+pub const hv_register_name_HV_ARM64_REGISTER_Z12: hv_register_name = 196876;
+pub const hv_register_name_HV_ARM64_REGISTER_Z13: hv_register_name = 196877;
+pub const hv_register_name_HV_ARM64_REGISTER_Z14: hv_register_name = 196878;
+pub const hv_register_name_HV_ARM64_REGISTER_Z15: hv_register_name = 196879;
+pub const hv_register_name_HV_ARM64_REGISTER_Z16: hv_register_name = 196880;
+pub const hv_register_name_HV_ARM64_REGISTER_Z17: hv_register_name = 196881;
+pub const hv_register_name_HV_ARM64_REGISTER_Z18: hv_register_name = 196882;
+pub const hv_register_name_HV_ARM64_REGISTER_Z19: hv_register_name = 196883;
+pub const hv_register_name_HV_ARM64_REGISTER_Z20: hv_register_name = 196884;
+pub const hv_register_name_HV_ARM64_REGISTER_Z21: hv_register_name = 196885;
+pub const hv_register_name_HV_ARM64_REGISTER_Z22: hv_register_name = 196886;
+pub const hv_register_name_HV_ARM64_REGISTER_Z23: hv_register_name = 196887;
+pub const hv_register_name_HV_ARM64_REGISTER_Z24: hv_register_name = 196888;
+pub const hv_register_name_HV_ARM64_REGISTER_Z25: hv_register_name = 196889;
+pub const hv_register_name_HV_ARM64_REGISTER_Z26: hv_register_name = 196890;
+pub const hv_register_name_HV_ARM64_REGISTER_Z27: hv_register_name = 196891;
+pub const hv_register_name_HV_ARM64_REGISTER_Z28: hv_register_name = 196892;
+pub const hv_register_name_HV_ARM64_REGISTER_Z29: hv_register_name = 196893;
+pub const hv_register_name_HV_ARM64_REGISTER_Z30: hv_register_name = 196894;
+pub const hv_register_name_HV_ARM64_REGISTER_Z31: hv_register_name = 196895;
+pub const hv_register_name_HV_ARM64_REGISTER_P0: hv_register_name = 196896;
+pub const hv_register_name_HV_ARM64_REGISTER_P1: hv_register_name = 196897;
+pub const hv_register_name_HV_ARM64_REGISTER_P2: hv_register_name = 196898;
+pub const hv_register_name_HV_ARM64_REGISTER_P3: hv_register_name = 196899;
+pub const hv_register_name_HV_ARM64_REGISTER_P4: hv_register_name = 196900;
+pub const hv_register_name_HV_ARM64_REGISTER_P5: hv_register_name = 196901;
+pub const hv_register_name_HV_ARM64_REGISTER_P6: hv_register_name = 196902;
+pub const hv_register_name_HV_ARM64_REGISTER_P7: hv_register_name = 196903;
+pub const hv_register_name_HV_ARM64_REGISTER_P8: hv_register_name = 196904;
+pub const hv_register_name_HV_ARM64_REGISTER_P9: hv_register_name = 196905;
+pub const hv_register_name_HV_ARM64_REGISTER_P10: hv_register_name = 196906;
+pub const hv_register_name_HV_ARM64_REGISTER_P11: hv_register_name = 196907;
+pub const hv_register_name_HV_ARM64_REGISTER_P12: hv_register_name = 196908;
+pub const hv_register_name_HV_ARM64_REGISTER_P13: hv_register_name = 196909;
+pub const hv_register_name_HV_ARM64_REGISTER_P14: hv_register_name = 196910;
+pub const hv_register_name_HV_ARM64_REGISTER_P15: hv_register_name = 196911;
+pub const hv_register_name_HV_ARM64_REGISTER_FFR: hv_register_name = 196912;
+pub const hv_register_name_HV_ARM64_REGISTER_CURRENT_EL: hv_register_name = 135171;
+pub const hv_register_name_HV_ARM64_REGISTER_DAIF: hv_register_name = 135172;
+pub const hv_register_name_HV_ARM64_REGISTER_DIT: hv_register_name = 135173;
+pub const hv_register_name_HV_ARM64_REGISTER_PSTATE: hv_register_name = 131107;
+pub const hv_register_name_HV_ARM64_REGISTER_ELR_EL1: hv_register_name = 262165;
+pub const hv_register_name_HV_ARM64_REGISTER_ELR_EL2: hv_register_name = 135169;
+pub const hv_register_name_HV_ARM64_REGISTER_ELR_ELX: hv_register_name = 135180;
+pub const hv_register_name_HV_ARM64_REGISTER_FPCR: hv_register_name = 262162;
+pub const hv_register_name_HV_ARM64_REGISTER_FPSR: hv_register_name = 262163;
+pub const hv_register_name_HV_ARM64_REGISTER_NZCV: hv_register_name = 135174;
+pub const hv_register_name_HV_ARM64_REGISTER_PAN: hv_register_name = 135175;
+pub const hv_register_name_HV_ARM64_REGISTER_SP: hv_register_name = 131103;
+pub const hv_register_name_HV_ARM64_REGISTER_SP_EL0: hv_register_name = 131104;
+pub const hv_register_name_HV_ARM64_REGISTER_SP_EL1: hv_register_name = 131105;
+pub const hv_register_name_HV_ARM64_REGISTER_SP_EL2: hv_register_name = 135168;
+pub const hv_register_name_HV_ARM64_REGISTER_SP_SEL: hv_register_name = 135176;
+pub const hv_register_name_HV_ARM64_REGISTER_SPSR_EL1: hv_register_name = 262164;
+pub const hv_register_name_HV_ARM64_REGISTER_SPSR_EL2: hv_register_name = 135170;
+pub const hv_register_name_HV_ARM64_REGISTER_SPSR_ELX: hv_register_name = 135181;
+pub const hv_register_name_HV_ARM64_REGISTER_SSBS: hv_register_name = 135177;
+pub const hv_register_name_HV_ARM64_REGISTER_TCO: hv_register_name = 135178;
+pub const hv_register_name_HV_ARM64_REGISTER_UAO: hv_register_name = 135179;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MIDR_EL1: hv_register_name = 139264;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES01_EL1: hv_register_name = 139265;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES02_EL1: hv_register_name = 139266;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES03_EL1: hv_register_name = 139267;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES04_EL1: hv_register_name = 139268;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MPIDR_EL1: hv_register_name = 139269;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_REVIDR_EL1: hv_register_name = 139270;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES07_EL1: hv_register_name = 139271;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_PFR0_EL1: hv_register_name = 139272;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_PFR1_EL1: hv_register_name = 139273;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_DFR0_EL1: hv_register_name = 139274;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES13_EL1: hv_register_name = 139275;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MMFR0_EL1: hv_register_name = 139276;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MMFR1_EL1: hv_register_name = 139277;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MMFR2_EL1: hv_register_name = 139278;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MMFR3_EL1: hv_register_name = 139279;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR0_EL1: hv_register_name = 139280;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR1_EL1: hv_register_name = 139281;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR2_EL1: hv_register_name = 139282;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR3_EL1: hv_register_name = 139283;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR4_EL1: hv_register_name = 139284;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_ISAR5_EL1: hv_register_name = 139285;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES26_EL1: hv_register_name = 139286;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES27_EL1: hv_register_name = 139287;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MVFR0_EL1: hv_register_name = 139288;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MVFR1_EL1: hv_register_name = 139289;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_MVFR2_EL1: hv_register_name = 139290;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES33_EL1: hv_register_name = 139291;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_PFR2_EL1: hv_register_name = 139292;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES35_EL1: hv_register_name = 139293;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES36_EL1: hv_register_name = 139294;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES37_EL1: hv_register_name = 139295;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_PFR0_EL1: hv_register_name = 139296;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_PFR1_EL1: hv_register_name = 139297;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_PFR2_EL1: hv_register_name = 139298;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES43_EL1: hv_register_name = 139299;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_ZFR0_EL1: hv_register_name = 139300;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_SMFR0_EL1: hv_register_name = 139301;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES46_EL1: hv_register_name = 139302;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES47_EL1: hv_register_name = 139303;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_DFR0_EL1: hv_register_name = 139304;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_DFR1_EL1: hv_register_name = 139305;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES52_EL1: hv_register_name = 139306;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES53_EL1: hv_register_name = 139307;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES54_EL1: hv_register_name = 139308;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES55_EL1: hv_register_name = 139309;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES56_EL1: hv_register_name = 139310;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES57_EL1: hv_register_name = 139311;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_ISAR0_EL1: hv_register_name = 139312;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_ISAR1_EL1: hv_register_name = 139313;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_ISAR2_EL1: hv_register_name = 139314;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES63_EL1: hv_register_name = 139315;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES64_EL1: hv_register_name = 139316;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES65_EL1: hv_register_name = 139317;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES66_EL1: hv_register_name = 139318;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES67_EL1: hv_register_name = 139319;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_MMFR0_EL1: hv_register_name = 139320;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_MMFR1_EL1: hv_register_name = 139321;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_MMFR2_EL1: hv_register_name = 139322;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_MMFR3_EL1: hv_register_name = 139323;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_AA64_MMFR4_EL1: hv_register_name = 139324;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES75_EL1: hv_register_name = 139325;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES76_EL1: hv_register_name = 139326;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES77_EL1: hv_register_name = 139327;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES80_EL1: hv_register_name = 139328;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES81_EL1: hv_register_name = 139329;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES82_EL1: hv_register_name = 139330;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES83_EL1: hv_register_name = 139331;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES84_EL1: hv_register_name = 139332;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES85_EL1: hv_register_name = 139333;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES86_EL1: hv_register_name = 139334;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES87_EL1: hv_register_name = 139335;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES90_EL1: hv_register_name = 139336;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES91_EL1: hv_register_name = 139337;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES92_EL1: hv_register_name = 139338;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES93_EL1: hv_register_name = 139339;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES94_EL1: hv_register_name = 139340;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES95_EL1: hv_register_name = 139341;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES96_EL1: hv_register_name = 139342;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES97_EL1: hv_register_name = 139343;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES100_EL1: hv_register_name = 139344;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES101_EL1: hv_register_name = 139345;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES102_EL1: hv_register_name = 139346;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES103_EL1: hv_register_name = 139347;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES104_EL1: hv_register_name = 139348;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES105_EL1: hv_register_name = 139349;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES106_EL1: hv_register_name = 139350;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES107_EL1: hv_register_name = 139351;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES110_EL1: hv_register_name = 139352;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES111_EL1: hv_register_name = 139353;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES112_EL1: hv_register_name = 139354;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES113_EL1: hv_register_name = 139355;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES114_EL1: hv_register_name = 139356;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES115_EL1: hv_register_name = 139357;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES116_EL1: hv_register_name = 139358;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES117_EL1: hv_register_name = 139359;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES120_EL1: hv_register_name = 139360;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES121_EL1: hv_register_name = 139361;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES122_EL1: hv_register_name = 139362;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES123_EL1: hv_register_name = 139363;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES124_EL1: hv_register_name = 139364;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES125_EL1: hv_register_name = 139365;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES126_EL1: hv_register_name = 139366;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES127_EL1: hv_register_name = 139367;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES130_EL1: hv_register_name = 139368;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES131_EL1: hv_register_name = 139369;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES132_EL1: hv_register_name = 139370;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES133_EL1: hv_register_name = 139371;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES134_EL1: hv_register_name = 139372;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES135_EL1: hv_register_name = 139373;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES136_EL1: hv_register_name = 139374;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES137_EL1: hv_register_name = 139375;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES140_EL1: hv_register_name = 139376;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES141_EL1: hv_register_name = 139377;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES142_EL1: hv_register_name = 139378;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES143_EL1: hv_register_name = 139379;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES144_EL1: hv_register_name = 139380;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES145_EL1: hv_register_name = 139381;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES146_EL1: hv_register_name = 139382;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES147_EL1: hv_register_name = 139383;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES150_EL1: hv_register_name = 139384;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES151_EL1: hv_register_name = 139385;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES152_EL1: hv_register_name = 139386;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES153_EL1: hv_register_name = 139387;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES154_EL1: hv_register_name = 139388;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES155_EL1: hv_register_name = 139389;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES156_EL1: hv_register_name = 139390;
+pub const hv_register_name_HV_ARM64_REGISTER_ID_RES157_EL1: hv_register_name = 139391;
+pub const hv_register_name_HV_ARM64_REGISTER_ACCDATA_EL1: hv_register_name = 262176;
+pub const hv_register_name_HV_ARM64_REGISTER_ACTLR_EL1: hv_register_name = 262147;
+pub const hv_register_name_HV_ARM64_REGISTER_ACTLR_EL2: hv_register_name = 262177;
+pub const hv_register_name_HV_ARM64_REGISTER_AFSR0_EL1: hv_register_name = 262166;
+pub const hv_register_name_HV_ARM64_REGISTER_AFSR0_EL2: hv_register_name = 262178;
+pub const hv_register_name_HV_ARM64_REGISTER_AFSR0_ELX: hv_register_name = 262259;
+pub const hv_register_name_HV_ARM64_REGISTER_AFSR1_EL2: hv_register_name = 262179;
+pub const hv_register_name_HV_ARM64_REGISTER_AFSR1_ELX: hv_register_name = 262260;
+pub const hv_register_name_HV_ARM64_REGISTER_AIDR_EL1: hv_register_name = 262180;
+pub const hv_register_name_HV_ARM64_REGISTER_AMAIR_EL1: hv_register_name = 262168;
+pub const hv_register_name_HV_ARM64_REGISTER_AMAIR_EL2: hv_register_name = 262181;
+pub const hv_register_name_HV_ARM64_REGISTER_AMAIR_ELX: hv_register_name = 262261;
+pub const hv_register_name_HV_ARM64_REGISTER_APD_A_KEY_HI_EL1: hv_register_name = 262182;
+pub const hv_register_name_HV_ARM64_REGISTER_APD_A_KEY_LO_EL1: hv_register_name = 262183;
+pub const hv_register_name_HV_ARM64_REGISTER_APD_B_KEY_HI_EL1: hv_register_name = 262184;
+pub const hv_register_name_HV_ARM64_REGISTER_APD_B_KEY_LO_EL1: hv_register_name = 262185;
+pub const hv_register_name_HV_ARM64_REGISTER_APG_A_KEY_HI_EL1: hv_register_name = 262186;
+pub const hv_register_name_HV_ARM64_REGISTER_APG_A_KEY_LO_EL1: hv_register_name = 262187;
+pub const hv_register_name_HV_ARM64_REGISTER_API_A_KEY_HI_EL1: hv_register_name = 262188;
+pub const hv_register_name_HV_ARM64_REGISTER_API_A_KEY_LO_EL1: hv_register_name = 262189;
+pub const hv_register_name_HV_ARM64_REGISTER_API_B_KEY_HI_EL1: hv_register_name = 262190;
+pub const hv_register_name_HV_ARM64_REGISTER_API_B_KEY_LO_EL1: hv_register_name = 262191;
+pub const hv_register_name_HV_ARM64_REGISTER_CCSIDR_EL1: hv_register_name = 262192;
+pub const hv_register_name_HV_ARM64_REGISTER_CCSIDR2_EL1: hv_register_name = 262193;
+pub const hv_register_name_HV_ARM64_REGISTER_CLIDR_EL1: hv_register_name = 262194;
+pub const hv_register_name_HV_ARM64_REGISTER_CONTEXTIDR_EL1: hv_register_name = 262157;
+pub const hv_register_name_HV_ARM64_REGISTER_CONTEXTIDR_EL2: hv_register_name = 262195;
+pub const hv_register_name_HV_ARM64_REGISTER_CONTEXTIDR_ELX: hv_register_name = 262262;
+pub const hv_register_name_HV_ARM64_REGISTER_CPACR_EL1: hv_register_name = 262148;
+pub const hv_register_name_HV_ARM64_REGISTER_CPTR_EL2: hv_register_name = 262196;
+pub const hv_register_name_HV_ARM64_REGISTER_CPACR_ELX: hv_register_name = 262263;
+pub const hv_register_name_HV_ARM64_REGISTER_CSSELR_EL1: hv_register_name = 262197;
+pub const hv_register_name_HV_ARM64_REGISTER_CTR_EL0: hv_register_name = 262198;
+pub const hv_register_name_HV_ARM64_REGISTER_DACR32_EL2: hv_register_name = 262199;
+pub const hv_register_name_HV_ARM64_REGISTER_DCZID_EL0: hv_register_name = 262200;
+pub const hv_register_name_HV_ARM64_REGISTER_ESR_EL1: hv_register_name = 262152;
+pub const hv_register_name_HV_ARM64_REGISTER_ESR_EL2: hv_register_name = 262201;
+pub const hv_register_name_HV_ARM64_REGISTER_ESR_ELX: hv_register_name = 262264;
+pub const hv_register_name_HV_ARM64_REGISTER_FAR_EL1: hv_register_name = 262153;
+pub const hv_register_name_HV_ARM64_REGISTER_FAR_EL2: hv_register_name = 262202;
+pub const hv_register_name_HV_ARM64_REGISTER_FAR_ELX: hv_register_name = 262265;
+pub const hv_register_name_HV_ARM64_REGISTER_FPEXC32_EL2: hv_register_name = 262203;
+pub const hv_register_name_HV_ARM64_REGISTER_GCR_EL1: hv_register_name = 262204;
+pub const hv_register_name_HV_ARM64_REGISTER_GMID_EL1: hv_register_name = 262205;
+pub const hv_register_name_HV_ARM64_REGISTER_HACR_EL2: hv_register_name = 262206;
+pub const hv_register_name_HV_ARM64_REGISTER_HAFGRTR_EL2: hv_register_name = 262207;
+pub const hv_register_name_HV_ARM64_REGISTER_HCR_EL2: hv_register_name = 262208;
+pub const hv_register_name_HV_ARM64_REGISTER_HCRX_EL2: hv_register_name = 262209;
+pub const hv_register_name_HV_ARM64_REGISTER_HDFGRTR_EL2: hv_register_name = 262210;
+pub const hv_register_name_HV_ARM64_REGISTER_HDFGWTR_EL2: hv_register_name = 262211;
+pub const hv_register_name_HV_ARM64_REGISTER_HFGITR_EL2: hv_register_name = 262212;
+pub const hv_register_name_HV_ARM64_REGISTER_HFGRTR_EL2: hv_register_name = 262213;
+pub const hv_register_name_HV_ARM64_REGISTER_HFGWTR_EL2: hv_register_name = 262214;
+pub const hv_register_name_HV_ARM64_REGISTER_HPFAR_EL2: hv_register_name = 262215;
+pub const hv_register_name_HV_ARM64_REGISTER_HSTR_EL2: hv_register_name = 262216;
+pub const hv_register_name_HV_ARM64_REGISTER_IFSR32_EL2: hv_register_name = 262217;
+pub const hv_register_name_HV_ARM64_REGISTER_ISR_EL1: hv_register_name = 262218;
+pub const hv_register_name_HV_ARM64_REGISTER_LORC_EL1: hv_register_name = 262219;
+pub const hv_register_name_HV_ARM64_REGISTER_LOREA_EL1: hv_register_name = 262220;
+pub const hv_register_name_HV_ARM64_REGISTER_LORID_EL1: hv_register_name = 262221;
+pub const hv_register_name_HV_ARM64_REGISTER_LORN_EL1: hv_register_name = 262222;
+pub const hv_register_name_HV_ARM64_REGISTER_LORSA_EL1: hv_register_name = 262223;
+pub const hv_register_name_HV_ARM64_REGISTER_MAIR_EL1: hv_register_name = 262155;
+pub const hv_register_name_HV_ARM64_REGISTER_MAIR_EL2: hv_register_name = 262224;
+pub const hv_register_name_HV_ARM64_REGISTER_MAIR_ELX: hv_register_name = 262266;
+pub const hv_register_name_HV_ARM64_REGISTER_MIDR_EL1: hv_register_name = 262225;
+pub const hv_register_name_HV_ARM64_REGISTER_MPIDR_EL1: hv_register_name = 262145;
+pub const hv_register_name_HV_ARM64_REGISTER_MVFR0_EL1: hv_register_name = 262226;
+pub const hv_register_name_HV_ARM64_REGISTER_MVFR1_EL1: hv_register_name = 262227;
+pub const hv_register_name_HV_ARM64_REGISTER_MVFR2_EL1: hv_register_name = 262228;
+pub const hv_register_name_HV_ARM64_REGISTER_PAR_EL1: hv_register_name = 262154;
+pub const hv_register_name_HV_ARM64_REGISTER_REVIDR_EL1: hv_register_name = 262229;
+pub const hv_register_name_HV_ARM64_REGISTER_RGSR_EL1: hv_register_name = 262230;
+pub const hv_register_name_HV_ARM64_REGISTER_RNDR: hv_register_name = 262231;
+pub const hv_register_name_HV_ARM64_REGISTER_RNDRRS: hv_register_name = 262232;
+pub const hv_register_name_HV_ARM64_REGISTER_SCTLR_EL1: hv_register_name = 262146;
+pub const hv_register_name_HV_ARM64_REGISTER_SCTLR_EL2: hv_register_name = 262233;
+pub const hv_register_name_HV_ARM64_REGISTER_SCTLR_ELX: hv_register_name = 262267;
+pub const hv_register_name_HV_ARM64_REGISTER_SCXTNUM_EL0: hv_register_name = 262234;
+pub const hv_register_name_HV_ARM64_REGISTER_SCXTNUM_EL1: hv_register_name = 262235;
+pub const hv_register_name_HV_ARM64_REGISTER_SCXTNUM_EL2: hv_register_name = 262236;
+pub const hv_register_name_HV_ARM64_REGISTER_SMCR_EL1: hv_register_name = 262237;
+pub const hv_register_name_HV_ARM64_REGISTER_SMCR_EL2: hv_register_name = 262238;
+pub const hv_register_name_HV_ARM64_REGISTER_SMIDR_EL1: hv_register_name = 262239;
+pub const hv_register_name_HV_ARM64_REGISTER_SMPRI_EL1: hv_register_name = 262240;
+pub const hv_register_name_HV_ARM64_REGISTER_SMPRIMAP_EL2: hv_register_name = 262241;
+pub const hv_register_name_HV_ARM64_REGISTER_TCR_EL1: hv_register_name = 262151;
+pub const hv_register_name_HV_ARM64_REGISTER_TCR_EL2: hv_register_name = 262242;
+pub const hv_register_name_HV_ARM64_REGISTER_TCR_ELX: hv_register_name = 262268;
+pub const hv_register_name_HV_ARM64_REGISTER_TFSRE0_EL1: hv_register_name = 262243;
+pub const hv_register_name_HV_ARM64_REGISTER_TFSR_EL1: hv_register_name = 262244;
+pub const hv_register_name_HV_ARM64_REGISTER_TFSR_EL2: hv_register_name = 262245;
+pub const hv_register_name_HV_ARM64_REGISTER_TPIDR2_EL0: hv_register_name = 262246;
+pub const hv_register_name_HV_ARM64_REGISTER_TPIDR_EL0: hv_register_name = 262161;
+pub const hv_register_name_HV_ARM64_REGISTER_TPIDR_EL1: hv_register_name = 262158;
+pub const hv_register_name_HV_ARM64_REGISTER_TPIDR_EL2: hv_register_name = 262247;
+pub const hv_register_name_HV_ARM64_REGISTER_TPIDRRO_EL0: hv_register_name = 262160;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR0_EL1: hv_register_name = 262149;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR0_EL2: hv_register_name = 262248;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR0_ELX: hv_register_name = 262269;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR1_EL1: hv_register_name = 262150;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR1_EL2: hv_register_name = 262270;
+pub const hv_register_name_HV_ARM64_REGISTER_TTBR1_ELX: hv_register_name = 262271;
+pub const hv_register_name_HV_ARM64_REGISTER_VBAR_EL1: hv_register_name = 262156;
+pub const hv_register_name_HV_ARM64_REGISTER_VBAR_EL2: hv_register_name = 262249;
+pub const hv_register_name_HV_ARM64_REGISTER_VBAR_ELX: hv_register_name = 262272;
+pub const hv_register_name_HV_ARM64_REGISTER_VMPIDR_EL2: hv_register_name = 262250;
+pub const hv_register_name_HV_ARM64_REGISTER_VNCR_EL2: hv_register_name = 262251;
+pub const hv_register_name_HV_ARM64_REGISTER_VPIDR_EL2: hv_register_name = 262252;
+pub const hv_register_name_HV_ARM64_REGISTER_VSTCR_EL2: hv_register_name = 262253;
+pub const hv_register_name_HV_ARM64_REGISTER_VSTTBR_EL2: hv_register_name = 262254;
+pub const hv_register_name_HV_ARM64_REGISTER_VTCR_EL2: hv_register_name = 262255;
+pub const hv_register_name_HV_ARM64_REGISTER_VTTBR_EL2: hv_register_name = 262256;
+pub const hv_register_name_HV_ARM64_REGISTER_ZCR_EL1: hv_register_name = 262257;
+pub const hv_register_name_HV_ARM64_REGISTER_ZCR_EL2: hv_register_name = 262258;
+pub const hv_register_name_HV_ARM64_REGISTER_ZCR_ELX: hv_register_name = 262273;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGAUTHSTATUS_EL1: hv_register_name = 327744;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR0_EL1: hv_register_name = 327680;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR1_EL1: hv_register_name = 327681;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR2_EL1: hv_register_name = 327682;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR3_EL1: hv_register_name = 327683;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR4_EL1: hv_register_name = 327684;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR5_EL1: hv_register_name = 327685;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR6_EL1: hv_register_name = 327686;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR7_EL1: hv_register_name = 327687;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR8_EL1: hv_register_name = 327688;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR9_EL1: hv_register_name = 327689;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR10_EL1: hv_register_name = 327690;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR11_EL1: hv_register_name = 327691;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR12_EL1: hv_register_name = 327692;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR13_EL1: hv_register_name = 327693;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR14_EL1: hv_register_name = 327694;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBCR15_EL1: hv_register_name = 327695;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR0_EL1: hv_register_name = 327712;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR1_EL1: hv_register_name = 327713;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR2_EL1: hv_register_name = 327714;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR3_EL1: hv_register_name = 327715;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR4_EL1: hv_register_name = 327716;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR5_EL1: hv_register_name = 327717;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR6_EL1: hv_register_name = 327718;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR7_EL1: hv_register_name = 327719;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR8_EL1: hv_register_name = 327720;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR9_EL1: hv_register_name = 327721;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR10_EL1: hv_register_name = 327722;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR11_EL1: hv_register_name = 327723;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR12_EL1: hv_register_name = 327724;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR13_EL1: hv_register_name = 327725;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR14_EL1: hv_register_name = 327726;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGBVR15_EL1: hv_register_name = 327727;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGCLAIMCLR_EL1: hv_register_name = 327745;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGCLAIMSET_EL1: hv_register_name = 327746;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGDTRRX_EL0: hv_register_name = 327747;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGDTRTX_EL0: hv_register_name = 327748;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGPRCR_EL1: hv_register_name = 327749;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGVCR32_EL2: hv_register_name = 327750;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR0_EL1: hv_register_name = 327696;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR1_EL1: hv_register_name = 327697;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR2_EL1: hv_register_name = 327698;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR3_EL1: hv_register_name = 327699;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR4_EL1: hv_register_name = 327700;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR5_EL1: hv_register_name = 327701;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR6_EL1: hv_register_name = 327702;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR7_EL1: hv_register_name = 327703;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR8_EL1: hv_register_name = 327704;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR9_EL1: hv_register_name = 327705;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR10_EL1: hv_register_name = 327706;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR11_EL1: hv_register_name = 327707;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR12_EL1: hv_register_name = 327708;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR13_EL1: hv_register_name = 327709;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR14_EL1: hv_register_name = 327710;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWCR15_EL1: hv_register_name = 327711;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR0_EL1: hv_register_name = 327728;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR1_EL1: hv_register_name = 327729;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR2_EL1: hv_register_name = 327730;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR3_EL1: hv_register_name = 327731;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR4_EL1: hv_register_name = 327732;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR5_EL1: hv_register_name = 327733;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR6_EL1: hv_register_name = 327734;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR7_EL1: hv_register_name = 327735;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR8_EL1: hv_register_name = 327736;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR9_EL1: hv_register_name = 327737;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR10_EL1: hv_register_name = 327738;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR11_EL1: hv_register_name = 327739;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR12_EL1: hv_register_name = 327740;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR13_EL1: hv_register_name = 327741;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR14_EL1: hv_register_name = 327742;
+pub const hv_register_name_HV_ARM64_REGISTER_DBGWVR15_EL1: hv_register_name = 327743;
+pub const hv_register_name_HV_ARM64_REGISTER_DLR_EL0: hv_register_name = 327751;
+pub const hv_register_name_HV_ARM64_REGISTER_DSPSR_EL0: hv_register_name = 327752;
+pub const hv_register_name_HV_ARM64_REGISTER_MDCCINT_EL1: hv_register_name = 327753;
+pub const hv_register_name_HV_ARM64_REGISTER_MDCCSR_EL0: hv_register_name = 327754;
+pub const hv_register_name_HV_ARM64_REGISTER_MDCR_EL2: hv_register_name = 327755;
+pub const hv_register_name_HV_ARM64_REGISTER_MDRAR_EL1: hv_register_name = 327756;
+pub const hv_register_name_HV_ARM64_REGISTER_MDSCR_EL1: hv_register_name = 327757;
+pub const hv_register_name_HV_ARM64_REGISTER_OSDLR_EL1: hv_register_name = 327758;
+pub const hv_register_name_HV_ARM64_REGISTER_OSDTRRX_EL1: hv_register_name = 327759;
+pub const hv_register_name_HV_ARM64_REGISTER_OSDTRTX_EL1: hv_register_name = 327760;
+pub const hv_register_name_HV_ARM64_REGISTER_OSECCR_EL1: hv_register_name = 327761;
+pub const hv_register_name_HV_ARM64_REGISTER_OSLAR_EL1: hv_register_name = 327762;
+pub const hv_register_name_HV_ARM64_REGISTER_OSLSR_EL1: hv_register_name = 327763;
+pub const hv_register_name_HV_ARM64_REGISTER_SDER32_EL2: hv_register_name = 327764;
+pub const hv_register_name_HV_ARM64_REGISTER_TRFCR_EL1: hv_register_name = 327765;
+pub const hv_register_name_HV_ARM64_REGISTER_TRFCR_EL2: hv_register_name = 327766;
+pub const hv_register_name_HV_ARM64_REGISTER_TRFCR_ELX: hv_register_name = 327767;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCCFILTR_EL0: hv_register_name = 335872;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCCNTR_EL0: hv_register_name = 335873;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCEID0_EL0: hv_register_name = 335874;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCEID1_EL0: hv_register_name = 335875;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCNTENCLR_EL0: hv_register_name = 335876;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCNTENSET_EL0: hv_register_name = 335877;
+pub const hv_register_name_HV_ARM64_REGISTER_PMCR_EL0: hv_register_name = 335878;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR0_EL0: hv_register_name = 335879;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR1_EL0: hv_register_name = 335880;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR2_EL0: hv_register_name = 335881;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR3_EL0: hv_register_name = 335882;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR4_EL0: hv_register_name = 335883;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR5_EL0: hv_register_name = 335884;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR6_EL0: hv_register_name = 335885;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR7_EL0: hv_register_name = 335886;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR8_EL0: hv_register_name = 335887;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR9_EL0: hv_register_name = 335888;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR10_EL0: hv_register_name = 335889;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR11_EL0: hv_register_name = 335890;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR12_EL0: hv_register_name = 335891;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR13_EL0: hv_register_name = 335892;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR14_EL0: hv_register_name = 335893;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR15_EL0: hv_register_name = 335894;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR16_EL0: hv_register_name = 335895;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR17_EL0: hv_register_name = 335896;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR18_EL0: hv_register_name = 335897;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR19_EL0: hv_register_name = 335898;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR20_EL0: hv_register_name = 335899;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR21_EL0: hv_register_name = 335900;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR22_EL0: hv_register_name = 335901;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR23_EL0: hv_register_name = 335902;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR24_EL0: hv_register_name = 335903;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR25_EL0: hv_register_name = 335904;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR26_EL0: hv_register_name = 335905;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR27_EL0: hv_register_name = 335906;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR28_EL0: hv_register_name = 335907;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR29_EL0: hv_register_name = 335908;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVCNTR30_EL0: hv_register_name = 335909;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER0_EL0: hv_register_name = 335910;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER1_EL0: hv_register_name = 335911;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER2_EL0: hv_register_name = 335912;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER3_EL0: hv_register_name = 335913;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER4_EL0: hv_register_name = 335914;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER5_EL0: hv_register_name = 335915;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER6_EL0: hv_register_name = 335916;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER7_EL0: hv_register_name = 335917;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER8_EL0: hv_register_name = 335918;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER9_EL0: hv_register_name = 335919;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER10_EL0: hv_register_name = 335920;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER11_EL0: hv_register_name = 335921;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER12_EL0: hv_register_name = 335922;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER13_EL0: hv_register_name = 335923;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER14_EL0: hv_register_name = 335924;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER15_EL0: hv_register_name = 335925;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER16_EL0: hv_register_name = 335926;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER17_EL0: hv_register_name = 335927;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER18_EL0: hv_register_name = 335928;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER19_EL0: hv_register_name = 335929;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER20_EL0: hv_register_name = 335930;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER21_EL0: hv_register_name = 335931;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER22_EL0: hv_register_name = 335932;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER23_EL0: hv_register_name = 335933;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER24_EL0: hv_register_name = 335934;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER25_EL0: hv_register_name = 335935;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER26_EL0: hv_register_name = 335936;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER27_EL0: hv_register_name = 335937;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER28_EL0: hv_register_name = 335938;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER29_EL0: hv_register_name = 335939;
+pub const hv_register_name_HV_ARM64_REGISTER_PMEVTYPER30_EL0: hv_register_name = 335940;
+pub const hv_register_name_HV_ARM64_REGISTER_PMINTENCLR_EL1: hv_register_name = 335941;
+pub const hv_register_name_HV_ARM64_REGISTER_PMINTENSET_EL1: hv_register_name = 335942;
+pub const hv_register_name_HV_ARM64_REGISTER_PMMIR_EL1: hv_register_name = 335943;
+pub const hv_register_name_HV_ARM64_REGISTER_PMOVSCLR_EL0: hv_register_name = 335944;
+pub const hv_register_name_HV_ARM64_REGISTER_PMOVSSET_EL0: hv_register_name = 335945;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSELR_EL0: hv_register_name = 335946;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSWINC_EL0: hv_register_name = 335947;
+pub const hv_register_name_HV_ARM64_REGISTER_PMUSERENR_EL0: hv_register_name = 335948;
+pub const hv_register_name_HV_ARM64_REGISTER_PMXEVCNTR_EL0: hv_register_name = 335949;
+pub const hv_register_name_HV_ARM64_REGISTER_PMXEVTYPER_EL0: hv_register_name = 335950;
+pub const hv_register_name_HV_ARM64_REGISTER_AMEVCNTR00_EL0: hv_register_name = 339968;
+pub const hv_register_name_HV_ARM64_REGISTER_AMEVCNTR01_EL0: hv_register_name = 339969;
+pub const hv_register_name_HV_ARM64_REGISTER_AMEVCNTR02_EL0: hv_register_name = 339970;
+pub const hv_register_name_HV_ARM64_REGISTER_AMEVCNTR03_EL0: hv_register_name = 339971;
+pub const hv_register_name_HV_ARM64_REGISTER_PMBIDR_EL1: hv_register_name = 344064;
+pub const hv_register_name_HV_ARM64_REGISTER_PMBLIMITR_EL1: hv_register_name = 344065;
+pub const hv_register_name_HV_ARM64_REGISTER_PMBPTR_EL1: hv_register_name = 344066;
+pub const hv_register_name_HV_ARM64_REGISTER_PMBSR_EL1: hv_register_name = 344067;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSCR_EL1: hv_register_name = 344068;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSCR_EL2: hv_register_name = 344069;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSEVFR_EL1: hv_register_name = 344070;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSFCR_EL1: hv_register_name = 344071;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSICR_EL1: hv_register_name = 344072;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSIDR_EL1: hv_register_name = 344073;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSIRR_EL1: hv_register_name = 344074;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSLATFR_EL1: hv_register_name = 344075;
+pub const hv_register_name_HV_ARM64_REGISTER_PMSNEVFR_EL1: hv_register_name = 344076;
+pub const hv_register_name_HV_ARM64_REGISTER_DISR_EL1: hv_register_name = 352256;
+pub const hv_register_name_HV_ARM64_REGISTER_ERRIDR_EL1: hv_register_name = 352257;
+pub const hv_register_name_HV_ARM64_REGISTER_ERRSELR_EL1: hv_register_name = 352258;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXADDR_EL1: hv_register_name = 352259;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXCTLR_EL1: hv_register_name = 352260;
+pub const hv_register_name_HV_ARM64_REGISTER_ERRXFR_EL1: hv_register_name = 352261;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXMISC0_EL1: hv_register_name = 352262;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXMISC1_EL1: hv_register_name = 352263;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXMISC2_EL1: hv_register_name = 352264;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXMISC3_EL1: hv_register_name = 352265;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXPFGCDN_EL1: hv_register_name = 352266;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXPFGCTL_EL1: hv_register_name = 352267;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXPFGF_EL1: hv_register_name = 352268;
+pub const hv_register_name_HV_ARM64_REGISTER_ERXSTATUS_EL1: hv_register_name = 352269;
+pub const hv_register_name_HV_ARM64_REGISTER_VDISR_EL2: hv_register_name = 352270;
+pub const hv_register_name_HV_ARM64_REGISTER_VSESR_EL2: hv_register_name = 352271;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTFRQ_EL0: hv_register_name = 360448;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHCTL_EL2: hv_register_name = 360449;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHP_CTL_EL2: hv_register_name = 360450;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHP_CVAL_EL2: hv_register_name = 360451;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHP_TVAL_EL2: hv_register_name = 360452;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHV_CTL_EL2: hv_register_name = 360453;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHV_CVAL_EL2: hv_register_name = 360454;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTHV_TVAL_EL2: hv_register_name = 360455;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTKCTL_EL1: hv_register_name = 360456;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTKCTL_ELX: hv_register_name = 360467;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_CTL_EL0: hv_register_name = 360457;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_CTL_ELX: hv_register_name = 360468;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_CVAL_EL0: hv_register_name = 360458;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_CVAL_ELX: hv_register_name = 360469;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_TVAL_EL0: hv_register_name = 360459;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTP_TVAL_ELX: hv_register_name = 360470;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTPCT_EL0: hv_register_name = 360460;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTPOFF_EL2: hv_register_name = 360461;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_CTL_EL0: hv_register_name = 360462;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_CTL_ELX: hv_register_name = 360471;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_CVAL_EL0: hv_register_name = 360463;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_CVAL_ELX: hv_register_name = 360472;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_TVAL_EL0: hv_register_name = 360464;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTV_TVAL_ELX: hv_register_name = 360473;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTVCT_EL0: hv_register_name = 360465;
+pub const hv_register_name_HV_ARM64_REGISTER_CNTVOFF_EL2: hv_register_name = 360466;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_AP1R0_EL1: hv_register_name = 393216;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_AP1R1_EL1: hv_register_name = 393217;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_AP1R2_EL1: hv_register_name = 393218;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_AP1R3_EL1: hv_register_name = 393219;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_ASGI1R_EL1: hv_register_name = 393220;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_BPR1_EL1: hv_register_name = 393221;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_CTLR_EL1: hv_register_name = 393222;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_DIR_EL1: hv_register_name = 393223;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_EOIR1_EL1: hv_register_name = 393224;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_HPPIR1_EL1: hv_register_name = 393225;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_IAR1_EL1: hv_register_name = 393226;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_IGRPEN1_EL1: hv_register_name = 393227;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_PMR_EL1: hv_register_name = 393228;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_RPR_EL1: hv_register_name = 393229;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_SGI1R_EL1: hv_register_name = 393230;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_SRE_EL1: hv_register_name = 393231;
+pub const hv_register_name_HV_ARM64_REGISTER_ICC_SRE_EL2: hv_register_name = 393232;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_AP1R0_EL2: hv_register_name = 397312;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_AP1R1_EL2: hv_register_name = 397313;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_AP1R2_EL2: hv_register_name = 397314;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_AP1R3_EL2: hv_register_name = 397315;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_EISR_EL2: hv_register_name = 397316;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_ELRSR_EL2: hv_register_name = 397317;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_HCR_EL2: hv_register_name = 397318;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR0_EL2: hv_register_name = 397319;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR1_EL2: hv_register_name = 397320;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR2_EL2: hv_register_name = 397321;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR3_EL2: hv_register_name = 397322;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR4_EL2: hv_register_name = 397323;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR5_EL2: hv_register_name = 397324;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR6_EL2: hv_register_name = 397325;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR7_EL2: hv_register_name = 397326;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR8_EL2: hv_register_name = 397327;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR9_EL2: hv_register_name = 397328;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR10_EL2: hv_register_name = 397329;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR11_EL2: hv_register_name = 397330;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR12_EL2: hv_register_name = 397331;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR13_EL2: hv_register_name = 397332;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR14_EL2: hv_register_name = 397333;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_LR15_EL2: hv_register_name = 397334;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_MISR_EL2: hv_register_name = 397335;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_VMCR_EL2: hv_register_name = 397336;
+pub const hv_register_name_HV_ARM64_REGISTER_ICH_VTR_EL2: hv_register_name = 397337;
+pub const hv_register_name_HV_ARM64_REGISTER_GICR_BASE_GPA: hv_register_name = 405504;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAM0_EL1: hv_register_name = 462848;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAM1_EL1: hv_register_name = 462849;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAM2_EL2: hv_register_name = 462850;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMHCR_EL2: hv_register_name = 462851;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMIDR_EL1: hv_register_name = 462852;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMSM_EL1: hv_register_name = 462853;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM0_EL2: hv_register_name = 462854;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM1_EL2: hv_register_name = 462855;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM2_EL2: hv_register_name = 462856;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM3_EL2: hv_register_name = 462857;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM4_EL2: hv_register_name = 462858;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM5_EL2: hv_register_name = 462859;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM6_EL2: hv_register_name = 462860;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPM7_EL2: hv_register_name = 462861;
+pub const hv_register_name_HV_ARM64_REGISTER_MPAMVPMV_EL2: hv_register_name = 462862;
 pub type hv_register_name = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3443,6 +6144,112 @@ fn bindgen_test_layout_hv_intercept_suspend_register() {
     );
 }
 impl Default for hv_intercept_suspend_register {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_dispatch_suspend_register {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_dispatch_suspend_register__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_dispatch_suspend_register__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_dispatch_suspend_register__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_dispatch_suspend_register__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_dispatch_suspend_register__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_dispatch_suspend_register__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_dispatch_suspend_register__bindgen_ty_1)
+        )
+    );
+}
+impl hv_dispatch_suspend_register__bindgen_ty_1 {
+    #[inline]
+    pub fn suspended(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_suspended(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 63u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 63u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        suspended: __u64,
+        reserved: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let suspended: u64 = unsafe { ::std::mem::transmute(suspended) };
+            suspended as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 63u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_dispatch_suspend_register() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_dispatch_suspend_register> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_dispatch_suspend_register>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_dispatch_suspend_register))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_dispatch_suspend_register>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_dispatch_suspend_register))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_dispatch_suspend_register),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_dispatch_suspend_register {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -3703,6 +6510,366 @@ fn bindgen_test_layout_hv_x64_interrupt_state_register() {
     );
 }
 impl Default for hv_x64_interrupt_state_register {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_register_vsm_partition_status {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_register_vsm_partition_status__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_register_vsm_partition_status__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_register_vsm_partition_status__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_register_vsm_partition_status__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_register_vsm_partition_status__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_register_vsm_partition_status__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_register_vsm_partition_status__bindgen_ty_1)
+        )
+    );
+}
+impl hv_register_vsm_partition_status__bindgen_ty_1 {
+    #[inline]
+    pub fn enabled_vtl_set(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 16u8) as u64) }
+    }
+    #[inline]
+    pub fn set_enabled_vtl_set(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 16u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn max_vtl(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(16usize, 4u8) as u64) }
+    }
+    #[inline]
+    pub fn set_max_vtl(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(16usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn mbec_enabled_vtl_set(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(20usize, 16u8) as u64) }
+    }
+    #[inline]
+    pub fn set_mbec_enabled_vtl_set(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(20usize, 16u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn supervisor_shadow_stack_enabled_vtl_set(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(36usize, 4u8) as u64) }
+    }
+    #[inline]
+    pub fn set_supervisor_shadow_stack_enabled_vtl_set(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(36usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(40usize, 24u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(40usize, 24u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        enabled_vtl_set: __u64,
+        max_vtl: __u64,
+        mbec_enabled_vtl_set: __u64,
+        supervisor_shadow_stack_enabled_vtl_set: __u64,
+        reserved: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 16u8, {
+            let enabled_vtl_set: u64 = unsafe { ::std::mem::transmute(enabled_vtl_set) };
+            enabled_vtl_set as u64
+        });
+        __bindgen_bitfield_unit.set(16usize, 4u8, {
+            let max_vtl: u64 = unsafe { ::std::mem::transmute(max_vtl) };
+            max_vtl as u64
+        });
+        __bindgen_bitfield_unit.set(20usize, 16u8, {
+            let mbec_enabled_vtl_set: u64 = unsafe { ::std::mem::transmute(mbec_enabled_vtl_set) };
+            mbec_enabled_vtl_set as u64
+        });
+        __bindgen_bitfield_unit.set(36usize, 4u8, {
+            let supervisor_shadow_stack_enabled_vtl_set: u64 =
+                unsafe { ::std::mem::transmute(supervisor_shadow_stack_enabled_vtl_set) };
+            supervisor_shadow_stack_enabled_vtl_set as u64
+        });
+        __bindgen_bitfield_unit.set(40usize, 24u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_register_vsm_partition_status() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_register_vsm_partition_status> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_register_vsm_partition_status>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_register_vsm_partition_status))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_register_vsm_partition_status>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_register_vsm_partition_status)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_register_vsm_partition_status),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_register_vsm_partition_status {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct hv_get_vp_registers_output {
+    pub __bindgen_anon_1: hv_get_vp_registers_output__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_get_vp_registers_output__bindgen_ty_1 {
+    pub as32: hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1,
+    pub as64: hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1 {
+    pub a: __u32,
+    pub b: __u32,
+    pub c: __u32,
+    pub d: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).a) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(a)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).b) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(b)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).c) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(c)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).d) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(d)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2 {
+    pub low: __u64,
+    pub high: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).low) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(low)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).high) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(high)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_get_vp_registers_output__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_get_vp_registers_output__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_vp_registers_output__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_vp_registers_output__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1),
+            "::",
+            stringify!(as32)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_get_vp_registers_output__bindgen_ty_1),
+            "::",
+            stringify!(as64)
+        )
+    );
+}
+impl Default for hv_get_vp_registers_output__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_get_vp_registers_output() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_get_vp_registers_output>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_get_vp_registers_output))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_get_vp_registers_output>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_get_vp_registers_output))
+    );
+}
+impl Default for hv_get_vp_registers_output {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -4133,7 +7300,9 @@ pub union hv_register_value {
     pub reg8: __u8,
     pub explicit_suspend: hv_explicit_suspend_register,
     pub intercept_suspend: hv_intercept_suspend_register,
+    pub dispatch_suspend: hv_dispatch_suspend_register,
     pub internal_activity: hv_internal_activity_register,
+    pub vsm_partition_status: hv_register_vsm_partition_status,
     pub pending_interruption: hv_arm64_pending_interruption_register,
     pub interrupt_state: hv_arm64_interrupt_state_register,
     pub pending_synthetic_exception_event: hv_arm64_pending_synthetic_exception_event,
@@ -4223,6 +7392,16 @@ fn bindgen_test_layout_hv_register_value() {
         )
     );
     assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dispatch_suspend) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_register_value),
+            "::",
+            stringify!(dispatch_suspend)
+        )
+    );
+    assert_eq!(
         unsafe { ::std::ptr::addr_of!((*ptr).internal_activity) as usize - ptr as usize },
         0usize,
         concat!(
@@ -4230,6 +7409,16 @@ fn bindgen_test_layout_hv_register_value() {
             stringify!(hv_register_value),
             "::",
             stringify!(internal_activity)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vsm_partition_status) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_register_value),
+            "::",
+            stringify!(vsm_partition_status)
         )
     );
     assert_eq!(
@@ -4534,6 +7723,58 @@ impl Default for hv_input_set_vp_registers {
         }
     }
 }
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_send_ipi {
+    pub vector: __u32,
+    pub reserved: __u32,
+    pub cpu_mask: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_send_ipi() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_send_ipi> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_send_ipi>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_send_ipi))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_send_ipi>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_send_ipi))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vector) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi),
+            "::",
+            stringify!(vector)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).cpu_mask) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi),
+            "::",
+            stringify!(cpu_mask)
+        )
+    );
+}
 pub const hv_intercept_type_HV_INTERCEPT_TYPE_EXCEPTION: hv_intercept_type = 3;
 pub const hv_intercept_type_HV_INTERCEPT_TYPE_RESERVED0: hv_intercept_type = 4;
 pub const hv_intercept_type_HV_INTERCEPT_TYPE_MMIO: hv_intercept_type = 5;
@@ -4654,6 +7895,173 @@ impl Default for hv_input_install_intercept {
         }
     }
 }
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_mmio_read_input {
+    pub gpa: __u64,
+    pub size: __u32,
+    pub reserved: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_mmio_read_input() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_mmio_read_input> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_mmio_read_input>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_mmio_read_input))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_mmio_read_input>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_mmio_read_input))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_read_input),
+            "::",
+            stringify!(gpa)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_read_input),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_read_input),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_mmio_read_output {
+    pub data: [__u8; 64usize],
+}
+#[test]
+fn bindgen_test_layout_hv_mmio_read_output() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_mmio_read_output> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_mmio_read_output>(),
+        64usize,
+        concat!("Size of: ", stringify!(hv_mmio_read_output))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_mmio_read_output>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_mmio_read_output))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_read_output),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+impl Default for hv_mmio_read_output {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_mmio_write_input {
+    pub gpa: __u64,
+    pub size: __u32,
+    pub reserved: __u32,
+    pub data: [__u8; 64usize],
+}
+#[test]
+fn bindgen_test_layout_hv_mmio_write_input() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_mmio_write_input> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_mmio_write_input>(),
+        80usize,
+        concat!("Size of: ", stringify!(hv_mmio_write_input))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_mmio_write_input>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_mmio_write_input))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_write_input),
+            "::",
+            stringify!(gpa)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).size) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_write_input),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_write_input),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_mmio_write_input),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+impl Default for hv_mmio_write_input {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_eventlog_type_HV_EVENT_LOG_TYPE_GLOBAL_SYSTEM_EVENTS: hv_eventlog_type = 0;
+pub const hv_eventlog_type_HV_EVENT_LOG_TYPE_LOCAL_DIAGNOSTICS: hv_eventlog_type = 1;
+pub const hv_eventlog_type_HV_EVENT_LOG_TYPE_SYSTEM_DIAGNOSTICS: hv_eventlog_type = 2;
+pub type hv_eventlog_type = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_x64_register_sev_ghcb {
@@ -4898,9 +8306,688 @@ impl Default for hv_x64_register_sev_hv_doorbell {
         }
     }
 }
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_connection_id {
+    pub asu32: __u32,
+    pub u: hv_connection_id__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_connection_id__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_connection_id__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_id__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_connection_id__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_id__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_connection_id__bindgen_ty_1))
+    );
+}
+impl hv_connection_id__bindgen_ty_1 {
+    #[inline]
+    pub fn id(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
+    }
+    #[inline]
+    pub fn set_id(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 24u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(24usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(24usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(id: __u32, reserved: __u32) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 24u8, {
+            let id: u32 = unsafe { ::std::mem::transmute(id) };
+            id as u64
+        });
+        __bindgen_bitfield_unit.set(24usize, 8u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_connection_id() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_id> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_id>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_connection_id))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_id>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hv_connection_id))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).asu32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_id),
+            "::",
+            stringify!(asu32)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).u) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_id),
+            "::",
+            stringify!(u)
+        )
+    );
+}
+impl Default for hv_connection_id {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_unmap_gpa_pages {
+    pub target_partition_id: __u64,
+    pub target_gpa_base: __u64,
+    pub unmap_flags: __u32,
+    pub padding: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_unmap_gpa_pages() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_unmap_gpa_pages> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_unmap_gpa_pages>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_unmap_gpa_pages))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_unmap_gpa_pages>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_unmap_gpa_pages))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_gpa_pages),
+            "::",
+            stringify!(target_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_gpa_base) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_gpa_pages),
+            "::",
+            stringify!(target_gpa_base)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).unmap_flags) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_gpa_pages),
+            "::",
+            stringify!(unmap_flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_gpa_pages),
+            "::",
+            stringify!(padding)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vmcb_enlightenments {
+    pub hv_enlightenments_control: hv_vmcb_enlightenments_hv_enlightenments_control,
+    pub hv_vp_id: __u32,
+    pub hv_vm_id: __u64,
+    pub partition_assist_page: __u64,
+    pub reserved: __u64,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vmcb_enlightenments_hv_enlightenments_control {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_vmcb_enlightenments_hv_enlightenments_control() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_vmcb_enlightenments_hv_enlightenments_control>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vmcb_enlightenments_hv_enlightenments_control)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vmcb_enlightenments_hv_enlightenments_control>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vmcb_enlightenments_hv_enlightenments_control)
+        )
+    );
+}
+impl hv_vmcb_enlightenments_hv_enlightenments_control {
+    #[inline]
+    pub fn nested_flush_hypercall(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_nested_flush_hypercall(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn msr_bitmap(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_msr_bitmap(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn enlightened_npt_tlb(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_enlightened_npt_tlb(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 29u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 29u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        nested_flush_hypercall: __u32,
+        msr_bitmap: __u32,
+        enlightened_npt_tlb: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let nested_flush_hypercall: u32 =
+                unsafe { ::std::mem::transmute(nested_flush_hypercall) };
+            nested_flush_hypercall as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let msr_bitmap: u32 = unsafe { ::std::mem::transmute(msr_bitmap) };
+            msr_bitmap as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let enlightened_npt_tlb: u32 = unsafe { ::std::mem::transmute(enlightened_npt_tlb) };
+            enlightened_npt_tlb as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 29u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_vmcb_enlightenments() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vmcb_enlightenments> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vmcb_enlightenments>(),
+        32usize,
+        concat!("Size of: ", stringify!(hv_vmcb_enlightenments))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vmcb_enlightenments>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_vmcb_enlightenments))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_enlightenments_control) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vmcb_enlightenments),
+            "::",
+            stringify!(hv_enlightenments_control)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_vp_id) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vmcb_enlightenments),
+            "::",
+            stringify!(hv_vp_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_vm_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vmcb_enlightenments),
+            "::",
+            stringify!(hv_vm_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_assist_page) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vmcb_enlightenments),
+            "::",
+            stringify!(partition_assist_page)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vmcb_enlightenments),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
 pub const hv_generic_set_format_HV_GENERIC_SET_SPARSE_4K: hv_generic_set_format = 0;
 pub const hv_generic_set_format_HV_GENERIC_SET_ALL: hv_generic_set_format = 1;
 pub type hv_generic_set_format = ::std::os::raw::c_uint;
+pub const hv_scheduler_type_HV_SCHEDULER_TYPE_LP: hv_scheduler_type = 1;
+pub const hv_scheduler_type_HV_SCHEDULER_TYPE_LP_SMT: hv_scheduler_type = 2;
+pub const hv_scheduler_type_HV_SCHEDULER_TYPE_CORE_SMT: hv_scheduler_type = 3;
+pub const hv_scheduler_type_HV_SCHEDULER_TYPE_ROOT: hv_scheduler_type = 4;
+pub const hv_scheduler_type_HV_SCHEDULER_TYPE_MAX: hv_scheduler_type = 5;
+pub type hv_scheduler_type = ::std::os::raw::c_uint;
+pub const hv_stats_area_type_HV_STATS_AREA_SELF: hv_stats_area_type = 0;
+pub const hv_stats_area_type_HV_STATS_AREA_PARENT: hv_stats_area_type = 1;
+pub const hv_stats_area_type_HV_STATS_AREA_INTERNAL: hv_stats_area_type = 2;
+pub const hv_stats_area_type_HV_STATS_AREA_COUNT: hv_stats_area_type = 3;
+pub type hv_stats_area_type = ::std::os::raw::c_uint;
+pub const hv_stats_object_type_HV_STATS_OBJECT_HYPERVISOR: hv_stats_object_type = 1;
+pub const hv_stats_object_type_HV_STATS_OBJECT_LOGICAL_PROCESSOR: hv_stats_object_type = 2;
+pub const hv_stats_object_type_HV_STATS_OBJECT_PARTITION: hv_stats_object_type = 65537;
+pub const hv_stats_object_type_HV_STATS_OBJECT_VP: hv_stats_object_type = 65538;
+pub type hv_stats_object_type = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_stats_object_identity {
+    pub hv: hv_stats_object_identity__bindgen_ty_1,
+    pub lp: hv_stats_object_identity__bindgen_ty_2,
+    pub partition: hv_stats_object_identity__bindgen_ty_3,
+    pub vp: hv_stats_object_identity__bindgen_ty_4,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_stats_object_identity__bindgen_ty_1 {
+    pub reserved: [__u8; 15usize],
+    pub stats_area_type: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_object_identity__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_object_identity__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_object_identity__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_stats_object_identity__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_1),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_area_type) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_1),
+            "::",
+            stringify!(stats_area_type)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_stats_object_identity__bindgen_ty_2 {
+    pub lp_index: __u32,
+    pub reserved: [__u8; 11usize],
+    pub stats_area_type: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_2() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_object_identity__bindgen_ty_2> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_object_identity__bindgen_ty_2>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_object_identity__bindgen_ty_2>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_stats_object_identity__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lp_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_2),
+            "::",
+            stringify!(lp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_2),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_area_type) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_2),
+            "::",
+            stringify!(stats_area_type)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_stats_object_identity__bindgen_ty_3 {
+    pub partition_id: __u64,
+    pub reserved: [__u8; 7usize],
+    pub stats_area_type: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_3() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_object_identity__bindgen_ty_3> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_object_identity__bindgen_ty_3>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_object_identity__bindgen_ty_3>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_stats_object_identity__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_3),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_3),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_area_type) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_3),
+            "::",
+            stringify!(stats_area_type)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_stats_object_identity__bindgen_ty_4 {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub flags: __u16,
+    pub reserved: __u8,
+    pub stats_area_type: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_stats_object_identity__bindgen_ty_4() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_object_identity__bindgen_ty_4> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_object_identity__bindgen_ty_4>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_object_identity__bindgen_ty_4>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).stats_area_type) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity__bindgen_ty_4),
+            "::",
+            stringify!(stats_area_type)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_stats_object_identity() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_object_identity> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_object_identity>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_stats_object_identity))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_object_identity>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_stats_object_identity))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity),
+            "::",
+            stringify!(hv)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lp) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity),
+            "::",
+            stringify!(lp)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity),
+            "::",
+            stringify!(partition)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_object_identity),
+            "::",
+            stringify!(vp)
+        )
+    );
+}
+impl Default for hv_stats_object_identity {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PRIVILEGE_FLAGS:
     hv_partition_property_code = 65536;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_SYNTHETIC_PROC_FEATURES:
@@ -4964,6 +9051,12 @@ pub const hv_partition_property_code_HV_PARTITION_PROPERTY_UNIMPLEMENTED_MSR_ACT
     hv_partition_property_code = 327703;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_SEV_VMGEXIT_OFFLOADS:
     hv_partition_property_code = 327714;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PARTITION_DIAG_BUFFER_CONFIG:
+    hv_partition_property_code = 327718;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_GICD_BASE_ADDRESS:
+    hv_partition_property_code = 327720;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_GITS_TRANSLATER_BASE_ADDRESS:
+    hv_partition_property_code = 327721;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PROCESSOR_VENDOR:
     hv_partition_property_code = 393216;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PROCESSOR_FEATURES_DEPRECATED:
@@ -4993,6 +9086,51 @@ pub const hv_partition_property_code_HV_PARTITION_PROPERTY_GUEST_OS_ID: hv_parti
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PROCESSOR_VIRTUALIZATION_FEATURES:
     hv_partition_property_code = 524288;
 pub type hv_partition_property_code = ::std::os::raw::c_uint;
+pub const hv_sleep_state_HV_SLEEP_STATE_S1: hv_sleep_state = 1;
+pub const hv_sleep_state_HV_SLEEP_STATE_S2: hv_sleep_state = 2;
+pub const hv_sleep_state_HV_SLEEP_STATE_S3: hv_sleep_state = 3;
+pub const hv_sleep_state_HV_SLEEP_STATE_S4: hv_sleep_state = 4;
+pub const hv_sleep_state_HV_SLEEP_STATE_S5: hv_sleep_state = 5;
+pub const hv_sleep_state_HV_SLEEP_STATE_LOCK: hv_sleep_state = 6;
+pub type hv_sleep_state = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_enter_sleep_state {
+    pub sleep_state: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_enter_sleep_state() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_enter_sleep_state> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_enter_sleep_state>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_input_enter_sleep_state))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_enter_sleep_state>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_enter_sleep_state))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sleep_state) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_enter_sleep_state),
+            "::",
+            stringify!(sleep_state)
+        )
+    );
+}
+pub const hv_system_property_HV_SYSTEM_PROPERTY_SLEEP_STATE: hv_system_property = 3;
+pub const hv_system_property_HV_SYSTEM_PROPERTY_SCHEDULER_TYPE: hv_system_property = 15;
+pub const hv_system_property_HV_DYNAMIC_PROCESSOR_FEATURE_PROPERTY: hv_system_property = 21;
+pub const hv_system_property_HV_SYSTEM_PROPERTY_DIAGOSTICS_LOG_BUFFERS: hv_system_property = 28;
+pub const hv_system_property_HV_SYSTEM_PROPERTY_CRASHDUMPAREA: hv_system_property = 47;
+pub const hv_system_property_HV_SYSTEM_PROPERTY_DEVIRT_TRAMP_PA: hv_system_property = 52;
+pub type hv_system_property = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_pfn_range {
@@ -5081,6 +9219,1339 @@ fn bindgen_test_layout_hv_pfn_range() {
     );
 }
 impl Default for hv_pfn_range {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_sleep_state_info {
+    pub sleep_state: __u32,
+    pub pm1a_slp_typ: __u8,
+    pub pm1b_slp_typ: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_sleep_state_info() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_sleep_state_info> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_sleep_state_info>(),
+        6usize,
+        concat!("Size of: ", stringify!(hv_sleep_state_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_sleep_state_info>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_sleep_state_info))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sleep_state) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_sleep_state_info),
+            "::",
+            stringify!(sleep_state)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pm1a_slp_typ) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_sleep_state_info),
+            "::",
+            stringify!(pm1a_slp_typ)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pm1b_slp_typ) as usize - ptr as usize },
+        5usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_sleep_state_info),
+            "::",
+            stringify!(pm1b_slp_typ)
+        )
+    );
+}
+pub const hv_snp_status_HV_SNP_STATUS_NONE: hv_snp_status = 0;
+pub const hv_snp_status_HV_SNP_STATUS_AVAILABLE: hv_snp_status = 1;
+pub const hv_snp_status_HV_SNP_STATUS_INCOMPATIBLE: hv_snp_status = 2;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_UNAVAILABLE: hv_snp_status = 3;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_INIT_FAILED: hv_snp_status = 4;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_BAD_FW_VERSION: hv_snp_status = 5;
+pub const hv_snp_status_HV_SNP_STATUS_BAD_CONFIGURATION: hv_snp_status = 6;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_FW_UPDATE_IN_PROGRESS: hv_snp_status = 7;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_RB_INIT_FAILED: hv_snp_status = 8;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_PLATFORM_STATUS_FAILED: hv_snp_status = 9;
+pub const hv_snp_status_HV_SNP_STATUS_PSP_INIT_LATE_FAILED: hv_snp_status = 10;
+pub type hv_snp_status = ::std::os::raw::c_uint;
+pub const hv_dynamic_processor_feature_property_HV_X64_DYNAMIC_PROCESSOR_FEATURE_MAX_ENCRYPTED_PARTITIONS : hv_dynamic_processor_feature_property = 13 ;
+pub const hv_dynamic_processor_feature_property_HV_X64_DYNAMIC_PROCESSOR_FEATURE_SNP_STATUS:
+    hv_dynamic_processor_feature_property = 16;
+pub type hv_dynamic_processor_feature_property = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_partition_diag_log_buffer_config {
+    pub __bindgen_anon_1: hv_partition_diag_log_buffer_config__bindgen_ty_1,
+    pub as_uint64: __u64,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_diag_log_buffer_config__bindgen_ty_1 {
+    pub buffer_count: __u32,
+    pub buffer_size_in_pages: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_diag_log_buffer_config__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_diag_log_buffer_config__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_diag_log_buffer_config__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_diag_log_buffer_config__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_diag_log_buffer_config__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_diag_log_buffer_config__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_count) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_diag_log_buffer_config__bindgen_ty_1),
+            "::",
+            stringify!(buffer_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_size_in_pages) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_diag_log_buffer_config__bindgen_ty_1),
+            "::",
+            stringify!(buffer_size_in_pages)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_partition_diag_log_buffer_config() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_diag_log_buffer_config> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_diag_log_buffer_config>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_partition_diag_log_buffer_config))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_diag_log_buffer_config>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_diag_log_buffer_config)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_diag_log_buffer_config),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_partition_diag_log_buffer_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_get_system_property {
+    pub property_id: __u32,
+    pub reserved: __u32,
+    pub __bindgen_anon_1: hv_input_get_system_property__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_input_get_system_property__bindgen_ty_1 {
+    pub as_uint64: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_get_system_property__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_get_system_property__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_get_system_property__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_get_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_get_system_property__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_get_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_system_property__bindgen_ty_1),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_input_get_system_property__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_get_system_property() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_get_system_property> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_get_system_property>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_get_system_property))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_get_system_property>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_get_system_property))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).property_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_system_property),
+            "::",
+            stringify!(property_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_system_property),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+impl Default for hv_input_get_system_property {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_system_diag_log_buffer_config {
+    pub buffer_count: __u32,
+    pub buffer_size_in_pages: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_system_diag_log_buffer_config() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_system_diag_log_buffer_config> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_system_diag_log_buffer_config>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_system_diag_log_buffer_config))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_system_diag_log_buffer_config>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_system_diag_log_buffer_config)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_count) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_system_diag_log_buffer_config),
+            "::",
+            stringify!(buffer_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_size_in_pages) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_system_diag_log_buffer_config),
+            "::",
+            stringify!(buffer_size_in_pages)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_output_get_system_property {
+    pub __bindgen_anon_1: hv_output_get_system_property__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_output_get_system_property__bindgen_ty_1 {
+    pub scheduler_type: __u32,
+    pub hv_diagbuf_info: hv_system_diag_log_buffer_config,
+    pub hv_cda_info: hv_pfn_range,
+    pub hv_tramp_pa: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_output_get_system_property__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_get_system_property__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_get_system_property__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_get_system_property__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).scheduler_type) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1),
+            "::",
+            stringify!(scheduler_type)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_diagbuf_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1),
+            "::",
+            stringify!(hv_diagbuf_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_cda_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1),
+            "::",
+            stringify!(hv_cda_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_tramp_pa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_system_property__bindgen_ty_1),
+            "::",
+            stringify!(hv_tramp_pa)
+        )
+    );
+}
+impl Default for hv_output_get_system_property__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_output_get_system_property() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_get_system_property>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_get_system_property))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_get_system_property>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_get_system_property))
+    );
+}
+impl Default for hv_output_get_system_property {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_set_system_property {
+    pub property_id: __u32,
+    pub reserved: __u32,
+    pub __bindgen_anon_1: hv_input_set_system_property__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_input_set_system_property__bindgen_ty_1 {
+    pub set_sleep_state_info: hv_sleep_state_info,
+}
+#[test]
+fn bindgen_test_layout_hv_input_set_system_property__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_set_system_property__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_set_system_property__bindgen_ty_1>(),
+        6usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_set_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_set_system_property__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_set_system_property__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).set_sleep_state_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_set_system_property__bindgen_ty_1),
+            "::",
+            stringify!(set_sleep_state_info)
+        )
+    );
+}
+impl Default for hv_input_set_system_property__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_set_system_property() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_set_system_property> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_set_system_property>(),
+        14usize,
+        concat!("Size of: ", stringify!(hv_input_set_system_property))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_set_system_property>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_set_system_property))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).property_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_set_system_property),
+            "::",
+            stringify!(property_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_set_system_property),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+impl Default for hv_input_set_system_property {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_map_stats_page {
+    pub type_: __u32,
+    pub padding: __u32,
+    pub identity: hv_stats_object_identity,
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_stats_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_map_stats_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_stats_page>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_map_stats_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_stats_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_map_stats_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_stats_page),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_stats_page),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).identity) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_stats_page),
+            "::",
+            stringify!(identity)
+        )
+    );
+}
+impl Default for hv_input_map_stats_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_map_stats_page {
+    pub map_location: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_output_map_stats_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_map_stats_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_map_stats_page>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_map_stats_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_map_stats_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_map_stats_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).map_location) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_map_stats_page),
+            "::",
+            stringify!(map_location)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_unmap_stats_page {
+    pub type_: __u32,
+    pub padding: __u32,
+    pub identity: hv_stats_object_identity,
+}
+#[test]
+fn bindgen_test_layout_hv_input_unmap_stats_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_unmap_stats_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_unmap_stats_page>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_unmap_stats_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_unmap_stats_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_unmap_stats_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_stats_page),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_stats_page),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).identity) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_stats_page),
+            "::",
+            stringify!(identity)
+        )
+    );
+}
+impl Default for hv_input_unmap_stats_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_proximity_domain_flags {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_proximity_domain_flags() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_proximity_domain_flags>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_proximity_domain_flags))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_proximity_domain_flags>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_proximity_domain_flags))
+    );
+}
+impl hv_proximity_domain_flags {
+    #[inline]
+    pub fn proximity_preferred(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_proximity_preferred(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 30u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 30u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn proximity_info_valid(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_proximity_info_valid(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(31usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        proximity_preferred: __u32,
+        reserved: __u32,
+        proximity_info_valid: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let proximity_preferred: u32 = unsafe { ::std::mem::transmute(proximity_preferred) };
+            proximity_preferred as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 30u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit.set(31usize, 1u8, {
+            let proximity_info_valid: u32 = unsafe { ::std::mem::transmute(proximity_info_valid) };
+            proximity_info_valid as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_proximity_domain_info {
+    pub domain_id: __u32,
+    pub flags: hv_proximity_domain_flags,
+}
+#[test]
+fn bindgen_test_layout_hv_proximity_domain_info() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_proximity_domain_info> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_proximity_domain_info>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_proximity_domain_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_proximity_domain_info>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_proximity_domain_info))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).domain_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_proximity_domain_info),
+            "::",
+            stringify!(domain_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_proximity_domain_info),
+            "::",
+            stringify!(flags)
+        )
+    );
+}
+#[repr(C, packed)]
+pub struct hv_deposit_memory {
+    pub partition_id: __u64,
+    pub gpa_page_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_deposit_memory() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_deposit_memory> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_deposit_memory>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_deposit_memory))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_deposit_memory>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_deposit_memory))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_deposit_memory),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa_page_list) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_deposit_memory),
+            "::",
+            stringify!(gpa_page_list)
+        )
+    );
+}
+impl Default for hv_deposit_memory {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_withdraw_memory {
+    pub partition_id: __u64,
+    pub proximity_domain_info: hv_proximity_domain_info,
+}
+#[test]
+fn bindgen_test_layout_hv_input_withdraw_memory() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_withdraw_memory> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_withdraw_memory>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_withdraw_memory))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_withdraw_memory>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_withdraw_memory))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_withdraw_memory),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_withdraw_memory),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+}
+#[repr(C, packed)]
+pub struct hv_output_withdraw_memory {
+    pub gpa_page_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_output_withdraw_memory() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_withdraw_memory> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_withdraw_memory>(),
+        0usize,
+        concat!("Size of: ", stringify!(hv_output_withdraw_memory))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_withdraw_memory>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_withdraw_memory))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa_page_list) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_withdraw_memory),
+            "::",
+            stringify!(gpa_page_list)
+        )
+    );
+}
+impl Default for hv_output_withdraw_memory {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+pub struct hv_input_map_gpa_pages {
+    pub target_partition_id: __u64,
+    pub target_gpa_base: __u64,
+    pub map_flags: __u32,
+    pub padding: __u32,
+    pub source_gpa_page_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_gpa_pages() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_map_gpa_pages> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_gpa_pages>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_map_gpa_pages))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_gpa_pages>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_map_gpa_pages))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_gpa_pages),
+            "::",
+            stringify!(target_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_gpa_base) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_gpa_pages),
+            "::",
+            stringify!(target_gpa_base)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).map_flags) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_gpa_pages),
+            "::",
+            stringify!(map_flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_gpa_pages),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).source_gpa_page_list) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_gpa_pages),
+            "::",
+            stringify!(source_gpa_page_list)
+        )
+    );
+}
+impl Default for hv_input_map_gpa_pages {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_gpa_page_access_state_flags {
+    pub __bindgen_anon_1: hv_gpa_page_access_state_flags__bindgen_ty_1,
+    pub as_uint64: __u64,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_gpa_page_access_state_flags__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_gpa_page_access_state_flags__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_gpa_page_access_state_flags__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_gpa_page_access_state_flags__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_gpa_page_access_state_flags__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_gpa_page_access_state_flags__bindgen_ty_1)
+        )
+    );
+}
+impl hv_gpa_page_access_state_flags__bindgen_ty_1 {
+    #[inline]
+    pub fn clear_accessed(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_clear_accessed(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn set_accessed(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_set_accessed(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn clear_dirty(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_clear_dirty(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn set_dirty(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_set_dirty(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 60u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(4usize, 60u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        clear_accessed: __u64,
+        set_accessed: __u64,
+        clear_dirty: __u64,
+        set_dirty: __u64,
+        reserved: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let clear_accessed: u64 = unsafe { ::std::mem::transmute(clear_accessed) };
+            clear_accessed as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let set_accessed: u64 = unsafe { ::std::mem::transmute(set_accessed) };
+            set_accessed as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let clear_dirty: u64 = unsafe { ::std::mem::transmute(clear_dirty) };
+            clear_dirty as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let set_dirty: u64 = unsafe { ::std::mem::transmute(set_dirty) };
+            set_dirty as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 60u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_gpa_page_access_state_flags() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_gpa_page_access_state_flags> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_gpa_page_access_state_flags>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_gpa_page_access_state_flags))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_gpa_page_access_state_flags>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_gpa_page_access_state_flags))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_gpa_page_access_state_flags),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_gpa_page_access_state_flags {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_get_gpa_pages_access_state {
+    pub partition_id: __u64,
+    pub flags: hv_gpa_page_access_state_flags,
+    pub hv_gpa_page_number: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_get_gpa_pages_access_state() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_get_gpa_pages_access_state> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_get_gpa_pages_access_state>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_get_gpa_pages_access_state))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_get_gpa_pages_access_state>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_get_gpa_pages_access_state)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_gpa_pages_access_state),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_gpa_pages_access_state),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_gpa_page_number) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_gpa_pages_access_state),
+            "::",
+            stringify!(hv_gpa_page_number)
+        )
+    );
+}
+impl Default for hv_input_get_gpa_pages_access_state {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_gpa_page_access_state {
+    pub __bindgen_anon_1: hv_gpa_page_access_state__bindgen_ty_1,
+    pub as_uint8: __u8,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_gpa_page_access_state__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_gpa_page_access_state__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_gpa_page_access_state__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_gpa_page_access_state__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_gpa_page_access_state__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_gpa_page_access_state__bindgen_ty_1)
+        )
+    );
+}
+impl hv_gpa_page_access_state__bindgen_ty_1 {
+    #[inline]
+    pub fn accessed(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_accessed(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dirty(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_dirty(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 6u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        accessed: __u8,
+        dirty: __u8,
+        reserved: __u8,
+    ) -> __BindgenBitfieldUnit<[u8; 1usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let accessed: u8 = unsafe { ::std::mem::transmute(accessed) };
+            accessed as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let dirty: u8 = unsafe { ::std::mem::transmute(dirty) };
+            dirty as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 6u8, {
+            let reserved: u8 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_gpa_page_access_state() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_gpa_page_access_state> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_gpa_page_access_state>(),
+        1usize,
+        concat!("Size of: ", stringify!(hv_gpa_page_access_state))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_gpa_page_access_state>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_gpa_page_access_state))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint8) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_gpa_page_access_state),
+            "::",
+            stringify!(as_uint8)
+        )
+    );
+}
+impl Default for hv_gpa_page_access_state {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -5677,6 +11148,2279 @@ impl Default for hv_input_complete_isolated_import {
         }
     }
 }
+pub const hv_crashdump_action_HV_CRASHDUMP_NONE: hv_crashdump_action = 0;
+pub const hv_crashdump_action_HV_CRASHDUMP_SUSPEND_ALL_VPS: hv_crashdump_action = 1;
+pub const hv_crashdump_action_HV_CRASHDUMP_PREPARE_FOR_STATE_SAVE: hv_crashdump_action = 2;
+pub const hv_crashdump_action_HV_CRASHDUMP_STATE_SAVED: hv_crashdump_action = 3;
+pub const hv_crashdump_action_HV_CRASHDUMP_ENTRY: hv_crashdump_action = 4;
+pub type hv_crashdump_action = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_event_root_crashdump_input {
+    pub crashdump_action: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_event_root_crashdump_input() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_event_root_crashdump_input> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_event_root_crashdump_input>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_event_root_crashdump_input)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_event_root_crashdump_input>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_event_root_crashdump_input)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crashdump_action) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_event_root_crashdump_input),
+            "::",
+            stringify!(crashdump_action)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_disable_hyp_ex {
+    pub rip: __u64,
+    pub arg: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_disable_hyp_ex() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_disable_hyp_ex> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_disable_hyp_ex>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_disable_hyp_ex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_disable_hyp_ex>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_disable_hyp_ex))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rip) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_disable_hyp_ex),
+            "::",
+            stringify!(rip)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).arg) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_disable_hyp_ex),
+            "::",
+            stringify!(arg)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_crashdump_area {
+    pub version: __u32,
+    pub __bindgen_anon_1: hv_crashdump_area__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_crashdump_area__bindgen_ty_1 {
+    pub flags_as_uint32: __u32,
+    pub __bindgen_anon_1: hv_crashdump_area__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_crashdump_area__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_crashdump_area__bindgen_ty_1__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_crashdump_area__bindgen_ty_1__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_crashdump_area__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_crashdump_area__bindgen_ty_1__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_crashdump_area__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+}
+impl hv_crashdump_area__bindgen_ty_1__bindgen_ty_1 {
+    #[inline]
+    pub fn cda_valid(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_cda_valid(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn cda_unused(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 31u8) as u32) }
+    }
+    #[inline]
+    pub fn set_cda_unused(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 31u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        cda_valid: __u32,
+        cda_unused: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let cda_valid: u32 = unsafe { ::std::mem::transmute(cda_valid) };
+            cda_valid as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 31u8, {
+            let cda_unused: u32 = unsafe { ::std::mem::transmute(cda_unused) };
+            cda_unused as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_crashdump_area__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_crashdump_area__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_crashdump_area__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_crashdump_area__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_crashdump_area__bindgen_ty_1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hv_crashdump_area__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags_as_uint32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_crashdump_area__bindgen_ty_1),
+            "::",
+            stringify!(flags_as_uint32)
+        )
+    );
+}
+impl Default for hv_crashdump_area__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_crashdump_area() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_crashdump_area> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_crashdump_area>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_crashdump_area))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_crashdump_area>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_crashdump_area))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).version) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_crashdump_area),
+            "::",
+            stringify!(version)
+        )
+    );
+}
+impl Default for hv_crashdump_area {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_event_commit_processor_indices_input {
+    pub schedulable_processor_count: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_event_commit_processor_indices_input() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_event_commit_processor_indices_input> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_event_commit_processor_indices_input>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_event_commit_processor_indices_input)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_event_commit_processor_indices_input>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_event_commit_processor_indices_input)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).schedulable_processor_count) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_event_commit_processor_indices_input),
+            "::",
+            stringify!(schedulable_processor_count)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_partition_event_input {
+    pub crashdump_input: hv_partition_event_root_crashdump_input,
+    pub commit_lp_indices_input: hv_partition_event_commit_processor_indices_input,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_event_input() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_event_input> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_event_input>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_partition_event_input))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_event_input>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_partition_event_input))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).crashdump_input) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_event_input),
+            "::",
+            stringify!(crashdump_input)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).commit_lp_indices_input) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_event_input),
+            "::",
+            stringify!(commit_lp_indices_input)
+        )
+    );
+}
+impl Default for hv_partition_event_input {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_partition_event_HV_PARTITION_EVENT_DEBUG_DEVICE_AVAILABLE: hv_partition_event = 1;
+pub const hv_partition_event_HV_PARTITION_EVENT_ROOT_CRASHDUMP: hv_partition_event = 2;
+pub const hv_partition_event_HV_PARTITION_EVENT_ACPI_REENABLED: hv_partition_event = 3;
+pub const hv_partition_event_HV_PARTITION_ALL_LOGICAL_PROCESSORS_STARTED: hv_partition_event = 4;
+pub const hv_partition_event_HV_PARTITION_COMMIT_LP_INDICES: hv_partition_event = 5;
+pub type hv_partition_event = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_notify_partition_event {
+    pub event: __u32,
+    pub input: hv_partition_event_input,
+}
+#[test]
+fn bindgen_test_layout_hv_input_notify_partition_event() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_notify_partition_event> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_notify_partition_event>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_input_notify_partition_event))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_notify_partition_event>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_notify_partition_event))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).event) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_notify_partition_event),
+            "::",
+            stringify!(event)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).input) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_notify_partition_event),
+            "::",
+            stringify!(input)
+        )
+    );
+}
+impl Default for hv_input_notify_partition_event {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_lp_startup_status {
+    pub hv_status: __u64,
+    pub substatus1: __u64,
+    pub substatus2: __u64,
+    pub substatus3: __u64,
+    pub substatus4: __u64,
+    pub substatus5: __u64,
+    pub substatus6: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_lp_startup_status() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_lp_startup_status> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_lp_startup_status>(),
+        56usize,
+        concat!("Size of: ", stringify!(hv_lp_startup_status))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_lp_startup_status>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_lp_startup_status))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_status) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(hv_status)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus1) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus2) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus3) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus3)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus4) as usize - ptr as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus4)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus5) as usize - ptr as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus5)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).substatus6) as usize - ptr as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_lp_startup_status),
+            "::",
+            stringify!(substatus6)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_add_logical_processor {
+    pub lp_index: __u32,
+    pub apic_id: __u32,
+    pub proximity_domain_info: hv_proximity_domain_info,
+}
+#[test]
+fn bindgen_test_layout_hv_input_add_logical_processor() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_add_logical_processor> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_add_logical_processor>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_add_logical_processor))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_add_logical_processor>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_add_logical_processor))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lp_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_add_logical_processor),
+            "::",
+            stringify!(lp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).apic_id) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_add_logical_processor),
+            "::",
+            stringify!(apic_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_add_logical_processor),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_add_logical_processor {
+    pub startup_status: hv_lp_startup_status,
+}
+#[test]
+fn bindgen_test_layout_hv_output_add_logical_processor() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_add_logical_processor> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_add_logical_processor>(),
+        56usize,
+        concat!("Size of: ", stringify!(hv_output_add_logical_processor))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_add_logical_processor>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_add_logical_processor))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).startup_status) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_add_logical_processor),
+            "::",
+            stringify!(startup_status)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_get_logical_processor_run_time {
+    pub lp_index: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_get_logical_processor_run_time() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_get_logical_processor_run_time> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_get_logical_processor_run_time>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_get_logical_processor_run_time)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_get_logical_processor_run_time>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_get_logical_processor_run_time)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lp_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_get_logical_processor_run_time),
+            "::",
+            stringify!(lp_index)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_get_logical_processor_run_time {
+    pub global_time: __u64,
+    pub local_run_time: __u64,
+    pub rsvdz0: __u64,
+    pub hypervisor_time: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_output_get_logical_processor_run_time() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_get_logical_processor_run_time> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_get_logical_processor_run_time>(),
+        32usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_output_get_logical_processor_run_time)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_get_logical_processor_run_time>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_output_get_logical_processor_run_time)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).global_time) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_logical_processor_run_time),
+            "::",
+            stringify!(global_time)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).local_run_time) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_logical_processor_run_time),
+            "::",
+            stringify!(local_run_time)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvdz0) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_logical_processor_run_time),
+            "::",
+            stringify!(rsvdz0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hypervisor_time) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_get_logical_processor_run_time),
+            "::",
+            stringify!(hypervisor_time)
+        )
+    );
+}
+pub const HvSubnodeAny: _bindgen_ty_1 = 0;
+pub const HvSubnodeSocket: _bindgen_ty_1 = 1;
+pub const HvSubnodeCluster: _bindgen_ty_1 = 2;
+pub const HvSubnodeL3: _bindgen_ty_1 = 3;
+pub const HvSubnodeCount: _bindgen_ty_1 = 4;
+pub const HvSubnodeInvalid: _bindgen_ty_1 = -1;
+pub type _bindgen_ty_1 = ::std::os::raw::c_int;
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_create_vp {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub padding: [__u8; 3usize],
+    pub subnode_type: __u8,
+    pub subnode_id: __u64,
+    pub proximity_domain_info: hv_proximity_domain_info,
+    pub flags: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_create_vp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_create_vp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_create_vp>(),
+        40usize,
+        concat!("Size of: ", stringify!(hv_create_vp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_create_vp>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_create_vp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subnode_type) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(subnode_type)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subnode_id) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(subnode_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_vp),
+            "::",
+            stringify!(flags)
+        )
+    );
+}
+#[repr(C, packed)]
+pub struct hv_send_ipi_ex {
+    pub vector: __u32,
+    pub reserved: __u32,
+    pub vp_set: hv_vpset,
+}
+#[test]
+fn bindgen_test_layout_hv_send_ipi_ex() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_send_ipi_ex> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_send_ipi_ex>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_send_ipi_ex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_send_ipi_ex>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_send_ipi_ex))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vector) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi_ex),
+            "::",
+            stringify!(vector)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi_ex),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_set) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_send_ipi_ex),
+            "::",
+            stringify!(vp_set)
+        )
+    );
+}
+impl Default for hv_send_ipi_ex {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_attdev_flags {
+    pub __bindgen_anon_1: hv_attdev_flags__bindgen_ty_1,
+    pub as_uint32: __u32,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_attdev_flags__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_attdev_flags__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_attdev_flags__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_attdev_flags__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_attdev_flags__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_attdev_flags__bindgen_ty_1))
+    );
+}
+impl hv_attdev_flags__bindgen_ty_1 {
+    #[inline]
+    pub fn logical_id(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_logical_id(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn resvd0(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_resvd0(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ats_enabled(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ats_enabled(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn virt_func(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_virt_func(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn shared_irq_child(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_shared_irq_child(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(4usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn virt_dev(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_virt_dev(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(5usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ats_supported(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(6usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ats_supported(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(6usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn small_irt(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(7usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_small_irt(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(7usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn resvd(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 24u8) as u32) }
+    }
+    #[inline]
+    pub fn set_resvd(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(8usize, 24u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        logical_id: __u32,
+        resvd0: __u32,
+        ats_enabled: __u32,
+        virt_func: __u32,
+        shared_irq_child: __u32,
+        virt_dev: __u32,
+        ats_supported: __u32,
+        small_irt: __u32,
+        resvd: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let logical_id: u32 = unsafe { ::std::mem::transmute(logical_id) };
+            logical_id as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let resvd0: u32 = unsafe { ::std::mem::transmute(resvd0) };
+            resvd0 as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let ats_enabled: u32 = unsafe { ::std::mem::transmute(ats_enabled) };
+            ats_enabled as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let virt_func: u32 = unsafe { ::std::mem::transmute(virt_func) };
+            virt_func as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 1u8, {
+            let shared_irq_child: u32 = unsafe { ::std::mem::transmute(shared_irq_child) };
+            shared_irq_child as u64
+        });
+        __bindgen_bitfield_unit.set(5usize, 1u8, {
+            let virt_dev: u32 = unsafe { ::std::mem::transmute(virt_dev) };
+            virt_dev as u64
+        });
+        __bindgen_bitfield_unit.set(6usize, 1u8, {
+            let ats_supported: u32 = unsafe { ::std::mem::transmute(ats_supported) };
+            ats_supported as u64
+        });
+        __bindgen_bitfield_unit.set(7usize, 1u8, {
+            let small_irt: u32 = unsafe { ::std::mem::transmute(small_irt) };
+            small_irt as u64
+        });
+        __bindgen_bitfield_unit.set(8usize, 24u8, {
+            let resvd: u32 = unsafe { ::std::mem::transmute(resvd) };
+            resvd as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_attdev_flags() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_attdev_flags> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_attdev_flags>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_attdev_flags))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_attdev_flags>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hv_attdev_flags))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_attdev_flags),
+            "::",
+            stringify!(as_uint32)
+        )
+    );
+}
+impl Default for hv_attdev_flags {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_dev_pci_caps {
+    pub __bindgen_anon_1: hv_dev_pci_caps__bindgen_ty_1,
+    pub as_uint32: __u32,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_dev_pci_caps__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_dev_pci_caps__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_dev_pci_caps__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_dev_pci_caps__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_dev_pci_caps__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_dev_pci_caps__bindgen_ty_1))
+    );
+}
+impl hv_dev_pci_caps__bindgen_ty_1 {
+    #[inline]
+    pub fn max_pasid_width(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_max_pasid_width(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn invalidate_qdepth(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_invalidate_qdepth(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn global_inval(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_global_inval(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn prg_response_req(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_prg_response_req(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn resvd(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 24u8) as u32) }
+    }
+    #[inline]
+    pub fn set_resvd(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(4usize, 24u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        max_pasid_width: __u32,
+        invalidate_qdepth: __u32,
+        global_inval: __u32,
+        prg_response_req: __u32,
+        resvd: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let max_pasid_width: u32 = unsafe { ::std::mem::transmute(max_pasid_width) };
+            max_pasid_width as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let invalidate_qdepth: u32 = unsafe { ::std::mem::transmute(invalidate_qdepth) };
+            invalidate_qdepth as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let global_inval: u32 = unsafe { ::std::mem::transmute(global_inval) };
+            global_inval as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let prg_response_req: u32 = unsafe { ::std::mem::transmute(prg_response_req) };
+            prg_response_req as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 24u8, {
+            let resvd: u32 = unsafe { ::std::mem::transmute(resvd) };
+            resvd as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_dev_pci_caps() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_dev_pci_caps> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_dev_pci_caps>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_dev_pci_caps))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_dev_pci_caps>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hv_dev_pci_caps))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_dev_pci_caps),
+            "::",
+            stringify!(as_uint32)
+        )
+    );
+}
+impl Default for hv_dev_pci_caps {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type hv_pci_rid = __u16;
+pub type hv_pci_segment = __u16;
+pub type hv_logical_device_id = __u64;
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_pci_bdf {
+    pub as_uint16: __u16,
+    pub __bindgen_anon_1: hv_pci_bdf__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_pci_bdf__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
+    pub bus: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_pci_bdf__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_pci_bdf__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_pci_bdf__bindgen_ty_1>(),
+        2usize,
+        concat!("Size of: ", stringify!(hv_pci_bdf__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_pci_bdf__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_pci_bdf__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bus) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_pci_bdf__bindgen_ty_1),
+            "::",
+            stringify!(bus)
+        )
+    );
+}
+impl hv_pci_bdf__bindgen_ty_1 {
+    #[inline]
+    pub fn function(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 3u8) as u8) }
+    }
+    #[inline]
+    pub fn set_function(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn device(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 5u8) as u8) }
+    }
+    #[inline]
+    pub fn set_device(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 5u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(function: __u8, device: __u8) -> __BindgenBitfieldUnit<[u8; 1usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 3u8, {
+            let function: u8 = unsafe { ::std::mem::transmute(function) };
+            function as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 5u8, {
+            let device: u8 = unsafe { ::std::mem::transmute(device) };
+            device as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_pci_bdf() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_pci_bdf> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_pci_bdf>(),
+        2usize,
+        concat!("Size of: ", stringify!(hv_pci_bdf))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_pci_bdf>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_pci_bdf))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint16) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_pci_bdf),
+            "::",
+            stringify!(as_uint16)
+        )
+    );
+}
+impl Default for hv_pci_bdf {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_pci_bus_range {
+    pub as_uint16: __u16,
+    pub __bindgen_anon_1: hv_pci_bus_range__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_pci_bus_range__bindgen_ty_1 {
+    pub subordinate_bus: __u8,
+    pub secondary_bus: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_pci_bus_range__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_pci_bus_range__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_pci_bus_range__bindgen_ty_1>(),
+        2usize,
+        concat!("Size of: ", stringify!(hv_pci_bus_range__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_pci_bus_range__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_pci_bus_range__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).subordinate_bus) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_pci_bus_range__bindgen_ty_1),
+            "::",
+            stringify!(subordinate_bus)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).secondary_bus) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_pci_bus_range__bindgen_ty_1),
+            "::",
+            stringify!(secondary_bus)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_pci_bus_range() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_pci_bus_range> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_pci_bus_range>(),
+        2usize,
+        concat!("Size of: ", stringify!(hv_pci_bus_range))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_pci_bus_range>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_pci_bus_range))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint16) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_pci_bus_range),
+            "::",
+            stringify!(as_uint16)
+        )
+    );
+}
+impl Default for hv_pci_bus_range {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_device_type_HV_DEVICE_TYPE_LOGICAL: hv_device_type = 0;
+pub const hv_device_type_HV_DEVICE_TYPE_PCI: hv_device_type = 1;
+pub const hv_device_type_HV_DEVICE_TYPE_IOAPIC: hv_device_type = 2;
+pub const hv_device_type_HV_DEVICE_TYPE_ACPI: hv_device_type = 3;
+pub type hv_device_type = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_detach_device {
+    pub partition_id: __u64,
+    pub logical_devid: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_detach_device() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_detach_device> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_detach_device>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_detach_device))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_detach_device>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_detach_device))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_detach_device),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).logical_devid) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_detach_device),
+            "::",
+            stringify!(logical_devid)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_device_domain_id {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_device_domain_id__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_device_domain_id__bindgen_ty_1 {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+    pub id: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_device_domain_id__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_device_domain_id__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_device_domain_id__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_device_domain_id__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_device_domain_id__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_device_domain_id__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).id) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_device_domain_id__bindgen_ty_1),
+            "::",
+            stringify!(id)
+        )
+    );
+}
+impl hv_device_domain_id__bindgen_ty_1 {
+    #[inline]
+    pub fn type_(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 4u8) as u32) }
+    }
+    #[inline]
+    pub fn set_type(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 28u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(4usize, 28u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(type_: __u32, reserved: __u32) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 4u8, {
+            let type_: u32 = unsafe { ::std::mem::transmute(type_) };
+            type_ as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 28u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_device_domain_id() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_device_domain_id> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_device_domain_id>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_device_domain_id))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_device_domain_id>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_device_domain_id))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_device_domain_id),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_device_domain_id {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_device_domain {
+    pub partition_id: __u64,
+    pub owner_vtl: hv_input_vtl,
+    pub padding: [__u8; 7usize],
+    pub domain_id: hv_device_domain_id,
+}
+#[test]
+fn bindgen_test_layout_hv_input_device_domain() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_device_domain> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_device_domain>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_device_domain))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_device_domain>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_device_domain))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_device_domain),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).owner_vtl) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_device_domain),
+            "::",
+            stringify!(owner_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_device_domain),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).domain_id) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_device_domain),
+            "::",
+            stringify!(domain_id)
+        )
+    );
+}
+impl Default for hv_input_device_domain {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_create_device_domain_flags {
+    pub as_uint32: __u32,
+    pub __bindgen_anon_1: hv_create_device_domain_flags__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_create_device_domain_flags__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_create_device_domain_flags__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_create_device_domain_flags__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_create_device_domain_flags__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_create_device_domain_flags__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_create_device_domain_flags__bindgen_ty_1)
+        )
+    );
+}
+impl hv_create_device_domain_flags__bindgen_ty_1 {
+    #[inline]
+    pub fn forward_progress_required(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_forward_progress_required(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn inherit_owning_vtl(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_inherit_owning_vtl(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 30u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 30u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        forward_progress_required: __u32,
+        inherit_owning_vtl: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let forward_progress_required: u32 =
+                unsafe { ::std::mem::transmute(forward_progress_required) };
+            forward_progress_required as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let inherit_owning_vtl: u32 = unsafe { ::std::mem::transmute(inherit_owning_vtl) };
+            inherit_owning_vtl as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 30u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_create_device_domain_flags() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_create_device_domain_flags> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_create_device_domain_flags>(),
+        4usize,
+        concat!("Size of: ", stringify!(hv_create_device_domain_flags))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_create_device_domain_flags>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_create_device_domain_flags))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint32) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_create_device_domain_flags),
+            "::",
+            stringify!(as_uint32)
+        )
+    );
+}
+impl Default for hv_create_device_domain_flags {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_create_device_domain {
+    pub device_domain: hv_input_device_domain,
+    pub create_device_domain_flags: hv_create_device_domain_flags,
+}
+#[test]
+fn bindgen_test_layout_hv_input_create_device_domain() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_create_device_domain> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_create_device_domain>(),
+        28usize,
+        concat!("Size of: ", stringify!(hv_input_create_device_domain))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_create_device_domain>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_create_device_domain))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_domain) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_device_domain),
+            "::",
+            stringify!(device_domain)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).create_device_domain_flags) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_device_domain),
+            "::",
+            stringify!(create_device_domain_flags)
+        )
+    );
+}
+impl Default for hv_input_create_device_domain {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_delete_device_domain {
+    pub device_domain: hv_input_device_domain,
+}
+#[test]
+fn bindgen_test_layout_hv_input_delete_device_domain() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_delete_device_domain> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_delete_device_domain>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_delete_device_domain))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_delete_device_domain>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_delete_device_domain))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_domain) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_device_domain),
+            "::",
+            stringify!(device_domain)
+        )
+    );
+}
+impl Default for hv_input_delete_device_domain {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+pub struct hv_input_map_device_gpa_pages {
+    pub device_domain: hv_input_device_domain,
+    pub target_vtl: hv_input_vtl,
+    pub padding: [__u8; 3usize],
+    pub map_flags: __u32,
+    pub target_device_va_base: __u64,
+    pub gpa_page_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_device_gpa_pages() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_map_device_gpa_pages> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_device_gpa_pages>(),
+        40usize,
+        concat!("Size of: ", stringify!(hv_input_map_device_gpa_pages))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_device_gpa_pages>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_map_device_gpa_pages))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_domain) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(device_domain)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vtl) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(target_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        25usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).map_flags) as usize - ptr as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(map_flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_device_va_base) as usize - ptr as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(target_device_va_base)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa_page_list) as usize - ptr as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_device_gpa_pages),
+            "::",
+            stringify!(gpa_page_list)
+        )
+    );
+}
+impl Default for hv_input_map_device_gpa_pages {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_unmap_device_gpa_pages {
+    pub device_domain: hv_input_device_domain,
+    pub target_device_va_base: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_unmap_device_gpa_pages() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_unmap_device_gpa_pages> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_unmap_device_gpa_pages>(),
+        32usize,
+        concat!("Size of: ", stringify!(hv_input_unmap_device_gpa_pages))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_unmap_device_gpa_pages>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_unmap_device_gpa_pages))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).device_domain) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_device_gpa_pages),
+            "::",
+            stringify!(device_domain)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_device_va_base) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_device_gpa_pages),
+            "::",
+            stringify!(target_device_va_base)
+        )
+    );
+}
+impl Default for hv_input_unmap_device_gpa_pages {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_stats_hypervisor_counters_HvLogicalProcessors: hv_stats_hypervisor_counters = 1;
+pub const hv_stats_hypervisor_counters_HvPartitions: hv_stats_hypervisor_counters = 2;
+pub const hv_stats_hypervisor_counters_HvTotalPages: hv_stats_hypervisor_counters = 3;
+pub const hv_stats_hypervisor_counters_HvVirtualProcessors: hv_stats_hypervisor_counters = 4;
+pub const hv_stats_hypervisor_counters_HvMonitoredNotifications: hv_stats_hypervisor_counters = 5;
+pub const hv_stats_hypervisor_counters_HvModernStandbyEntries: hv_stats_hypervisor_counters = 6;
+pub const hv_stats_hypervisor_counters_HvPlatformIdleTransitions: hv_stats_hypervisor_counters = 7;
+pub const hv_stats_hypervisor_counters_HvHypervisorStartupCost: hv_stats_hypervisor_counters = 8;
+pub const hv_stats_hypervisor_counters_HvIOSpacePages: hv_stats_hypervisor_counters = 10;
+pub const hv_stats_hypervisor_counters_HvNonEssentialPagesForDump: hv_stats_hypervisor_counters =
+    11;
+pub const hv_stats_hypervisor_counters_HvSubsumedPages: hv_stats_hypervisor_counters = 12;
+pub const hv_stats_hypervisor_counters_HvStatsMaxCounter: hv_stats_hypervisor_counters = 13;
+pub type hv_stats_hypervisor_counters = ::std::os::raw::c_uint;
+pub const hv_stats_partition_counters_PartitionVirtualProcessors: hv_stats_partition_counters = 1;
+pub const hv_stats_partition_counters_PartitionTlbSize: hv_stats_partition_counters = 3;
+pub const hv_stats_partition_counters_PartitionAddressSpaces: hv_stats_partition_counters = 4;
+pub const hv_stats_partition_counters_PartitionDepositedPages: hv_stats_partition_counters = 5;
+pub const hv_stats_partition_counters_PartitionGpaPages: hv_stats_partition_counters = 6;
+pub const hv_stats_partition_counters_PartitionGpaSpaceModifications: hv_stats_partition_counters =
+    7;
+pub const hv_stats_partition_counters_PartitionVirtualTlbFlushEntires: hv_stats_partition_counters =
+    8;
+pub const hv_stats_partition_counters_PartitionRecommendedTlbSize: hv_stats_partition_counters = 9;
+pub const hv_stats_partition_counters_PartitionGpaPages4K: hv_stats_partition_counters = 10;
+pub const hv_stats_partition_counters_PartitionGpaPages2M: hv_stats_partition_counters = 11;
+pub const hv_stats_partition_counters_PartitionGpaPages1G: hv_stats_partition_counters = 12;
+pub const hv_stats_partition_counters_PartitionGpaPages512G: hv_stats_partition_counters = 13;
+pub const hv_stats_partition_counters_PartitionDevicePages4K: hv_stats_partition_counters = 14;
+pub const hv_stats_partition_counters_PartitionDevicePages2M: hv_stats_partition_counters = 15;
+pub const hv_stats_partition_counters_PartitionDevicePages1G: hv_stats_partition_counters = 16;
+pub const hv_stats_partition_counters_PartitionDevicePages512G: hv_stats_partition_counters = 17;
+pub const hv_stats_partition_counters_PartitionAttachedDevices: hv_stats_partition_counters = 18;
+pub const hv_stats_partition_counters_PartitionDeviceInterruptMappings:
+    hv_stats_partition_counters = 19;
+pub const hv_stats_partition_counters_PartitionIoTlbFlushes: hv_stats_partition_counters = 20;
+pub const hv_stats_partition_counters_PartitionIoTlbFlushCost: hv_stats_partition_counters = 21;
+pub const hv_stats_partition_counters_PartitionDeviceInterruptErrors: hv_stats_partition_counters =
+    22;
+pub const hv_stats_partition_counters_PartitionDeviceDmaErrors: hv_stats_partition_counters = 23;
+pub const hv_stats_partition_counters_PartitionDeviceInterruptThrottleEvents:
+    hv_stats_partition_counters = 24;
+pub const hv_stats_partition_counters_PartitionSkippedTimerTicks: hv_stats_partition_counters = 25;
+pub const hv_stats_partition_counters_PartitionPartitionId: hv_stats_partition_counters = 26;
+pub const hv_stats_partition_counters_PartitionHwpRequestValue: hv_stats_partition_counters = 27;
+pub const hv_stats_partition_counters_PartitionStatsMaxCounter: hv_stats_partition_counters = 28;
+pub type hv_stats_partition_counters = ::std::os::raw::c_uint;
+pub const hv_stats_vp_counters_VpTotalRunTime: hv_stats_vp_counters = 1;
+pub const hv_stats_vp_counters_VpHypervisorRunTime: hv_stats_vp_counters = 2;
+pub const hv_stats_vp_counters_VpRemoteNodeRunTime: hv_stats_vp_counters = 3;
+pub const hv_stats_vp_counters_VpNormalizedRunTime: hv_stats_vp_counters = 4;
+pub const hv_stats_vp_counters_VpIdealCpu: hv_stats_vp_counters = 5;
+pub const hv_stats_vp_counters_VpHypercallsCount: hv_stats_vp_counters = 7;
+pub const hv_stats_vp_counters_VpHypercallsTime: hv_stats_vp_counters = 8;
+pub const hv_stats_vp_counters_VpSysRegAccessesCount: hv_stats_vp_counters = 9;
+pub const hv_stats_vp_counters_VpSysRegAccessesTime: hv_stats_vp_counters = 10;
+pub const hv_stats_vp_counters_VpSmcInstructionsCount: hv_stats_vp_counters = 11;
+pub const hv_stats_vp_counters_VpSmcInstructionsTime: hv_stats_vp_counters = 12;
+pub const hv_stats_vp_counters_VpOtherInterceptsCount: hv_stats_vp_counters = 13;
+pub const hv_stats_vp_counters_VpOtherInterceptsTime: hv_stats_vp_counters = 14;
+pub const hv_stats_vp_counters_VpExternalInterruptsCount: hv_stats_vp_counters = 15;
+pub const hv_stats_vp_counters_VpExternalInterruptsTime: hv_stats_vp_counters = 16;
+pub const hv_stats_vp_counters_VpPendingInterruptsCount: hv_stats_vp_counters = 17;
+pub const hv_stats_vp_counters_VpPendingInterruptsTime: hv_stats_vp_counters = 18;
+pub const hv_stats_vp_counters_VpGuestPageTableMaps: hv_stats_vp_counters = 19;
+pub const hv_stats_vp_counters_VpLargePageTlbFills: hv_stats_vp_counters = 20;
+pub const hv_stats_vp_counters_VpSmallPageTlbFills: hv_stats_vp_counters = 21;
+pub const hv_stats_vp_counters_VpReflectedGuestPageFaults: hv_stats_vp_counters = 22;
+pub const hv_stats_vp_counters_VpMemoryInterceptMessages: hv_stats_vp_counters = 23;
+pub const hv_stats_vp_counters_VpOtherMessages: hv_stats_vp_counters = 24;
+pub const hv_stats_vp_counters_VpLogicalProcessorMigrations: hv_stats_vp_counters = 25;
+pub const hv_stats_vp_counters_VpAddressDomainFlushes: hv_stats_vp_counters = 26;
+pub const hv_stats_vp_counters_VpAddressSpaceFlushes: hv_stats_vp_counters = 27;
+pub const hv_stats_vp_counters_VpSyntheticInterrupts: hv_stats_vp_counters = 28;
+pub const hv_stats_vp_counters_VpVirtualInterrupts: hv_stats_vp_counters = 29;
+pub const hv_stats_vp_counters_VpApicSelfIpisSent: hv_stats_vp_counters = 30;
+pub const hv_stats_vp_counters_VpGpaSpaceHypercalls: hv_stats_vp_counters = 31;
+pub const hv_stats_vp_counters_VpLogicalProcessorHypercalls: hv_stats_vp_counters = 32;
+pub const hv_stats_vp_counters_VpLongSpinWaitHypercalls: hv_stats_vp_counters = 33;
+pub const hv_stats_vp_counters_VpOtherHypercalls: hv_stats_vp_counters = 34;
+pub const hv_stats_vp_counters_VpSyntheticInterruptHypercalls: hv_stats_vp_counters = 35;
+pub const hv_stats_vp_counters_VpVirtualInterruptHypercalls: hv_stats_vp_counters = 36;
+pub const hv_stats_vp_counters_VpVirtualMmuHypercalls: hv_stats_vp_counters = 37;
+pub const hv_stats_vp_counters_VpVirtualProcessorHypercalls: hv_stats_vp_counters = 38;
+pub const hv_stats_vp_counters_VpHardwareInterrupts: hv_stats_vp_counters = 39;
+pub const hv_stats_vp_counters_VpNestedPageFaultInterceptsCount: hv_stats_vp_counters = 40;
+pub const hv_stats_vp_counters_VpNestedPageFaultInterceptsTime: hv_stats_vp_counters = 41;
+pub const hv_stats_vp_counters_VpLogicalProcessorDispatches: hv_stats_vp_counters = 42;
+pub const hv_stats_vp_counters_VpWaitingForCpuTime: hv_stats_vp_counters = 43;
+pub const hv_stats_vp_counters_VpExtendedHypercalls: hv_stats_vp_counters = 44;
+pub const hv_stats_vp_counters_VpExtendedHypercallInterceptMessages: hv_stats_vp_counters = 45;
+pub const hv_stats_vp_counters_VpMbecNestedPageTableSwitches: hv_stats_vp_counters = 46;
+pub const hv_stats_vp_counters_VpOtherReflectedGuestExceptions: hv_stats_vp_counters = 47;
+pub const hv_stats_vp_counters_VpGlobalIoTlbFlushes: hv_stats_vp_counters = 48;
+pub const hv_stats_vp_counters_VpGlobalIoTlbFlushCost: hv_stats_vp_counters = 49;
+pub const hv_stats_vp_counters_VpLocalIoTlbFlushes: hv_stats_vp_counters = 50;
+pub const hv_stats_vp_counters_VpLocalIoTlbFlushCost: hv_stats_vp_counters = 51;
+pub const hv_stats_vp_counters_VpFlushGuestPhysicalAddressSpaceHypercalls: hv_stats_vp_counters =
+    52;
+pub const hv_stats_vp_counters_VpFlushGuestPhysicalAddressListHypercalls: hv_stats_vp_counters = 53;
+pub const hv_stats_vp_counters_VpPostedInterruptNotifications: hv_stats_vp_counters = 54;
+pub const hv_stats_vp_counters_VpPostedInterruptScans: hv_stats_vp_counters = 55;
+pub const hv_stats_vp_counters_VpTotalCoreRunTime: hv_stats_vp_counters = 56;
+pub const hv_stats_vp_counters_VpMaximumRunTime: hv_stats_vp_counters = 57;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket0: hv_stats_vp_counters = 58;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket1: hv_stats_vp_counters = 59;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket2: hv_stats_vp_counters = 60;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket3: hv_stats_vp_counters = 61;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket4: hv_stats_vp_counters = 62;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket5: hv_stats_vp_counters = 63;
+pub const hv_stats_vp_counters_VpWaitingForCpuTimeBucket6: hv_stats_vp_counters = 64;
+pub const hv_stats_vp_counters_VpHwpRequestContextSwitches: hv_stats_vp_counters = 65;
+pub const hv_stats_vp_counters_VpPlaceholder2: hv_stats_vp_counters = 66;
+pub const hv_stats_vp_counters_VpPlaceholder3: hv_stats_vp_counters = 67;
+pub const hv_stats_vp_counters_VpPlaceholder4: hv_stats_vp_counters = 68;
+pub const hv_stats_vp_counters_VpPlaceholder5: hv_stats_vp_counters = 69;
+pub const hv_stats_vp_counters_VpPlaceholder6: hv_stats_vp_counters = 70;
+pub const hv_stats_vp_counters_VpPlaceholder7: hv_stats_vp_counters = 71;
+pub const hv_stats_vp_counters_VpPlaceholder8: hv_stats_vp_counters = 72;
+pub const hv_stats_vp_counters_VpContentionTime: hv_stats_vp_counters = 73;
+pub const hv_stats_vp_counters_VpWakeUpTime: hv_stats_vp_counters = 74;
+pub const hv_stats_vp_counters_VpSchedulingPriority: hv_stats_vp_counters = 75;
+pub const hv_stats_vp_counters_VpVtl1DispatchCount: hv_stats_vp_counters = 76;
+pub const hv_stats_vp_counters_VpVtl2DispatchCount: hv_stats_vp_counters = 77;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket0: hv_stats_vp_counters = 78;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket1: hv_stats_vp_counters = 79;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket2: hv_stats_vp_counters = 80;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket3: hv_stats_vp_counters = 81;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket4: hv_stats_vp_counters = 82;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket5: hv_stats_vp_counters = 83;
+pub const hv_stats_vp_counters_VpVtl2DispatchBucket6: hv_stats_vp_counters = 84;
+pub const hv_stats_vp_counters_VpVtl1RunTime: hv_stats_vp_counters = 85;
+pub const hv_stats_vp_counters_VpVtl2RunTime: hv_stats_vp_counters = 86;
+pub const hv_stats_vp_counters_VpIommuHypercalls: hv_stats_vp_counters = 87;
+pub const hv_stats_vp_counters_VpCpuGroupHypercalls: hv_stats_vp_counters = 88;
+pub const hv_stats_vp_counters_VpVsmHypercalls: hv_stats_vp_counters = 89;
+pub const hv_stats_vp_counters_VpEventLogHypercalls: hv_stats_vp_counters = 90;
+pub const hv_stats_vp_counters_VpDeviceDomainHypercalls: hv_stats_vp_counters = 91;
+pub const hv_stats_vp_counters_VpDepositHypercalls: hv_stats_vp_counters = 92;
+pub const hv_stats_vp_counters_VpSvmHypercalls: hv_stats_vp_counters = 93;
+pub const hv_stats_vp_counters_VpRootDispatchThreadBlocked: hv_stats_vp_counters = 94;
+pub const hv_stats_vp_counters_VpStatsMaxCounter: hv_stats_vp_counters = 95;
+pub type hv_stats_vp_counters = ::std::os::raw::c_uint;
+pub const hv_stats_lp_counters_LpGlobalTime: hv_stats_lp_counters = 1;
+pub const hv_stats_lp_counters_LpTotalRunTime: hv_stats_lp_counters = 2;
+pub const hv_stats_lp_counters_LpHypervisorRunTime: hv_stats_lp_counters = 3;
+pub const hv_stats_lp_counters_LpHardwareInterrupts: hv_stats_lp_counters = 4;
+pub const hv_stats_lp_counters_LpContextSwitches: hv_stats_lp_counters = 5;
+pub const hv_stats_lp_counters_LpInterProcessorInterrupts: hv_stats_lp_counters = 6;
+pub const hv_stats_lp_counters_LpSchedulerInterrupts: hv_stats_lp_counters = 7;
+pub const hv_stats_lp_counters_LpTimerInterrupts: hv_stats_lp_counters = 8;
+pub const hv_stats_lp_counters_LpInterProcessorInterruptsSent: hv_stats_lp_counters = 9;
+pub const hv_stats_lp_counters_LpProcessorHalts: hv_stats_lp_counters = 10;
+pub const hv_stats_lp_counters_LpMonitorTransitionCost: hv_stats_lp_counters = 11;
+pub const hv_stats_lp_counters_LpContextSwitchTime: hv_stats_lp_counters = 12;
+pub const hv_stats_lp_counters_LpC1TransitionsCount: hv_stats_lp_counters = 13;
+pub const hv_stats_lp_counters_LpC1RunTime: hv_stats_lp_counters = 14;
+pub const hv_stats_lp_counters_LpC2TransitionsCount: hv_stats_lp_counters = 15;
+pub const hv_stats_lp_counters_LpC2RunTime: hv_stats_lp_counters = 16;
+pub const hv_stats_lp_counters_LpC3TransitionsCount: hv_stats_lp_counters = 17;
+pub const hv_stats_lp_counters_LpC3RunTime: hv_stats_lp_counters = 18;
+pub const hv_stats_lp_counters_LpRootVpIndex: hv_stats_lp_counters = 19;
+pub const hv_stats_lp_counters_LpIdleSequenceNumber: hv_stats_lp_counters = 20;
+pub const hv_stats_lp_counters_LpGlobalTscCount: hv_stats_lp_counters = 21;
+pub const hv_stats_lp_counters_LpActiveTscCount: hv_stats_lp_counters = 22;
+pub const hv_stats_lp_counters_LpIdleAccumulation: hv_stats_lp_counters = 23;
+pub const hv_stats_lp_counters_LpReferenceCycleCount0: hv_stats_lp_counters = 24;
+pub const hv_stats_lp_counters_LpActualCycleCount0: hv_stats_lp_counters = 25;
+pub const hv_stats_lp_counters_LpReferenceCycleCount1: hv_stats_lp_counters = 26;
+pub const hv_stats_lp_counters_LpActualCycleCount1: hv_stats_lp_counters = 27;
+pub const hv_stats_lp_counters_LpProximityDomainId: hv_stats_lp_counters = 28;
+pub const hv_stats_lp_counters_LpPostedInterruptNotifications: hv_stats_lp_counters = 29;
+pub const hv_stats_lp_counters_LpBranchPredictorFlushes: hv_stats_lp_counters = 30;
+pub const hv_stats_lp_counters_LpCounterRefreshSequenceNumber: hv_stats_lp_counters = 31;
+pub const hv_stats_lp_counters_LpCounterRefreshReferenceTime: hv_stats_lp_counters = 32;
+pub const hv_stats_lp_counters_LpIdleAccumulationSnapshot: hv_stats_lp_counters = 33;
+pub const hv_stats_lp_counters_LpActiveTscCountSnapshot: hv_stats_lp_counters = 34;
+pub const hv_stats_lp_counters_LpHwpRequestContextSwitches: hv_stats_lp_counters = 35;
+pub const hv_stats_lp_counters_LpPlaceholder2: hv_stats_lp_counters = 36;
+pub const hv_stats_lp_counters_LpPlaceholder3: hv_stats_lp_counters = 37;
+pub const hv_stats_lp_counters_LpPlaceholder4: hv_stats_lp_counters = 38;
+pub const hv_stats_lp_counters_LpPlaceholder5: hv_stats_lp_counters = 39;
+pub const hv_stats_lp_counters_LpPlaceholder6: hv_stats_lp_counters = 40;
+pub const hv_stats_lp_counters_LpPlaceholder7: hv_stats_lp_counters = 41;
+pub const hv_stats_lp_counters_LpPlaceholder8: hv_stats_lp_counters = 42;
+pub const hv_stats_lp_counters_LpPlaceholder9: hv_stats_lp_counters = 43;
+pub const hv_stats_lp_counters_LpSchLocalRunListSize: hv_stats_lp_counters = 44;
+pub const hv_stats_lp_counters_LpReserveGroupId: hv_stats_lp_counters = 45;
+pub const hv_stats_lp_counters_LpRunningPriority: hv_stats_lp_counters = 46;
+pub const hv_stats_lp_counters_LpStatsMaxCounter: hv_stats_lp_counters = 47;
+pub type hv_stats_lp_counters = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_stats_page {
+    pub __bindgen_anon_1: hv_stats_page__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_stats_page__bindgen_ty_1 {
+    pub hv_cntrs: [__u64; 13usize],
+    pub pt_cntrs: [__u64; 28usize],
+    pub vp_cntrs: [__u64; 95usize],
+    pub lp_cntrs: [__u64; 47usize],
+    pub data: [__u8; 4096usize],
+}
+#[test]
+fn bindgen_test_layout_hv_stats_page__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_stats_page__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_page__bindgen_ty_1>(),
+        4096usize,
+        concat!("Size of: ", stringify!(hv_stats_page__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_page__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_stats_page__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).hv_cntrs) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_page__bindgen_ty_1),
+            "::",
+            stringify!(hv_cntrs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).pt_cntrs) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_page__bindgen_ty_1),
+            "::",
+            stringify!(pt_cntrs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_cntrs) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_page__bindgen_ty_1),
+            "::",
+            stringify!(vp_cntrs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).lp_cntrs) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_page__bindgen_ty_1),
+            "::",
+            stringify!(lp_cntrs)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_stats_page__bindgen_ty_1),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+impl Default for hv_stats_page__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_stats_page() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_stats_page>(),
+        4096usize,
+        concat!("Size of: ", stringify!(hv_stats_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_stats_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_stats_page))
+    );
+}
+impl Default for hv_stats_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
 pub union hv_vp_register_page_interrupt_vectors {
@@ -5834,6 +13578,2082 @@ fn bindgen_test_layout_hv_vp_register_page() {
             stringify!(dirty)
         )
     );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_partition_processor_features {
+    pub as_uint64: [__u64; 2usize],
+    pub __bindgen_anon_1: hv_partition_processor_features__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_processor_features__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 16usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_processor_features__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_processor_features__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_processor_features__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_processor_features__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_processor_features__bindgen_ty_1)
+        )
+    );
+}
+impl hv_partition_processor_features__bindgen_ty_1 {
+    #[inline]
+    pub fn asid16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_asid16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn t_gran16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_t_gran16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn t_gran64(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_t_gran64(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn haf(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_haf(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn hdbs(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_hdbs(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(4usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pan(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pan(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(5usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn at_s1e1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(6usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_at_s1e1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(6usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn uao(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(7usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_uao(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(7usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn el0_aarch32(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_el0_aarch32(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(8usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(9usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_fp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(9usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fp_hp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(10usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_fp_hp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(10usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn adv_simd(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(11usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_adv_simd(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(11usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn adv_simd_hp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_adv_simd_hp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn gic_v3v4(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(13usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_gic_v3v4(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(13usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn gic_v4p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(14usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_gic_v4p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(14usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ras(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(15usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ras(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(15usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pmu_v3(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(16usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pmu_v3(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(16usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pmu_v3_arm_v81(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(17usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pmu_v3_arm_v81(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(17usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pmu_v3_arm_v84(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(18usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pmu_v3_arm_v84(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(18usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pmu_v3_arm_v85(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(19usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pmu_v3_arm_v85(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(19usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn aes(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(20usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_aes(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(20usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn poly_mul(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(21usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_poly_mul(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(21usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sha1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(22usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sha1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(22usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sha256(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(23usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sha256(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(23usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sha512(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(24usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sha512(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(24usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn crc32(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(25usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_crc32(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(25usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn atomic(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(26usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_atomic(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(26usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rdm(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(27usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_rdm(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(27usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sha3(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(28usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sha3(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(28usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sm3(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(29usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sm3(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(29usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sm4(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(30usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sm4(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(30usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(31usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fhm(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(32usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_fhm(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(32usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dc_cvap(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(33usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dc_cvap(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(33usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dc_cvadp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(34usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dc_cvadp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(34usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn apa_base(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(35usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_apa_base(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(35usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn apa_ep(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(36usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_apa_ep(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(36usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn apa_ep2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(37usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_apa_ep2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(37usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn apa_ep2_fp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(38usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_apa_ep2_fp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(38usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn apa_ep2_fpc(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(39usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_apa_ep2_fpc(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(39usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn jscvt(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(40usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_jscvt(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(40usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fcma(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(41usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_fcma(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(41usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rcpc_v83(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(42usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_rcpc_v83(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(42usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rcpc_v84(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(43usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_rcpc_v84(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(43usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn gpa(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(44usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_gpa(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(44usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn l1ip_pipt(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(45usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_l1ip_pipt(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(45usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dz_permitted(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(46usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dz_permitted(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(46usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ssbs(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(47usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ssbs(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(47usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ssbs_rw(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(48usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ssbs_rw(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(48usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn smccc_w1_supported(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(49usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_smccc_w1_supported(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(49usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn smccc_w1_mitigated(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(50usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_smccc_w1_mitigated(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(50usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn smccc_w2_supported(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(51usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_smccc_w2_supported(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(51usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn smccc_w2_mitigated(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(52usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_smccc_w2_mitigated(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(52usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn csv2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(53usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_csv2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(53usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn csv3(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(54usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_csv3(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(54usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sb(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(55usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sb(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(55usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn idc(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(56usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_idc(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(56usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dic(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(57usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dic(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(57usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn tlbi_os(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(58usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_tlbi_os(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(58usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn tlbi_os_range(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(59usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_tlbi_os_range(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(59usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn flags_m(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(60usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_flags_m(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(60usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn flags_m2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(61usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_flags_m2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(61usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn bf16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(62usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_bf16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(62usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ebf16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(63usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ebf16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(63usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve_bf16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(64usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve_bf16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(64usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve_ebf16(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(65usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve_ebf16(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(65usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn i8mm(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(66usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_i8mm(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(66usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve_i8mm(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(67usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve_i8mm(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(67usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn frintts(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(68usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_frintts(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(68usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn specres(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(69usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_specres(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(69usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn mtpmu(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(70usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_mtpmu(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(70usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rpres(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(71usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_rpres(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(71usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn exs(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(72usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_exs(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(72usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn spec_sei(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(73usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_spec_sei(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(73usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ets(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(74usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ets(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(74usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn afp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(75usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_afp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(75usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn iesb(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(76usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_iesb(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(76usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rng(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(77usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_rng(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(77usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn lse2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(78usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_lse2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(78usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn idst(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(79usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_idst(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(79usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ras_v1p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(80usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ras_v1p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(80usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ras_frac_v1p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(81usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ras_frac_v1p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(81usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sel2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(82usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sel2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(82usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn amu_v1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(83usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_amu_v1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(83usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn amu_v1p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(84usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_amu_v1p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(84usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn dit(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(85usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_dit(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(85usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ccidx(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(86usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_ccidx(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(86usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fgt_for_intercepts(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(87usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_fgt_for_intercepts(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(87usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn l1ip_vpipt(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(88usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_l1ip_vpipt(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(88usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn l1ip_vipt(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(89usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_l1ip_vipt(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(89usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn debug_v8(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(90usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_debug_v8(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(90usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn debug_v8p2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(91usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_debug_v8p2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(91usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn debug_v8p4(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(92usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_debug_v8p4(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(92usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn pmu_v3_arm_v87(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(93usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_pmu_v3_arm_v87(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(93usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn double_lock(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(94usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_double_lock(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(94usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn clrbhb(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(95usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_clrbhb(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(95usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn spe(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(96usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_spe(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(96usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn spe_v1p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(97usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_spe_v1p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(97usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn spe_v1p2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(98usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_spe_v1p2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(98usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn tt_cnp(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(99usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_tt_cnp(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(99usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn hpds(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(100usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_hpds(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(100usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(101usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(101usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve_v2(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(102usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve_v2(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(102usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sve_v2p1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(103usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sve_v2p1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(103usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn spec_fpacc(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(104usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_spec_fpacc(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(104usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_bank1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(105usize, 23u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_bank1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(105usize, 23u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        asid16: __u64,
+        t_gran16: __u64,
+        t_gran64: __u64,
+        haf: __u64,
+        hdbs: __u64,
+        pan: __u64,
+        at_s1e1: __u64,
+        uao: __u64,
+        el0_aarch32: __u64,
+        fp: __u64,
+        fp_hp: __u64,
+        adv_simd: __u64,
+        adv_simd_hp: __u64,
+        gic_v3v4: __u64,
+        gic_v4p1: __u64,
+        ras: __u64,
+        pmu_v3: __u64,
+        pmu_v3_arm_v81: __u64,
+        pmu_v3_arm_v84: __u64,
+        pmu_v3_arm_v85: __u64,
+        aes: __u64,
+        poly_mul: __u64,
+        sha1: __u64,
+        sha256: __u64,
+        sha512: __u64,
+        crc32: __u64,
+        atomic: __u64,
+        rdm: __u64,
+        sha3: __u64,
+        sm3: __u64,
+        sm4: __u64,
+        dp: __u64,
+        fhm: __u64,
+        dc_cvap: __u64,
+        dc_cvadp: __u64,
+        apa_base: __u64,
+        apa_ep: __u64,
+        apa_ep2: __u64,
+        apa_ep2_fp: __u64,
+        apa_ep2_fpc: __u64,
+        jscvt: __u64,
+        fcma: __u64,
+        rcpc_v83: __u64,
+        rcpc_v84: __u64,
+        gpa: __u64,
+        l1ip_pipt: __u64,
+        dz_permitted: __u64,
+        ssbs: __u64,
+        ssbs_rw: __u64,
+        smccc_w1_supported: __u64,
+        smccc_w1_mitigated: __u64,
+        smccc_w2_supported: __u64,
+        smccc_w2_mitigated: __u64,
+        csv2: __u64,
+        csv3: __u64,
+        sb: __u64,
+        idc: __u64,
+        dic: __u64,
+        tlbi_os: __u64,
+        tlbi_os_range: __u64,
+        flags_m: __u64,
+        flags_m2: __u64,
+        bf16: __u64,
+        ebf16: __u64,
+        sve_bf16: __u64,
+        sve_ebf16: __u64,
+        i8mm: __u64,
+        sve_i8mm: __u64,
+        frintts: __u64,
+        specres: __u64,
+        mtpmu: __u64,
+        rpres: __u64,
+        exs: __u64,
+        spec_sei: __u64,
+        ets: __u64,
+        afp: __u64,
+        iesb: __u64,
+        rng: __u64,
+        lse2: __u64,
+        idst: __u64,
+        ras_v1p1: __u64,
+        ras_frac_v1p1: __u64,
+        sel2: __u64,
+        amu_v1: __u64,
+        amu_v1p1: __u64,
+        dit: __u64,
+        ccidx: __u64,
+        fgt_for_intercepts: __u64,
+        l1ip_vpipt: __u64,
+        l1ip_vipt: __u64,
+        debug_v8: __u64,
+        debug_v8p2: __u64,
+        debug_v8p4: __u64,
+        pmu_v3_arm_v87: __u64,
+        double_lock: __u64,
+        clrbhb: __u64,
+        spe: __u64,
+        spe_v1p1: __u64,
+        spe_v1p2: __u64,
+        tt_cnp: __u64,
+        hpds: __u64,
+        sve: __u64,
+        sve_v2: __u64,
+        sve_v2p1: __u64,
+        spec_fpacc: __u64,
+        reserved_bank1: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 16usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 16usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let asid16: u64 = unsafe { ::std::mem::transmute(asid16) };
+            asid16 as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let t_gran16: u64 = unsafe { ::std::mem::transmute(t_gran16) };
+            t_gran16 as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let t_gran64: u64 = unsafe { ::std::mem::transmute(t_gran64) };
+            t_gran64 as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let haf: u64 = unsafe { ::std::mem::transmute(haf) };
+            haf as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 1u8, {
+            let hdbs: u64 = unsafe { ::std::mem::transmute(hdbs) };
+            hdbs as u64
+        });
+        __bindgen_bitfield_unit.set(5usize, 1u8, {
+            let pan: u64 = unsafe { ::std::mem::transmute(pan) };
+            pan as u64
+        });
+        __bindgen_bitfield_unit.set(6usize, 1u8, {
+            let at_s1e1: u64 = unsafe { ::std::mem::transmute(at_s1e1) };
+            at_s1e1 as u64
+        });
+        __bindgen_bitfield_unit.set(7usize, 1u8, {
+            let uao: u64 = unsafe { ::std::mem::transmute(uao) };
+            uao as u64
+        });
+        __bindgen_bitfield_unit.set(8usize, 1u8, {
+            let el0_aarch32: u64 = unsafe { ::std::mem::transmute(el0_aarch32) };
+            el0_aarch32 as u64
+        });
+        __bindgen_bitfield_unit.set(9usize, 1u8, {
+            let fp: u64 = unsafe { ::std::mem::transmute(fp) };
+            fp as u64
+        });
+        __bindgen_bitfield_unit.set(10usize, 1u8, {
+            let fp_hp: u64 = unsafe { ::std::mem::transmute(fp_hp) };
+            fp_hp as u64
+        });
+        __bindgen_bitfield_unit.set(11usize, 1u8, {
+            let adv_simd: u64 = unsafe { ::std::mem::transmute(adv_simd) };
+            adv_simd as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 1u8, {
+            let adv_simd_hp: u64 = unsafe { ::std::mem::transmute(adv_simd_hp) };
+            adv_simd_hp as u64
+        });
+        __bindgen_bitfield_unit.set(13usize, 1u8, {
+            let gic_v3v4: u64 = unsafe { ::std::mem::transmute(gic_v3v4) };
+            gic_v3v4 as u64
+        });
+        __bindgen_bitfield_unit.set(14usize, 1u8, {
+            let gic_v4p1: u64 = unsafe { ::std::mem::transmute(gic_v4p1) };
+            gic_v4p1 as u64
+        });
+        __bindgen_bitfield_unit.set(15usize, 1u8, {
+            let ras: u64 = unsafe { ::std::mem::transmute(ras) };
+            ras as u64
+        });
+        __bindgen_bitfield_unit.set(16usize, 1u8, {
+            let pmu_v3: u64 = unsafe { ::std::mem::transmute(pmu_v3) };
+            pmu_v3 as u64
+        });
+        __bindgen_bitfield_unit.set(17usize, 1u8, {
+            let pmu_v3_arm_v81: u64 = unsafe { ::std::mem::transmute(pmu_v3_arm_v81) };
+            pmu_v3_arm_v81 as u64
+        });
+        __bindgen_bitfield_unit.set(18usize, 1u8, {
+            let pmu_v3_arm_v84: u64 = unsafe { ::std::mem::transmute(pmu_v3_arm_v84) };
+            pmu_v3_arm_v84 as u64
+        });
+        __bindgen_bitfield_unit.set(19usize, 1u8, {
+            let pmu_v3_arm_v85: u64 = unsafe { ::std::mem::transmute(pmu_v3_arm_v85) };
+            pmu_v3_arm_v85 as u64
+        });
+        __bindgen_bitfield_unit.set(20usize, 1u8, {
+            let aes: u64 = unsafe { ::std::mem::transmute(aes) };
+            aes as u64
+        });
+        __bindgen_bitfield_unit.set(21usize, 1u8, {
+            let poly_mul: u64 = unsafe { ::std::mem::transmute(poly_mul) };
+            poly_mul as u64
+        });
+        __bindgen_bitfield_unit.set(22usize, 1u8, {
+            let sha1: u64 = unsafe { ::std::mem::transmute(sha1) };
+            sha1 as u64
+        });
+        __bindgen_bitfield_unit.set(23usize, 1u8, {
+            let sha256: u64 = unsafe { ::std::mem::transmute(sha256) };
+            sha256 as u64
+        });
+        __bindgen_bitfield_unit.set(24usize, 1u8, {
+            let sha512: u64 = unsafe { ::std::mem::transmute(sha512) };
+            sha512 as u64
+        });
+        __bindgen_bitfield_unit.set(25usize, 1u8, {
+            let crc32: u64 = unsafe { ::std::mem::transmute(crc32) };
+            crc32 as u64
+        });
+        __bindgen_bitfield_unit.set(26usize, 1u8, {
+            let atomic: u64 = unsafe { ::std::mem::transmute(atomic) };
+            atomic as u64
+        });
+        __bindgen_bitfield_unit.set(27usize, 1u8, {
+            let rdm: u64 = unsafe { ::std::mem::transmute(rdm) };
+            rdm as u64
+        });
+        __bindgen_bitfield_unit.set(28usize, 1u8, {
+            let sha3: u64 = unsafe { ::std::mem::transmute(sha3) };
+            sha3 as u64
+        });
+        __bindgen_bitfield_unit.set(29usize, 1u8, {
+            let sm3: u64 = unsafe { ::std::mem::transmute(sm3) };
+            sm3 as u64
+        });
+        __bindgen_bitfield_unit.set(30usize, 1u8, {
+            let sm4: u64 = unsafe { ::std::mem::transmute(sm4) };
+            sm4 as u64
+        });
+        __bindgen_bitfield_unit.set(31usize, 1u8, {
+            let dp: u64 = unsafe { ::std::mem::transmute(dp) };
+            dp as u64
+        });
+        __bindgen_bitfield_unit.set(32usize, 1u8, {
+            let fhm: u64 = unsafe { ::std::mem::transmute(fhm) };
+            fhm as u64
+        });
+        __bindgen_bitfield_unit.set(33usize, 1u8, {
+            let dc_cvap: u64 = unsafe { ::std::mem::transmute(dc_cvap) };
+            dc_cvap as u64
+        });
+        __bindgen_bitfield_unit.set(34usize, 1u8, {
+            let dc_cvadp: u64 = unsafe { ::std::mem::transmute(dc_cvadp) };
+            dc_cvadp as u64
+        });
+        __bindgen_bitfield_unit.set(35usize, 1u8, {
+            let apa_base: u64 = unsafe { ::std::mem::transmute(apa_base) };
+            apa_base as u64
+        });
+        __bindgen_bitfield_unit.set(36usize, 1u8, {
+            let apa_ep: u64 = unsafe { ::std::mem::transmute(apa_ep) };
+            apa_ep as u64
+        });
+        __bindgen_bitfield_unit.set(37usize, 1u8, {
+            let apa_ep2: u64 = unsafe { ::std::mem::transmute(apa_ep2) };
+            apa_ep2 as u64
+        });
+        __bindgen_bitfield_unit.set(38usize, 1u8, {
+            let apa_ep2_fp: u64 = unsafe { ::std::mem::transmute(apa_ep2_fp) };
+            apa_ep2_fp as u64
+        });
+        __bindgen_bitfield_unit.set(39usize, 1u8, {
+            let apa_ep2_fpc: u64 = unsafe { ::std::mem::transmute(apa_ep2_fpc) };
+            apa_ep2_fpc as u64
+        });
+        __bindgen_bitfield_unit.set(40usize, 1u8, {
+            let jscvt: u64 = unsafe { ::std::mem::transmute(jscvt) };
+            jscvt as u64
+        });
+        __bindgen_bitfield_unit.set(41usize, 1u8, {
+            let fcma: u64 = unsafe { ::std::mem::transmute(fcma) };
+            fcma as u64
+        });
+        __bindgen_bitfield_unit.set(42usize, 1u8, {
+            let rcpc_v83: u64 = unsafe { ::std::mem::transmute(rcpc_v83) };
+            rcpc_v83 as u64
+        });
+        __bindgen_bitfield_unit.set(43usize, 1u8, {
+            let rcpc_v84: u64 = unsafe { ::std::mem::transmute(rcpc_v84) };
+            rcpc_v84 as u64
+        });
+        __bindgen_bitfield_unit.set(44usize, 1u8, {
+            let gpa: u64 = unsafe { ::std::mem::transmute(gpa) };
+            gpa as u64
+        });
+        __bindgen_bitfield_unit.set(45usize, 1u8, {
+            let l1ip_pipt: u64 = unsafe { ::std::mem::transmute(l1ip_pipt) };
+            l1ip_pipt as u64
+        });
+        __bindgen_bitfield_unit.set(46usize, 1u8, {
+            let dz_permitted: u64 = unsafe { ::std::mem::transmute(dz_permitted) };
+            dz_permitted as u64
+        });
+        __bindgen_bitfield_unit.set(47usize, 1u8, {
+            let ssbs: u64 = unsafe { ::std::mem::transmute(ssbs) };
+            ssbs as u64
+        });
+        __bindgen_bitfield_unit.set(48usize, 1u8, {
+            let ssbs_rw: u64 = unsafe { ::std::mem::transmute(ssbs_rw) };
+            ssbs_rw as u64
+        });
+        __bindgen_bitfield_unit.set(49usize, 1u8, {
+            let smccc_w1_supported: u64 = unsafe { ::std::mem::transmute(smccc_w1_supported) };
+            smccc_w1_supported as u64
+        });
+        __bindgen_bitfield_unit.set(50usize, 1u8, {
+            let smccc_w1_mitigated: u64 = unsafe { ::std::mem::transmute(smccc_w1_mitigated) };
+            smccc_w1_mitigated as u64
+        });
+        __bindgen_bitfield_unit.set(51usize, 1u8, {
+            let smccc_w2_supported: u64 = unsafe { ::std::mem::transmute(smccc_w2_supported) };
+            smccc_w2_supported as u64
+        });
+        __bindgen_bitfield_unit.set(52usize, 1u8, {
+            let smccc_w2_mitigated: u64 = unsafe { ::std::mem::transmute(smccc_w2_mitigated) };
+            smccc_w2_mitigated as u64
+        });
+        __bindgen_bitfield_unit.set(53usize, 1u8, {
+            let csv2: u64 = unsafe { ::std::mem::transmute(csv2) };
+            csv2 as u64
+        });
+        __bindgen_bitfield_unit.set(54usize, 1u8, {
+            let csv3: u64 = unsafe { ::std::mem::transmute(csv3) };
+            csv3 as u64
+        });
+        __bindgen_bitfield_unit.set(55usize, 1u8, {
+            let sb: u64 = unsafe { ::std::mem::transmute(sb) };
+            sb as u64
+        });
+        __bindgen_bitfield_unit.set(56usize, 1u8, {
+            let idc: u64 = unsafe { ::std::mem::transmute(idc) };
+            idc as u64
+        });
+        __bindgen_bitfield_unit.set(57usize, 1u8, {
+            let dic: u64 = unsafe { ::std::mem::transmute(dic) };
+            dic as u64
+        });
+        __bindgen_bitfield_unit.set(58usize, 1u8, {
+            let tlbi_os: u64 = unsafe { ::std::mem::transmute(tlbi_os) };
+            tlbi_os as u64
+        });
+        __bindgen_bitfield_unit.set(59usize, 1u8, {
+            let tlbi_os_range: u64 = unsafe { ::std::mem::transmute(tlbi_os_range) };
+            tlbi_os_range as u64
+        });
+        __bindgen_bitfield_unit.set(60usize, 1u8, {
+            let flags_m: u64 = unsafe { ::std::mem::transmute(flags_m) };
+            flags_m as u64
+        });
+        __bindgen_bitfield_unit.set(61usize, 1u8, {
+            let flags_m2: u64 = unsafe { ::std::mem::transmute(flags_m2) };
+            flags_m2 as u64
+        });
+        __bindgen_bitfield_unit.set(62usize, 1u8, {
+            let bf16: u64 = unsafe { ::std::mem::transmute(bf16) };
+            bf16 as u64
+        });
+        __bindgen_bitfield_unit.set(63usize, 1u8, {
+            let ebf16: u64 = unsafe { ::std::mem::transmute(ebf16) };
+            ebf16 as u64
+        });
+        __bindgen_bitfield_unit.set(64usize, 1u8, {
+            let sve_bf16: u64 = unsafe { ::std::mem::transmute(sve_bf16) };
+            sve_bf16 as u64
+        });
+        __bindgen_bitfield_unit.set(65usize, 1u8, {
+            let sve_ebf16: u64 = unsafe { ::std::mem::transmute(sve_ebf16) };
+            sve_ebf16 as u64
+        });
+        __bindgen_bitfield_unit.set(66usize, 1u8, {
+            let i8mm: u64 = unsafe { ::std::mem::transmute(i8mm) };
+            i8mm as u64
+        });
+        __bindgen_bitfield_unit.set(67usize, 1u8, {
+            let sve_i8mm: u64 = unsafe { ::std::mem::transmute(sve_i8mm) };
+            sve_i8mm as u64
+        });
+        __bindgen_bitfield_unit.set(68usize, 1u8, {
+            let frintts: u64 = unsafe { ::std::mem::transmute(frintts) };
+            frintts as u64
+        });
+        __bindgen_bitfield_unit.set(69usize, 1u8, {
+            let specres: u64 = unsafe { ::std::mem::transmute(specres) };
+            specres as u64
+        });
+        __bindgen_bitfield_unit.set(70usize, 1u8, {
+            let mtpmu: u64 = unsafe { ::std::mem::transmute(mtpmu) };
+            mtpmu as u64
+        });
+        __bindgen_bitfield_unit.set(71usize, 1u8, {
+            let rpres: u64 = unsafe { ::std::mem::transmute(rpres) };
+            rpres as u64
+        });
+        __bindgen_bitfield_unit.set(72usize, 1u8, {
+            let exs: u64 = unsafe { ::std::mem::transmute(exs) };
+            exs as u64
+        });
+        __bindgen_bitfield_unit.set(73usize, 1u8, {
+            let spec_sei: u64 = unsafe { ::std::mem::transmute(spec_sei) };
+            spec_sei as u64
+        });
+        __bindgen_bitfield_unit.set(74usize, 1u8, {
+            let ets: u64 = unsafe { ::std::mem::transmute(ets) };
+            ets as u64
+        });
+        __bindgen_bitfield_unit.set(75usize, 1u8, {
+            let afp: u64 = unsafe { ::std::mem::transmute(afp) };
+            afp as u64
+        });
+        __bindgen_bitfield_unit.set(76usize, 1u8, {
+            let iesb: u64 = unsafe { ::std::mem::transmute(iesb) };
+            iesb as u64
+        });
+        __bindgen_bitfield_unit.set(77usize, 1u8, {
+            let rng: u64 = unsafe { ::std::mem::transmute(rng) };
+            rng as u64
+        });
+        __bindgen_bitfield_unit.set(78usize, 1u8, {
+            let lse2: u64 = unsafe { ::std::mem::transmute(lse2) };
+            lse2 as u64
+        });
+        __bindgen_bitfield_unit.set(79usize, 1u8, {
+            let idst: u64 = unsafe { ::std::mem::transmute(idst) };
+            idst as u64
+        });
+        __bindgen_bitfield_unit.set(80usize, 1u8, {
+            let ras_v1p1: u64 = unsafe { ::std::mem::transmute(ras_v1p1) };
+            ras_v1p1 as u64
+        });
+        __bindgen_bitfield_unit.set(81usize, 1u8, {
+            let ras_frac_v1p1: u64 = unsafe { ::std::mem::transmute(ras_frac_v1p1) };
+            ras_frac_v1p1 as u64
+        });
+        __bindgen_bitfield_unit.set(82usize, 1u8, {
+            let sel2: u64 = unsafe { ::std::mem::transmute(sel2) };
+            sel2 as u64
+        });
+        __bindgen_bitfield_unit.set(83usize, 1u8, {
+            let amu_v1: u64 = unsafe { ::std::mem::transmute(amu_v1) };
+            amu_v1 as u64
+        });
+        __bindgen_bitfield_unit.set(84usize, 1u8, {
+            let amu_v1p1: u64 = unsafe { ::std::mem::transmute(amu_v1p1) };
+            amu_v1p1 as u64
+        });
+        __bindgen_bitfield_unit.set(85usize, 1u8, {
+            let dit: u64 = unsafe { ::std::mem::transmute(dit) };
+            dit as u64
+        });
+        __bindgen_bitfield_unit.set(86usize, 1u8, {
+            let ccidx: u64 = unsafe { ::std::mem::transmute(ccidx) };
+            ccidx as u64
+        });
+        __bindgen_bitfield_unit.set(87usize, 1u8, {
+            let fgt_for_intercepts: u64 = unsafe { ::std::mem::transmute(fgt_for_intercepts) };
+            fgt_for_intercepts as u64
+        });
+        __bindgen_bitfield_unit.set(88usize, 1u8, {
+            let l1ip_vpipt: u64 = unsafe { ::std::mem::transmute(l1ip_vpipt) };
+            l1ip_vpipt as u64
+        });
+        __bindgen_bitfield_unit.set(89usize, 1u8, {
+            let l1ip_vipt: u64 = unsafe { ::std::mem::transmute(l1ip_vipt) };
+            l1ip_vipt as u64
+        });
+        __bindgen_bitfield_unit.set(90usize, 1u8, {
+            let debug_v8: u64 = unsafe { ::std::mem::transmute(debug_v8) };
+            debug_v8 as u64
+        });
+        __bindgen_bitfield_unit.set(91usize, 1u8, {
+            let debug_v8p2: u64 = unsafe { ::std::mem::transmute(debug_v8p2) };
+            debug_v8p2 as u64
+        });
+        __bindgen_bitfield_unit.set(92usize, 1u8, {
+            let debug_v8p4: u64 = unsafe { ::std::mem::transmute(debug_v8p4) };
+            debug_v8p4 as u64
+        });
+        __bindgen_bitfield_unit.set(93usize, 1u8, {
+            let pmu_v3_arm_v87: u64 = unsafe { ::std::mem::transmute(pmu_v3_arm_v87) };
+            pmu_v3_arm_v87 as u64
+        });
+        __bindgen_bitfield_unit.set(94usize, 1u8, {
+            let double_lock: u64 = unsafe { ::std::mem::transmute(double_lock) };
+            double_lock as u64
+        });
+        __bindgen_bitfield_unit.set(95usize, 1u8, {
+            let clrbhb: u64 = unsafe { ::std::mem::transmute(clrbhb) };
+            clrbhb as u64
+        });
+        __bindgen_bitfield_unit.set(96usize, 1u8, {
+            let spe: u64 = unsafe { ::std::mem::transmute(spe) };
+            spe as u64
+        });
+        __bindgen_bitfield_unit.set(97usize, 1u8, {
+            let spe_v1p1: u64 = unsafe { ::std::mem::transmute(spe_v1p1) };
+            spe_v1p1 as u64
+        });
+        __bindgen_bitfield_unit.set(98usize, 1u8, {
+            let spe_v1p2: u64 = unsafe { ::std::mem::transmute(spe_v1p2) };
+            spe_v1p2 as u64
+        });
+        __bindgen_bitfield_unit.set(99usize, 1u8, {
+            let tt_cnp: u64 = unsafe { ::std::mem::transmute(tt_cnp) };
+            tt_cnp as u64
+        });
+        __bindgen_bitfield_unit.set(100usize, 1u8, {
+            let hpds: u64 = unsafe { ::std::mem::transmute(hpds) };
+            hpds as u64
+        });
+        __bindgen_bitfield_unit.set(101usize, 1u8, {
+            let sve: u64 = unsafe { ::std::mem::transmute(sve) };
+            sve as u64
+        });
+        __bindgen_bitfield_unit.set(102usize, 1u8, {
+            let sve_v2: u64 = unsafe { ::std::mem::transmute(sve_v2) };
+            sve_v2 as u64
+        });
+        __bindgen_bitfield_unit.set(103usize, 1u8, {
+            let sve_v2p1: u64 = unsafe { ::std::mem::transmute(sve_v2p1) };
+            sve_v2p1 as u64
+        });
+        __bindgen_bitfield_unit.set(104usize, 1u8, {
+            let spec_fpacc: u64 = unsafe { ::std::mem::transmute(spec_fpacc) };
+            spec_fpacc as u64
+        });
+        __bindgen_bitfield_unit.set(105usize, 23u8, {
+            let reserved_bank1: u64 = unsafe { ::std::mem::transmute(reserved_bank1) };
+            reserved_bank1 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_partition_processor_features() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_processor_features> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_processor_features>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_partition_processor_features))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_processor_features>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_partition_processor_features))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_processor_features),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_partition_processor_features {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_partition_processor_xsave_features {
+    pub __bindgen_anon_1: hv_partition_processor_xsave_features__bindgen_ty_1,
+    pub as_uint64: __u64,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_processor_xsave_features__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_processor_xsave_features__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_processor_xsave_features__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_processor_xsave_features__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_processor_xsave_features__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_processor_xsave_features__bindgen_ty_1)
+        )
+    );
+}
+impl hv_partition_processor_xsave_features__bindgen_ty_1 {
+    #[inline]
+    pub fn xsave_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_xsave_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn xsaveopt_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_xsaveopt_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn avx_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_avx_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 61u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 61u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        xsave_support: __u64,
+        xsaveopt_support: __u64,
+        avx_support: __u64,
+        reserved1: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let xsave_support: u64 = unsafe { ::std::mem::transmute(xsave_support) };
+            xsave_support as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let xsaveopt_support: u64 = unsafe { ::std::mem::transmute(xsaveopt_support) };
+            xsaveopt_support as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let avx_support: u64 = unsafe { ::std::mem::transmute(avx_support) };
+            avx_support as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 61u8, {
+            let reserved1: u64 = unsafe { ::std::mem::transmute(reserved1) };
+            reserved1 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_partition_processor_xsave_features() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_processor_xsave_features> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_processor_xsave_features>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_processor_xsave_features)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_processor_xsave_features>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_processor_xsave_features)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_processor_xsave_features),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_partition_processor_xsave_features {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_partition_creation_properties {
+    pub disabled_processor_features: hv_partition_processor_features,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_creation_properties() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_creation_properties> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_creation_properties>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_partition_creation_properties))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_creation_properties>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_creation_properties)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).disabled_processor_features) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_creation_properties),
+            "::",
+            stringify!(disabled_processor_features)
+        )
+    );
+}
+impl Default for hv_partition_creation_properties {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INVALID:
+    hv_partition_isolation_state = 0;
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INSECURE_CLEAN:
+    hv_partition_isolation_state = 1;
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INSECURE_DIRTY:
+    hv_partition_isolation_state = 2;
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE: hv_partition_isolation_state =
+    3;
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE_DIRTY:
+    hv_partition_isolation_state = 4;
+pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE_TERMINATING:
+    hv_partition_isolation_state = 5;
+pub type hv_partition_isolation_state = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_partition_isolation_control {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_partition_isolation_control__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_partition_isolation_control__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_partition_isolation_control__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_isolation_control__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_partition_isolation_control__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_isolation_control__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_partition_isolation_control__bindgen_ty_1)
+        )
+    );
+}
+impl hv_partition_isolation_control__bindgen_ty_1 {
+    #[inline]
+    pub fn runnable(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_runnable(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 63u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 63u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        runnable: __u64,
+        reserved_z: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let runnable: u64 = unsafe { ::std::mem::transmute(runnable) };
+            runnable as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 63u8, {
+            let reserved_z: u64 = unsafe { ::std::mem::transmute(reserved_z) };
+            reserved_z as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_partition_isolation_control() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_partition_isolation_control> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_partition_isolation_control>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_partition_isolation_control))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_partition_isolation_control>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_partition_isolation_control))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_partition_isolation_control),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_partition_isolation_control {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -6231,14 +16051,124 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
         }
     }
     #[inline]
+    pub fn reserved_z33(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(33usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z33(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(33usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z34(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(34usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z34(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(34usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved_z35(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(35usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved_z35(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(35usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn register_intercepts_v1(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(36usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_register_intercepts_v1(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(36usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn wake_vps(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(37usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_wake_vps(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(37usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn access_vp_regs(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(38usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_access_vp_regs(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(38usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sync_context(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(39usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sync_context(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(39usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn management_vtl_synic_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(40usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_management_vtl_synic_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(40usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn proxy_interrupt_doorbell_support(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(41usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_proxy_interrupt_doorbell_support(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(41usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn intercept_system_reset(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(42usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_intercept_system_reset(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(42usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
     pub fn reserved(&self) -> __u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(33usize, 30u8) as u64) }
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(43usize, 21u8) as u64) }
     }
     #[inline]
     pub fn set_reserved(&mut self, val: __u64) {
         unsafe {
             let val: u64 = ::std::mem::transmute(val);
-            self._bitfield_1.set(33usize, 30u8, val as u64)
+            self._bitfield_1.set(43usize, 21u8, val as u64)
         }
     }
     #[inline]
@@ -6276,6 +16206,16 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
         retarget_device_interrupt: __u64,
         reserved_z31: __u64,
         reserved_z32: __u64,
+        reserved_z33: __u64,
+        reserved_z34: __u64,
+        reserved_z35: __u64,
+        register_intercepts_v1: __u64,
+        wake_vps: __u64,
+        access_vp_regs: __u64,
+        sync_context: __u64,
+        management_vtl_synic_support: __u64,
+        proxy_interrupt_doorbell_support: __u64,
+        intercept_system_reset: __u64,
         reserved: __u64,
     ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
@@ -6425,7 +16365,51 @@ impl hv_partition_synthetic_processor_features__bindgen_ty_1 {
             let reserved_z32: u64 = unsafe { ::std::mem::transmute(reserved_z32) };
             reserved_z32 as u64
         });
-        __bindgen_bitfield_unit.set(33usize, 30u8, {
+        __bindgen_bitfield_unit.set(33usize, 1u8, {
+            let reserved_z33: u64 = unsafe { ::std::mem::transmute(reserved_z33) };
+            reserved_z33 as u64
+        });
+        __bindgen_bitfield_unit.set(34usize, 1u8, {
+            let reserved_z34: u64 = unsafe { ::std::mem::transmute(reserved_z34) };
+            reserved_z34 as u64
+        });
+        __bindgen_bitfield_unit.set(35usize, 1u8, {
+            let reserved_z35: u64 = unsafe { ::std::mem::transmute(reserved_z35) };
+            reserved_z35 as u64
+        });
+        __bindgen_bitfield_unit.set(36usize, 1u8, {
+            let register_intercepts_v1: u64 =
+                unsafe { ::std::mem::transmute(register_intercepts_v1) };
+            register_intercepts_v1 as u64
+        });
+        __bindgen_bitfield_unit.set(37usize, 1u8, {
+            let wake_vps: u64 = unsafe { ::std::mem::transmute(wake_vps) };
+            wake_vps as u64
+        });
+        __bindgen_bitfield_unit.set(38usize, 1u8, {
+            let access_vp_regs: u64 = unsafe { ::std::mem::transmute(access_vp_regs) };
+            access_vp_regs as u64
+        });
+        __bindgen_bitfield_unit.set(39usize, 1u8, {
+            let sync_context: u64 = unsafe { ::std::mem::transmute(sync_context) };
+            sync_context as u64
+        });
+        __bindgen_bitfield_unit.set(40usize, 1u8, {
+            let management_vtl_synic_support: u64 =
+                unsafe { ::std::mem::transmute(management_vtl_synic_support) };
+            management_vtl_synic_support as u64
+        });
+        __bindgen_bitfield_unit.set(41usize, 1u8, {
+            let proxy_interrupt_doorbell_support: u64 =
+                unsafe { ::std::mem::transmute(proxy_interrupt_doorbell_support) };
+            proxy_interrupt_doorbell_support as u64
+        });
+        __bindgen_bitfield_unit.set(42usize, 1u8, {
+            let intercept_system_reset: u64 =
+                unsafe { ::std::mem::transmute(intercept_system_reset) };
+            intercept_system_reset as u64
+        });
+        __bindgen_bitfield_unit.set(43usize, 21u8, {
             let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
             reserved as u64
         });
@@ -6473,19 +16457,6 @@ impl Default for hv_partition_synthetic_processor_features {
         }
     }
 }
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INVALID:
-    hv_partition_isolation_state = 0;
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INSECURE_CLEAN:
-    hv_partition_isolation_state = 1;
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_INSECURE_DIRTY:
-    hv_partition_isolation_state = 2;
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE: hv_partition_isolation_state =
-    3;
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE_DIRTY:
-    hv_partition_isolation_state = 4;
-pub const hv_partition_isolation_state_HV_PARTITION_ISOLATION_SECURE_TERMINATING:
-    hv_partition_isolation_state = 5;
-pub type hv_partition_isolation_state = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_partition_isolation_properties {
@@ -6627,6 +16598,227 @@ impl Default for hv_partition_isolation_properties {
             s.assume_init()
         }
     }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_create_partition {
+    pub flags: __u64,
+    pub proximity_domain_info: hv_proximity_domain_info,
+    pub compatibility_version: __u32,
+    pub padding: __u32,
+    pub partition_creation_properties: hv_partition_creation_properties,
+    pub isolation_properties: hv_partition_isolation_properties,
+}
+#[test]
+fn bindgen_test_layout_hv_input_create_partition() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_create_partition> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_create_partition>(),
+        48usize,
+        concat!("Size of: ", stringify!(hv_input_create_partition))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_create_partition>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_create_partition))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).compatibility_version) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(compatibility_version)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            ::std::ptr::addr_of!((*ptr).partition_creation_properties) as usize - ptr as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(partition_creation_properties)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).isolation_properties) as usize - ptr as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_partition),
+            "::",
+            stringify!(isolation_properties)
+        )
+    );
+}
+impl Default for hv_input_create_partition {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_create_partition {
+    pub partition_id: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_output_create_partition() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_create_partition> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_create_partition>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_create_partition))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_create_partition>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_create_partition))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_create_partition),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_initialize_partition {
+    pub partition_id: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_initialize_partition() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_initialize_partition> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_initialize_partition>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_input_initialize_partition))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_initialize_partition>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_initialize_partition))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_initialize_partition),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_finalize_partition {
+    pub partition_id: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_finalize_partition() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_finalize_partition> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_finalize_partition>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_input_finalize_partition))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_finalize_partition>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_finalize_partition))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_finalize_partition),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_delete_partition {
+    pub partition_id: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_delete_partition() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_delete_partition> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_delete_partition>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_input_delete_partition))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_delete_partition>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_delete_partition))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_partition),
+            "::",
+            stringify!(partition_id)
+        )
+    );
 }
 #[repr(C, packed)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
@@ -6778,6 +16970,315 @@ fn bindgen_test_layout_hv_input_set_partition_property() {
             stringify!(property_value)
         )
     );
+}
+pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_REGISTERS: hv_vp_state_page_type = 0;
+pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_INTERCEPT_MESSAGE: hv_vp_state_page_type = 1;
+pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_GHCB: hv_vp_state_page_type = 2;
+pub const hv_vp_state_page_type_HV_VP_STATE_PAGE_COUNT: hv_vp_state_page_type = 3;
+pub type hv_vp_state_page_type = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_map_vp_state_page {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub type_: __u16,
+    pub input_vtl: hv_input_vtl,
+    pub flags: hv_input_map_vp_state_page__bindgen_ty_1,
+    pub requested_map_location: __u64,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_input_map_vp_state_page__bindgen_ty_1 {
+    pub as_uint8: __u8,
+    pub __bindgen_anon_1: hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+}
+impl hv_input_map_vp_state_page__bindgen_ty_1__bindgen_ty_1 {
+    #[inline]
+    pub fn map_location_provided(&self) -> __u8 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_map_location_provided(&mut self, val: __u8) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(map_location_provided: __u8) -> __BindgenBitfieldUnit<[u8; 1usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let map_location_provided: u8 = unsafe { ::std::mem::transmute(map_location_provided) };
+            map_location_provided as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_vp_state_page__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_map_vp_state_page__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_vp_state_page__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_map_vp_state_page__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_vp_state_page__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_map_vp_state_page__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint8) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page__bindgen_ty_1),
+            "::",
+            stringify!(as_uint8)
+        )
+    );
+}
+impl Default for hv_input_map_vp_state_page__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_map_vp_state_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_map_vp_state_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_map_vp_state_page>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_input_map_vp_state_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_map_vp_state_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_map_vp_state_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).input_vtl) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(input_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).requested_map_location) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_map_vp_state_page),
+            "::",
+            stringify!(requested_map_location)
+        )
+    );
+}
+impl Default for hv_input_map_vp_state_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_map_vp_state_page {
+    pub map_location: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_output_map_vp_state_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_map_vp_state_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_map_vp_state_page>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_map_vp_state_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_map_vp_state_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_map_vp_state_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).map_location) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_map_vp_state_page),
+            "::",
+            stringify!(map_location)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_unmap_vp_state_page {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub type_: __u16,
+    pub input_vtl: hv_input_vtl,
+    pub reserved0: __u8,
+}
+#[test]
+fn bindgen_test_layout_hv_input_unmap_vp_state_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_unmap_vp_state_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_unmap_vp_state_page>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_unmap_vp_state_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_unmap_vp_state_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_unmap_vp_state_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_vp_state_page),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_vp_state_page),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_vp_state_page),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).input_vtl) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_vp_state_page),
+            "::",
+            stringify!(input_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved0) as usize - ptr as usize },
+        15usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_unmap_vp_state_page),
+            "::",
+            stringify!(reserved0)
+        )
+    );
+}
+impl Default for hv_input_unmap_vp_state_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C, packed)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
@@ -7774,6 +18275,741 @@ impl Default for hv_port_info {
         }
     }
 }
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_connection_info {
+    pub port_type: __u32,
+    pub padding: __u32,
+    pub __bindgen_anon_1: hv_connection_info__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_connection_info__bindgen_ty_1 {
+    pub message_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_1,
+    pub event_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_2,
+    pub monitor_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_3,
+    pub doorbell_connection_info: hv_connection_info__bindgen_ty_1__bindgen_ty_4,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_1 {
+    pub rsvdz: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info__bindgen_ty_1__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvdz) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(rsvdz)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_2 {
+    pub rsvdz: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_2() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info__bindgen_ty_1__bindgen_ty_2> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvdz) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(rsvdz)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_3 {
+    pub monitor_address: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_3() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info__bindgen_ty_1__bindgen_ty_3> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_3>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_3>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).monitor_address) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_3),
+            "::",
+            stringify!(monitor_address)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_connection_info__bindgen_ty_1__bindgen_ty_4 {
+    pub gpa: __u64,
+    pub trigger_value: __u64,
+    pub flags: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info__bindgen_ty_1__bindgen_ty_4() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info__bindgen_ty_1__bindgen_ty_4> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_4>(),
+        24usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info__bindgen_ty_1__bindgen_ty_4>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).gpa) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(gpa)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).trigger_value) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(trigger_value)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1__bindgen_ty_4),
+            "::",
+            stringify!(flags)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info__bindgen_ty_1>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_connection_info__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_connection_info__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).message_connection_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1),
+            "::",
+            stringify!(message_connection_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).event_connection_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1),
+            "::",
+            stringify!(event_connection_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).monitor_connection_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1),
+            "::",
+            stringify!(monitor_connection_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).doorbell_connection_info) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info__bindgen_ty_1),
+            "::",
+            stringify!(doorbell_connection_info)
+        )
+    );
+}
+impl Default for hv_connection_info__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_connection_info() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_connection_info> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_connection_info>(),
+        32usize,
+        concat!("Size of: ", stringify!(hv_connection_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_connection_info>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_connection_info))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_type) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info),
+            "::",
+            stringify!(port_type)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_connection_info),
+            "::",
+            stringify!(padding)
+        )
+    );
+}
+impl Default for hv_connection_info {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_event_ring {
+    pub signal_masked: __u8,
+    pub ring_full: __u8,
+    pub reserved_z: __u16,
+    pub data: [__u32; 63usize],
+}
+#[test]
+fn bindgen_test_layout_hv_synic_event_ring() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_event_ring> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_event_ring>(),
+        256usize,
+        concat!("Size of: ", stringify!(hv_synic_event_ring))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_event_ring>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_event_ring))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).signal_masked) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_event_ring),
+            "::",
+            stringify!(signal_masked)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ring_full) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_event_ring),
+            "::",
+            stringify!(ring_full)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved_z) as usize - ptr as usize },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_event_ring),
+            "::",
+            stringify!(reserved_z)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).data) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_event_ring),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+impl Default for hv_synic_event_ring {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_event_ring_page {
+    pub sint_event_ring: [hv_synic_event_ring; 16usize],
+}
+#[test]
+fn bindgen_test_layout_hv_synic_event_ring_page() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_event_ring_page> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_event_ring_page>(),
+        4096usize,
+        concat!("Size of: ", stringify!(hv_synic_event_ring_page))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_event_ring_page>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_event_ring_page))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sint_event_ring) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_event_ring_page),
+            "::",
+            stringify!(sint_event_ring)
+        )
+    );
+}
+impl Default for hv_synic_event_ring_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_synic_scontrol {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_synic_scontrol__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_scontrol__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_synic_scontrol__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_scontrol__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_scontrol__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_scontrol__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_scontrol__bindgen_ty_1))
+    );
+}
+impl hv_synic_scontrol__bindgen_ty_1 {
+    #[inline]
+    pub fn enable(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_enable(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 63u8) as u64) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 63u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(enable: __u64, reserved: __u64) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let enable: u64 = unsafe { ::std::mem::transmute(enable) };
+            enable as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 63u8, {
+            let reserved: u64 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_synic_scontrol() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_scontrol> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_scontrol>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_scontrol))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_scontrol>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_synic_scontrol))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_scontrol),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_synic_scontrol {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_synic_siefp {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_synic_siefp__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_siefp__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_synic_siefp__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_siefp__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_siefp__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_siefp__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_siefp__bindgen_ty_1))
+    );
+}
+impl hv_synic_siefp__bindgen_ty_1 {
+    #[inline]
+    pub fn siefp_enabled(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_siefp_enabled(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn preserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_preserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn base_siefp_gpa(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 52u8) as u64) }
+    }
+    #[inline]
+    pub fn set_base_siefp_gpa(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 52u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        siefp_enabled: __u64,
+        preserved: __u64,
+        base_siefp_gpa: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let siefp_enabled: u64 = unsafe { ::std::mem::transmute(siefp_enabled) };
+            siefp_enabled as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 11u8, {
+            let preserved: u64 = unsafe { ::std::mem::transmute(preserved) };
+            preserved as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 52u8, {
+            let base_siefp_gpa: u64 = unsafe { ::std::mem::transmute(base_siefp_gpa) };
+            base_siefp_gpa as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_synic_siefp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_siefp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_siefp>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_siefp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_siefp>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_synic_siefp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_siefp),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_synic_siefp {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union hv_synic_sirbp {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_synic_sirbp__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_synic_sirbp__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_synic_sirbp__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_sirbp__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_sirbp__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_sirbp__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_synic_sirbp__bindgen_ty_1))
+    );
+}
+impl hv_synic_sirbp__bindgen_ty_1 {
+    #[inline]
+    pub fn sirbp_enabled(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u64) }
+    }
+    #[inline]
+    pub fn set_sirbp_enabled(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn preserved(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 11u8) as u64) }
+    }
+    #[inline]
+    pub fn set_preserved(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 11u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn base_sirbp_gpa(&self) -> __u64 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 52u8) as u64) }
+    }
+    #[inline]
+    pub fn set_base_sirbp_gpa(&mut self, val: __u64) {
+        unsafe {
+            let val: u64 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 52u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        sirbp_enabled: __u64,
+        preserved: __u64,
+        base_sirbp_gpa: __u64,
+    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let sirbp_enabled: u64 = unsafe { ::std::mem::transmute(sirbp_enabled) };
+            sirbp_enabled as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 11u8, {
+            let preserved: u64 = unsafe { ::std::mem::transmute(preserved) };
+            preserved as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 52u8, {
+            let base_sirbp_gpa: u64 = unsafe { ::std::mem::transmute(base_sirbp_gpa) };
+            base_sirbp_gpa as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_synic_sirbp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_synic_sirbp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_synic_sirbp>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_synic_sirbp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_synic_sirbp>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hv_synic_sirbp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_synic_sirbp),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_synic_sirbp {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union hv_interrupt_control {
@@ -8111,6 +19347,73 @@ fn bindgen_test_layout_hv_synthetic_timers_state() {
 }
 #[repr(C, packed)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_async_completion_message_payload {
+    pub partition_id: __u64,
+    pub status: __u32,
+    pub completion_count: __u32,
+    pub sub_status: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_async_completion_message_payload() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_async_completion_message_payload> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_async_completion_message_payload>(),
+        24usize,
+        concat!("Size of: ", stringify!(hv_async_completion_message_payload))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_async_completion_message_payload>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_async_completion_message_payload)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_async_completion_message_payload),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).status) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_async_completion_message_payload),
+            "::",
+            stringify!(status)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).completion_count) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_async_completion_message_payload),
+            "::",
+            stringify!(completion_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sub_status) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_async_completion_message_payload),
+            "::",
+            stringify!(sub_status)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct hv_input_translate_virtual_address {
     pub partition_id: __u64,
     pub vp_index: __u32,
@@ -8239,6 +19542,1541 @@ impl Default for hv_output_translate_virtual_address {
             ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
             s.assume_init()
         }
+    }
+}
+pub const hv_cache_type_HV_CACHE_TYPE_UNCACHED: hv_cache_type = 0;
+pub const hv_cache_type_HV_CACHE_TYPE_WRITE_COMBINING: hv_cache_type = 1;
+pub const hv_cache_type_HV_CACHE_TYPE_WRITE_THROUGH: hv_cache_type = 4;
+pub const hv_cache_type_HV_CACHE_TYPE_WRITE_BACK: hv_cache_type = 6;
+pub type hv_cache_type = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_delete_vp {
+    pub as_uint64: [__u64; 2usize],
+    pub __bindgen_anon_1: hv_delete_vp__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_delete_vp__bindgen_ty_1 {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub reserved: [__u8; 4usize],
+}
+#[test]
+fn bindgen_test_layout_hv_delete_vp__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_delete_vp__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_delete_vp__bindgen_ty_1>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_delete_vp__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_delete_vp__bindgen_ty_1>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_delete_vp__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_delete_vp__bindgen_ty_1),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_delete_vp__bindgen_ty_1),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_delete_vp__bindgen_ty_1),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_delete_vp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_delete_vp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_delete_vp>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_delete_vp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_delete_vp>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_delete_vp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_delete_vp),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_delete_vp {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_assert_virtual_interrupt {
+    pub partition_id: __u64,
+    pub control: hv_interrupt_control,
+    pub dest_addr: __u64,
+    pub vector: __u32,
+    pub target_vtl: __u8,
+    pub rsvd_z0: __u8,
+    pub rsvd_z1: __u16,
+}
+#[test]
+fn bindgen_test_layout_hv_input_assert_virtual_interrupt() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_assert_virtual_interrupt> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_assert_virtual_interrupt>(),
+        32usize,
+        concat!("Size of: ", stringify!(hv_input_assert_virtual_interrupt))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_assert_virtual_interrupt>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_assert_virtual_interrupt)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).control) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(control)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dest_addr) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(dest_addr)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vector) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(vector)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vtl) as usize - ptr as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(target_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_z0) as usize - ptr as usize },
+        29usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(rsvd_z0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvd_z1) as usize - ptr as usize },
+        30usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_assert_virtual_interrupt),
+            "::",
+            stringify!(rsvd_z1)
+        )
+    );
+}
+impl Default for hv_input_assert_virtual_interrupt {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_create_port {
+    pub port_partition_id: __u64,
+    pub port_id: hv_port_id,
+    pub port_vtl: __u8,
+    pub min_connection_vtl: __u8,
+    pub padding: __u16,
+    pub connection_partition_id: __u64,
+    pub port_info: hv_port_info,
+    pub proximity_domain_info: hv_proximity_domain_info,
+}
+#[test]
+fn bindgen_test_layout_hv_input_create_port() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_create_port> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_create_port>(),
+        56usize,
+        concat!("Size of: ", stringify!(hv_input_create_port))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_create_port>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_create_port))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(port_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(port_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_vtl) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(port_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).min_connection_vtl) as usize - ptr as usize },
+        13usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(min_connection_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_partition_id) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(connection_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_info) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(port_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_create_port),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+}
+impl Default for hv_input_create_port {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_input_delete_port {
+    pub as_uint64: [__u64; 2usize],
+    pub __bindgen_anon_1: hv_input_delete_port__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct hv_input_delete_port__bindgen_ty_1 {
+    pub port_partition_id: __u64,
+    pub port_id: hv_port_id,
+    pub reserved: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_delete_port__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_delete_port__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_delete_port__bindgen_ty_1>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_delete_port__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_delete_port__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_delete_port__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_port__bindgen_ty_1),
+            "::",
+            stringify!(port_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_port__bindgen_ty_1),
+            "::",
+            stringify!(port_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_port__bindgen_ty_1),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+impl Default for hv_input_delete_port__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_delete_port() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_delete_port> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_delete_port>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_delete_port))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_delete_port>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_delete_port))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_delete_port),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_input_delete_port {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_connect_port {
+    pub connection_partition_id: __u64,
+    pub connection_id: hv_connection_id,
+    pub connection_vtl: __u8,
+    pub rsvdz0: __u8,
+    pub rsvdz1: __u16,
+    pub port_partition_id: __u64,
+    pub port_id: hv_port_id,
+    pub reserved2: __u32,
+    pub connection_info: hv_connection_info,
+    pub proximity_domain_info: hv_proximity_domain_info,
+}
+#[test]
+fn bindgen_test_layout_hv_input_connect_port() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_connect_port> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_connect_port>(),
+        72usize,
+        concat!("Size of: ", stringify!(hv_input_connect_port))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_connect_port>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_connect_port))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(connection_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(connection_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_vtl) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(connection_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvdz0) as usize - ptr as usize },
+        13usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(rsvdz0)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rsvdz1) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(rsvdz1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_partition_id) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(port_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).port_id) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(port_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved2) as usize - ptr as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(reserved2)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_info) as usize - ptr as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(connection_info)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).proximity_domain_info) as usize - ptr as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_connect_port),
+            "::",
+            stringify!(proximity_domain_info)
+        )
+    );
+}
+impl Default for hv_input_connect_port {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_input_disconnect_port {
+    pub as_uint64: [__u64; 2usize],
+    pub __bindgen_anon_1: hv_input_disconnect_port__bindgen_ty_1,
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct hv_input_disconnect_port__bindgen_ty_1 {
+    pub connection_partition_id: __u64,
+    pub connection_id: hv_connection_id,
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_hv_input_disconnect_port__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_disconnect_port__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_disconnect_port__bindgen_ty_1>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_disconnect_port__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_disconnect_port__bindgen_ty_1>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_disconnect_port__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_disconnect_port__bindgen_ty_1),
+            "::",
+            stringify!(connection_partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).connection_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_disconnect_port__bindgen_ty_1),
+            "::",
+            stringify!(connection_id)
+        )
+    );
+}
+impl Default for hv_input_disconnect_port__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl hv_input_disconnect_port__bindgen_ty_1 {
+    #[inline]
+    pub fn is_doorbell(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_is_doorbell(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 31u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 31u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        is_doorbell: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let is_doorbell: u32 = unsafe { ::std::mem::transmute(is_doorbell) };
+            is_doorbell as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 31u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_input_disconnect_port() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_disconnect_port> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_disconnect_port>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_disconnect_port))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_disconnect_port>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_disconnect_port))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_disconnect_port),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_input_disconnect_port {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub union hv_input_notify_port_ring_empty {
+    pub as_uint64: __u64,
+    pub __bindgen_anon_1: hv_input_notify_port_ring_empty__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_notify_port_ring_empty__bindgen_ty_1 {
+    pub sint_index: __u32,
+    pub reserved: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_notify_port_ring_empty__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_notify_port_ring_empty__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_notify_port_ring_empty__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_notify_port_ring_empty__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_notify_port_ring_empty__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_notify_port_ring_empty__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sint_index) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_notify_port_ring_empty__bindgen_ty_1),
+            "::",
+            stringify!(sint_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_notify_port_ring_empty__bindgen_ty_1),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_hv_input_notify_port_ring_empty() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_notify_port_ring_empty> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_notify_port_ring_empty>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_input_notify_port_ring_empty))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_notify_port_ring_empty>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_notify_port_ring_empty))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).as_uint64) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_notify_port_ring_empty),
+            "::",
+            stringify!(as_uint64)
+        )
+    );
+}
+impl Default for hv_input_notify_port_ring_empty {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_signal_event_direct {
+    pub target_partition: __u64,
+    pub target_vp: __u32,
+    pub target_vtl: __u8,
+    pub target_sint: __u8,
+    pub flag_number: __u16,
+}
+#[test]
+fn bindgen_test_layout_hv_input_signal_event_direct() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_signal_event_direct> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_signal_event_direct>(),
+        16usize,
+        concat!("Size of: ", stringify!(hv_input_signal_event_direct))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_signal_event_direct>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_signal_event_direct))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_partition) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_signal_event_direct),
+            "::",
+            stringify!(target_partition)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vp) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_signal_event_direct),
+            "::",
+            stringify!(target_vp)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_vtl) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_signal_event_direct),
+            "::",
+            stringify!(target_vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).target_sint) as usize - ptr as usize },
+        13usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_signal_event_direct),
+            "::",
+            stringify!(target_sint)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flag_number) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_signal_event_direct),
+            "::",
+            stringify!(flag_number)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_signal_event_direct {
+    pub newly_signaled: __u8,
+    pub reserved: [__u8; 7usize],
+}
+#[test]
+fn bindgen_test_layout_hv_output_signal_event_direct() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_signal_event_direct> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_signal_event_direct>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_signal_event_direct))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_signal_event_direct>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_signal_event_direct))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).newly_signaled) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_signal_event_direct),
+            "::",
+            stringify!(newly_signaled)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_signal_event_direct),
+            "::",
+            stringify!(reserved)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_post_message_direct {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub vtl: __u8,
+    pub padding: [__u8; 3usize],
+    pub sint_index: __u32,
+    pub message: [__u8; 256usize],
+    pub padding2: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_input_post_message_direct() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_post_message_direct> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_post_message_direct>(),
+        280usize,
+        concat!("Size of: ", stringify!(hv_input_post_message_direct))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_post_message_direct>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_post_message_direct))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vtl) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(vtl)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
+        13usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(padding)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).sint_index) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(sint_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).message) as usize - ptr as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(message)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).padding2) as usize - ptr as usize },
+        276usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_post_message_direct),
+            "::",
+            stringify!(padding2)
+        )
+    );
+}
+impl Default for hv_input_post_message_direct {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const hv_vp_dispatch_state_HV_VP_DISPATCH_STATE_INVALID: hv_vp_dispatch_state = 0;
+pub const hv_vp_dispatch_state_HV_VP_DISPATCH_STATE_BLOCKED: hv_vp_dispatch_state = 1;
+pub const hv_vp_dispatch_state_HV_VP_DISPATCH_STATE_READY: hv_vp_dispatch_state = 2;
+pub type hv_vp_dispatch_state = ::std::os::raw::c_uint;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_INVALID: hv_vp_dispatch_event = 0;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_SUSPEND: hv_vp_dispatch_event = 1;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_INTERCEPT: hv_vp_dispatch_event = 2;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_INTERNAL: hv_vp_dispatch_event = 3;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_PREEMPTED: hv_vp_dispatch_event = 4;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_CANCELLED: hv_vp_dispatch_event = 5;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_SCHEDULER: hv_vp_dispatch_event = 6;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_LONGSPINWAIT: hv_vp_dispatch_event = 7;
+pub const hv_vp_dispatch_event_HV_VP_DISPATCH_EVENT_TIMESLICEEND: hv_vp_dispatch_event = 8;
+pub type hv_vp_dispatch_event = ::std::os::raw::c_uint;
+#[repr(C, packed)]
+pub struct hv_vp_signal_bitset_scheduler_message {
+    pub partition_id: __u64,
+    pub overflow_count: __u32,
+    pub vp_count: __u16,
+    pub reserved: __u16,
+    pub vp_bitset: hv_vp_signal_bitset_scheduler_message__bindgen_ty_1,
+}
+#[repr(C)]
+pub struct hv_vp_signal_bitset_scheduler_message__bindgen_ty_1 {
+    pub bitset: __BindgenUnionField<hv_vpset>,
+    pub bitset_buffer: __BindgenUnionField<[__u64; 18usize]>,
+    pub bindgen_union_field: [u64; 18usize],
+}
+#[test]
+fn bindgen_test_layout_hv_vp_signal_bitset_scheduler_message__bindgen_ty_1() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_signal_bitset_scheduler_message__bindgen_ty_1> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_signal_bitset_scheduler_message__bindgen_ty_1>(),
+        144usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_signal_bitset_scheduler_message__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_signal_bitset_scheduler_message__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bitset) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message__bindgen_ty_1),
+            "::",
+            stringify!(bitset)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).bitset_buffer) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message__bindgen_ty_1),
+            "::",
+            stringify!(bitset_buffer)
+        )
+    );
+}
+impl Default for hv_vp_signal_bitset_scheduler_message__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[test]
+fn bindgen_test_layout_hv_vp_signal_bitset_scheduler_message() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_signal_bitset_scheduler_message> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_signal_bitset_scheduler_message>(),
+        160usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_signal_bitset_scheduler_message>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_signal_bitset_scheduler_message)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).overflow_count) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message),
+            "::",
+            stringify!(overflow_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_count) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message),
+            "::",
+            stringify!(vp_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved) as usize - ptr as usize },
+        14usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message),
+            "::",
+            stringify!(reserved)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_bitset) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_bitset_scheduler_message),
+            "::",
+            stringify!(vp_bitset)
+        )
+    );
+}
+impl Default for hv_vp_signal_bitset_scheduler_message {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_eventlog_message_payload {
+    pub type_: __u32,
+    pub buffer_index: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_eventlog_message_payload() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_eventlog_message_payload> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_eventlog_message_payload>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_eventlog_message_payload))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_eventlog_message_payload>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_eventlog_message_payload))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_eventlog_message_payload),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).buffer_index) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_eventlog_message_payload),
+            "::",
+            stringify!(buffer_index)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_vp_signal_pair_scheduler_message {
+    pub overflow_count: __u32,
+    pub vp_count: __u8,
+    pub reserved1: [__u8; 3usize],
+    pub partition_ids: [__u64; 19usize],
+    pub vp_indexes: [__u32; 19usize],
+    pub reserved2: [__u8; 4usize],
+}
+#[test]
+fn bindgen_test_layout_hv_vp_signal_pair_scheduler_message() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_vp_signal_pair_scheduler_message> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_vp_signal_pair_scheduler_message>(),
+        240usize,
+        concat!("Size of: ", stringify!(hv_vp_signal_pair_scheduler_message))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_vp_signal_pair_scheduler_message>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_vp_signal_pair_scheduler_message)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).overflow_count) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(overflow_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_count) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(vp_count)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved1) as usize - ptr as usize },
+        5usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(reserved1)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_ids) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(partition_ids)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_indexes) as usize - ptr as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(vp_indexes)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).reserved2) as usize - ptr as usize },
+        236usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_vp_signal_pair_scheduler_message),
+            "::",
+            stringify!(reserved2)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_input_dispatch_vp {
+    pub partition_id: __u64,
+    pub vp_index: __u32,
+    pub flags: __u32,
+    pub time_slice: __u64,
+    pub spec_ctrl: __u64,
+}
+#[test]
+fn bindgen_test_layout_hv_input_dispatch_vp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_dispatch_vp> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_dispatch_vp>(),
+        32usize,
+        concat!("Size of: ", stringify!(hv_input_dispatch_vp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_dispatch_vp>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_input_dispatch_vp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_dispatch_vp),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).vp_index) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_dispatch_vp),
+            "::",
+            stringify!(vp_index)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_dispatch_vp),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).time_slice) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_dispatch_vp),
+            "::",
+            stringify!(time_slice)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).spec_ctrl) as usize - ptr as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_dispatch_vp),
+            "::",
+            stringify!(spec_ctrl)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
+pub struct hv_output_dispatch_vp {
+    pub dispatch_state: __u32,
+    pub dispatch_event: __u32,
+}
+#[test]
+fn bindgen_test_layout_hv_output_dispatch_vp() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_output_dispatch_vp> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_output_dispatch_vp>(),
+        8usize,
+        concat!("Size of: ", stringify!(hv_output_dispatch_vp))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_output_dispatch_vp>(),
+        1usize,
+        concat!("Alignment of ", stringify!(hv_output_dispatch_vp))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dispatch_state) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_dispatch_vp),
+            "::",
+            stringify!(dispatch_state)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).dispatch_event) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_output_dispatch_vp),
+            "::",
+            stringify!(dispatch_event)
+        )
+    );
+}
+#[repr(C, packed)]
+pub struct hv_input_modify_sparse_spa_page_host_access {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+    pub flags: __u32,
+    pub partition_id: __u64,
+    pub spa_page_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_hv_input_modify_sparse_spa_page_host_access() {
+    const UNINIT: ::std::mem::MaybeUninit<hv_input_modify_sparse_spa_page_host_access> =
+        ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<hv_input_modify_sparse_spa_page_host_access>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(hv_input_modify_sparse_spa_page_host_access)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hv_input_modify_sparse_spa_page_host_access>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(hv_input_modify_sparse_spa_page_host_access)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_modify_sparse_spa_page_host_access),
+            "::",
+            stringify!(flags)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).partition_id) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_modify_sparse_spa_page_host_access),
+            "::",
+            stringify!(partition_id)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).spa_page_list) as usize - ptr as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hv_input_modify_sparse_spa_page_host_access),
+            "::",
+            stringify!(spa_page_list)
+        )
+    );
+}
+impl Default for hv_input_modify_sparse_spa_page_host_access {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl hv_input_modify_sparse_spa_page_host_access {
+    #[inline]
+    pub fn host_access(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 2u8) as u32) }
+    }
+    #[inline]
+    pub fn set_host_access(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 2u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> __u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 30u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: __u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 30u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        host_access: __u32,
+        reserved: __u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 2u8, {
+            let host_access: u32 = unsafe { ::std::mem::transmute(host_access) };
+            host_access as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 30u8, {
+            let reserved: u32 = unsafe { ::std::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
     }
 }
 #[repr(C, packed)]
@@ -10123,11 +22961,11 @@ impl Default for mshv_complete_isolated_import {
         }
     }
 }
-pub const MSHV_VTL_CAP_BIT_REGISTER_PAGE: _bindgen_ty_1 = 0;
-pub const MSHV_VTL_CAP_BIT_RETURN_ACTION: _bindgen_ty_1 = 1;
-pub const MSHV_VTL_CAP_BIT_DR6_SHARED: _bindgen_ty_1 = 2;
-pub const MSHV_VTL_CAP_BIT_COUNT: _bindgen_ty_1 = 3;
-pub type _bindgen_ty_1 = ::std::os::raw::c_uint;
+pub const MSHV_VTL_CAP_BIT_REGISTER_PAGE: _bindgen_ty_2 = 0;
+pub const MSHV_VTL_CAP_BIT_RETURN_ACTION: _bindgen_ty_2 = 1;
+pub const MSHV_VTL_CAP_BIT_DR6_SHARED: _bindgen_ty_2 = 2;
+pub const MSHV_VTL_CAP_BIT_COUNT: _bindgen_ty_2 = 3;
+pub type _bindgen_ty_2 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_vtl_capabilities {
@@ -10159,15 +22997,15 @@ fn bindgen_test_layout_mshv_vtl_capabilities() {
         )
     );
 }
-pub const MSHV_PT_BIT_LAPIC: _bindgen_ty_2 = 0;
-pub const MSHV_PT_BIT_X2APIC: _bindgen_ty_2 = 1;
-pub const MSHV_PT_BIT_GPA_SUPER_PAGES: _bindgen_ty_2 = 2;
-pub const MSHV_PT_BIT_COUNT: _bindgen_ty_2 = 3;
-pub type _bindgen_ty_2 = ::std::os::raw::c_uint;
-pub const MSHV_PT_ISOLATION_NONE: _bindgen_ty_3 = 0;
-pub const MSHV_PT_ISOLATION_SNP: _bindgen_ty_3 = 1;
-pub const MSHV_PT_ISOLATION_COUNT: _bindgen_ty_3 = 2;
+pub const MSHV_PT_BIT_LAPIC: _bindgen_ty_3 = 0;
+pub const MSHV_PT_BIT_X2APIC: _bindgen_ty_3 = 1;
+pub const MSHV_PT_BIT_GPA_SUPER_PAGES: _bindgen_ty_3 = 2;
+pub const MSHV_PT_BIT_COUNT: _bindgen_ty_3 = 3;
 pub type _bindgen_ty_3 = ::std::os::raw::c_uint;
+pub const MSHV_PT_ISOLATION_NONE: _bindgen_ty_4 = 0;
+pub const MSHV_PT_ISOLATION_SNP: _bindgen_ty_4 = 1;
+pub const MSHV_PT_ISOLATION_COUNT: _bindgen_ty_4 = 2;
+pub type _bindgen_ty_4 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_create_partition {
@@ -10240,11 +23078,11 @@ fn bindgen_test_layout_mshv_create_vp() {
         )
     );
 }
-pub const MSHV_SET_MEM_BIT_WRITABLE: _bindgen_ty_4 = 0;
-pub const MSHV_SET_MEM_BIT_EXECUTABLE: _bindgen_ty_4 = 1;
-pub const MSHV_SET_MEM_BIT_UNMAP: _bindgen_ty_4 = 2;
-pub const MSHV_SET_MEM_BIT_COUNT: _bindgen_ty_4 = 3;
-pub type _bindgen_ty_4 = ::std::os::raw::c_uint;
+pub const MSHV_SET_MEM_BIT_WRITABLE: _bindgen_ty_5 = 0;
+pub const MSHV_SET_MEM_BIT_EXECUTABLE: _bindgen_ty_5 = 1;
+pub const MSHV_SET_MEM_BIT_UNMAP: _bindgen_ty_5 = 2;
+pub const MSHV_SET_MEM_BIT_COUNT: _bindgen_ty_5 = 3;
+pub type _bindgen_ty_5 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_user_mem_region {
@@ -10319,10 +23157,10 @@ fn bindgen_test_layout_mshv_user_mem_region() {
         )
     );
 }
-pub const MSHV_IRQFD_BIT_DEASSIGN: _bindgen_ty_5 = 0;
-pub const MSHV_IRQFD_BIT_RESAMPLE: _bindgen_ty_5 = 1;
-pub const MSHV_IRQFD_BIT_COUNT: _bindgen_ty_5 = 2;
-pub type _bindgen_ty_5 = ::std::os::raw::c_uint;
+pub const MSHV_IRQFD_BIT_DEASSIGN: _bindgen_ty_6 = 0;
+pub const MSHV_IRQFD_BIT_RESAMPLE: _bindgen_ty_6 = 1;
+pub const MSHV_IRQFD_BIT_COUNT: _bindgen_ty_6 = 2;
+pub type _bindgen_ty_6 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_user_irqfd {
@@ -10386,11 +23224,11 @@ fn bindgen_test_layout_mshv_user_irqfd() {
         )
     );
 }
-pub const MSHV_IOEVENTFD_BIT_DATAMATCH: _bindgen_ty_6 = 0;
-pub const MSHV_IOEVENTFD_BIT_PIO: _bindgen_ty_6 = 1;
-pub const MSHV_IOEVENTFD_BIT_DEASSIGN: _bindgen_ty_6 = 2;
-pub const MSHV_IOEVENTFD_BIT_COUNT: _bindgen_ty_6 = 3;
-pub type _bindgen_ty_6 = ::std::os::raw::c_uint;
+pub const MSHV_IOEVENTFD_BIT_DATAMATCH: _bindgen_ty_7 = 0;
+pub const MSHV_IOEVENTFD_BIT_PIO: _bindgen_ty_7 = 1;
+pub const MSHV_IOEVENTFD_BIT_DEASSIGN: _bindgen_ty_7 = 2;
+pub const MSHV_IOEVENTFD_BIT_COUNT: _bindgen_ty_7 = 3;
+pub type _bindgen_ty_7 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_user_ioeventfd {
@@ -10591,15 +23429,15 @@ fn bindgen_test_layout_mshv_user_irq_table() {
         )
     );
 }
-pub const MSHV_GPAP_ACCESS_TYPE_ACCESSED: _bindgen_ty_7 = 0;
-pub const MSHV_GPAP_ACCESS_TYPE_DIRTY: _bindgen_ty_7 = 1;
-pub const MSHV_GPAP_ACCESS_TYPE_COUNT: _bindgen_ty_7 = 2;
-pub type _bindgen_ty_7 = ::std::os::raw::c_uint;
-pub const MSHV_GPAP_ACCESS_OP_NOOP: _bindgen_ty_8 = 0;
-pub const MSHV_GPAP_ACCESS_OP_CLEAR: _bindgen_ty_8 = 1;
-pub const MSHV_GPAP_ACCESS_OP_SET: _bindgen_ty_8 = 2;
-pub const MSHV_GPAP_ACCESS_OP_COUNT: _bindgen_ty_8 = 3;
+pub const MSHV_GPAP_ACCESS_TYPE_ACCESSED: _bindgen_ty_8 = 0;
+pub const MSHV_GPAP_ACCESS_TYPE_DIRTY: _bindgen_ty_8 = 1;
+pub const MSHV_GPAP_ACCESS_TYPE_COUNT: _bindgen_ty_8 = 2;
 pub type _bindgen_ty_8 = ::std::os::raw::c_uint;
+pub const MSHV_GPAP_ACCESS_OP_NOOP: _bindgen_ty_9 = 0;
+pub const MSHV_GPAP_ACCESS_OP_CLEAR: _bindgen_ty_9 = 1;
+pub const MSHV_GPAP_ACCESS_OP_SET: _bindgen_ty_9 = 2;
+pub const MSHV_GPAP_ACCESS_OP_COUNT: _bindgen_ty_9 = 3;
+pub type _bindgen_ty_9 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_gpap_access_bitmap {
@@ -10686,12 +23524,12 @@ fn bindgen_test_layout_mshv_gpap_access_bitmap() {
         )
     );
 }
-pub const MSHV_GPA_HOST_ACCESS_BIT_ACQUIRE: _bindgen_ty_9 = 0;
-pub const MSHV_GPA_HOST_ACCESS_BIT_READABLE: _bindgen_ty_9 = 1;
-pub const MSHV_GPA_HOST_ACCESS_BIT_WRITABLE: _bindgen_ty_9 = 2;
-pub const MSHV_GPA_HOST_ACCESS_BIT_LARGE_PAGE: _bindgen_ty_9 = 3;
-pub const MSHV_GPA_HOST_ACCESS_BIT_COUNT: _bindgen_ty_9 = 4;
-pub type _bindgen_ty_9 = ::std::os::raw::c_uint;
+pub const MSHV_GPA_HOST_ACCESS_BIT_ACQUIRE: _bindgen_ty_10 = 0;
+pub const MSHV_GPA_HOST_ACCESS_BIT_READABLE: _bindgen_ty_10 = 1;
+pub const MSHV_GPA_HOST_ACCESS_BIT_WRITABLE: _bindgen_ty_10 = 2;
+pub const MSHV_GPA_HOST_ACCESS_BIT_LARGE_PAGE: _bindgen_ty_10 = 3;
+pub const MSHV_GPA_HOST_ACCESS_BIT_COUNT: _bindgen_ty_10 = 4;
+pub type _bindgen_ty_10 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default)]
 pub struct mshv_modify_gpa_host_access {
@@ -10756,14 +23594,14 @@ fn bindgen_test_layout_mshv_modify_gpa_host_access() {
         )
     );
 }
-pub const MSHV_ISOLATED_PAGE_NORMAL: _bindgen_ty_10 = 0;
-pub const MSHV_ISOLATED_PAGE_VMSA: _bindgen_ty_10 = 1;
-pub const MSHV_ISOLATED_PAGE_ZERO: _bindgen_ty_10 = 2;
-pub const MSHV_ISOLATED_PAGE_UNMEASURED: _bindgen_ty_10 = 3;
-pub const MSHV_ISOLATED_PAGE_SECRETS: _bindgen_ty_10 = 4;
-pub const MSHV_ISOLATED_PAGE_CPUID: _bindgen_ty_10 = 5;
-pub const MSHV_ISOLATED_PAGE_COUNT: _bindgen_ty_10 = 6;
-pub type _bindgen_ty_10 = ::std::os::raw::c_uint;
+pub const MSHV_ISOLATED_PAGE_NORMAL: _bindgen_ty_11 = 0;
+pub const MSHV_ISOLATED_PAGE_VMSA: _bindgen_ty_11 = 1;
+pub const MSHV_ISOLATED_PAGE_ZERO: _bindgen_ty_11 = 2;
+pub const MSHV_ISOLATED_PAGE_UNMEASURED: _bindgen_ty_11 = 3;
+pub const MSHV_ISOLATED_PAGE_SECRETS: _bindgen_ty_11 = 4;
+pub const MSHV_ISOLATED_PAGE_CPUID: _bindgen_ty_11 = 5;
+pub const MSHV_ISOLATED_PAGE_COUNT: _bindgen_ty_11 = 6;
+pub type _bindgen_ty_11 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default)]
 pub struct mshv_import_isolated_pages {
@@ -10935,11 +23773,11 @@ fn bindgen_test_layout_mshv_root_hvcall() {
         )
     );
 }
-pub const MSHV_VP_MMAP_OFFSET_REGISTERS: _bindgen_ty_11 = 0;
-pub const MSHV_VP_MMAP_OFFSET_INTERCEPT_MESSAGE: _bindgen_ty_11 = 1;
-pub const MSHV_VP_MMAP_OFFSET_GHCB: _bindgen_ty_11 = 2;
-pub const MSHV_VP_MMAP_OFFSET_COUNT: _bindgen_ty_11 = 3;
-pub type _bindgen_ty_11 = ::std::os::raw::c_uint;
+pub const MSHV_VP_MMAP_OFFSET_REGISTERS: _bindgen_ty_12 = 0;
+pub const MSHV_VP_MMAP_OFFSET_INTERCEPT_MESSAGE: _bindgen_ty_12 = 1;
+pub const MSHV_VP_MMAP_OFFSET_GHCB: _bindgen_ty_12 = 2;
+pub const MSHV_VP_MMAP_OFFSET_COUNT: _bindgen_ty_12 = 3;
+pub type _bindgen_ty_12 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_run_vp {
@@ -10979,6 +23817,9 @@ impl Default for mshv_run_vp {
         }
     }
 }
+pub const MSHV_DEV_TYPE_VFIO: _bindgen_ty_13 = 0;
+pub const MSHV_DEV_TYPE_MAX: _bindgen_ty_13 = 1;
+pub type _bindgen_ty_13 = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_create_device {
@@ -11031,9 +23872,6 @@ fn bindgen_test_layout_mshv_create_device() {
         )
     );
 }
-pub const mshv_device_type_MSHV_DEV_TYPE_VFIO: mshv_device_type = 0;
-pub const mshv_device_type_MSHV_DEV_TYPE_MAX: mshv_device_type = 1;
-pub type mshv_device_type = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_device_attr {
