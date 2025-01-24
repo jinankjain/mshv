@@ -802,6 +802,7 @@ mod tests {
         assert!(vcpu.is_ok());
     }
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_assert_virtual_interrupt() {
         /* TODO better test with some code */
@@ -822,6 +823,7 @@ mod tests {
         vm.request_virtual_interrupt(&cfg).unwrap();
     }
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_install_intercept() {
         let hv = Mshv::new().unwrap();
@@ -834,6 +836,7 @@ mod tests {
         assert!(vm.install_intercept(intercept_args).is_ok());
     }
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_get_property() {
         let hv = Mshv::new().unwrap();
@@ -873,6 +876,7 @@ mod tests {
         );
     }
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_set_property() {
         let hv = Mshv::new().unwrap();

@@ -764,6 +764,7 @@ mod tests {
     use super::*;
     use std::slice::from_raw_parts_mut;
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_all_vp_state_components_copy_to_buffer() {
         let mut states: AllVpStateComponents = AllVpStateComponents::default();
@@ -788,6 +789,7 @@ mod tests {
         }
     }
 
+    #[cfg(target_arch = "x86_64")]
     #[test]
     fn test_all_vp_state_components_copy_from_buffer() {
         let mut states: AllVpStateComponents = AllVpStateComponents::default();
