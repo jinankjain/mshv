@@ -5677,6 +5677,12 @@ pub const hv_partition_property_code_HV_PARTITION_PROPERTY_UNIMPLEMENTED_MSR_ACT
     hv_partition_property_code = 327703;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_SEV_VMGEXIT_OFFLOADS:
     hv_partition_property_code = 327714;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PARTITION_DIAG_BUFFER_CONFIG:
+    hv_partition_property_code = 327718;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_GICD_BASE_ADDRESS:
+    hv_partition_property_code = 327720;
+pub const hv_partition_property_code_HV_PARTITION_PROPERTY_GITS_TRANSLATER_BASE_ADDRESS:
+    hv_partition_property_code = 327721;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PROCESSOR_VENDOR:
     hv_partition_property_code = 393216;
 pub const hv_partition_property_code_HV_PARTITION_PROPERTY_PROCESSOR_FEATURES_DEPRECATED:
